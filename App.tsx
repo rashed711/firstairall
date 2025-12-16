@@ -21,8 +21,8 @@ import { APP_CONFIG } from './constants';
 import { Language, Article, Service } from './types';
 
 function App() {
-  // Global Language State
-  const [lang, setLang] = useState<Language>('ar');
+  // Global Language State - Default set to English ('en')
+  const [lang, setLang] = useState<Language>('en');
   const isAr = lang === 'ar';
 
   // Use Custom Hook for Routing & State Management

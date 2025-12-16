@@ -23,8 +23,8 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ services, lang, onServiceCl
             </h1>
             <p className="max-w-3xl mx-auto text-lg text-gray-600 leading-relaxed">
               {isAr 
-                ? 'نحن نقدم مجموعة متكاملة من حلول الاستقدام لتلبية احتياجات منزلك وعملك. اختر من بين خدماتنا المتنوعة المصممة لراحتك.'
-                : 'We offer a comprehensive range of recruitment solutions to meet your home and business needs. Choose from our diverse services designed for your comfort.'}
+                ? 'نحن نقدم مجموعة متكاملة من حلول الكهروميكانيكية لتلبية احتياجات عملك. اختر من بين خدماتنا المتنوعة المصممة لراحتك.'
+                : 'We offer a comprehensive range of Contracting solutions to meet your business needs. Choose from our diverse services designed for your comfort.'}
             </p>
           </div>
         </ScrollReveal>

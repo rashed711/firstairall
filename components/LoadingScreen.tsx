@@ -23,14 +23,14 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading, lang }) => {
             </div>
 
             <div className="relative">
-                {/* Ripple Effect Circles */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 border border-[#00ADB5]/30 rounded-full animate-[ping_2.5s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-60 h-60 border border-[#00ADB5]/10 rounded-full animate-[ping_2.5s_cubic-bezier(0,0,0.2,1)_infinite]" style={{ animationDelay: '0.5s' }}></div>
+                {/* Ripple Effect Circles - Updated to Soft Red */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 border border-[#E63946]/30 rounded-full animate-[ping_2.5s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-60 h-60 border border-[#E63946]/10 rounded-full animate-[ping_2.5s_cubic-bezier(0,0,0.2,1)_infinite]" style={{ animationDelay: '0.5s' }}></div>
 
                 {/* Rotating Rings Container */}
                 <div className="relative w-28 h-28 flex items-center justify-center">
-                     {/* Outer Ring (Cyan) */}
-                    <div className="absolute inset-0 border-t-4 border-r-4 border-[#00ADB5] rounded-full animate-[spin_1s_linear_infinite] shadow-[0_0_15px_rgba(0,173,181,0.5)]"></div>
+                     {/* Outer Ring (Red) */}
+                    <div className="absolute inset-0 border-t-4 border-r-4 border-[#E63946] rounded-full animate-[spin_1s_linear_infinite] shadow-[0_0_15px_rgba(230,57,70,0.5)]"></div>
                     
                     {/* Middle Ring (White, Reverse) */}
                     <div className="absolute inset-3 border-b-4 border-l-4 border-white/40 rounded-full animate-[spin_2s_linear_infinite_reverse]"></div>
@@ -39,7 +39,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading, lang }) => {
                     <div className="absolute inset-8 border border-white/10 rounded-full"></div>
 
                     {/* Logo Center */}
-                    <div className="w-14 h-14 bg-white rounded-full shadow-[0_0_30px_rgba(0,173,181,0.4)] flex items-center justify-center relative z-10 animate-pulse p-2">
+                    <div className="w-14 h-14 bg-white rounded-full shadow-[0_0_30px_rgba(230,57,70,0.4)] flex items-center justify-center relative z-10 animate-pulse p-2">
                          <img src={APP_CONFIG.logo} alt="Logo" className="w-full h-full object-contain" />
                     </div>
                 </div>
@@ -48,7 +48,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading, lang }) => {
             {/* Text Section */}
             <div className="mt-10 text-center relative z-10">
                 <div className="flex items-center justify-center gap-2 bg-white/5 px-6 py-2 rounded-full backdrop-blur-sm border border-white/10 mx-auto w-fit">
-                    <span className="text-[#00ADB5] text-sm font-bold tracking-widest uppercase">
+                    <span className="text-[#E63946] text-sm font-bold tracking-widest uppercase">
                         {isAr ? 'جاري التجهيز' : 'PROCESSING'}
                     </span>
                     <div className="flex gap-1 items-end h-4 pb-1">

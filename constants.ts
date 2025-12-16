@@ -39,6 +39,6 @@ export const APP_CONFIG = {
     colors: {
         primary: '#0F2C59',
         secondary: '#3282B8',
-        tertiary: '#00ADB5'
+        tertiary: '#E63946' // Soft Red
     }
 };

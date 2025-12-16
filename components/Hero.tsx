@@ -187,7 +187,7 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
         </div>
       </div>
 
-      {/* RECRUITMENT COUNTRIES / SECTORS DOUBLE ORBIT */}
+      {/* Contracting COUNTRIES / SECTORS DOUBLE ORBIT */}
       <div className="relative z-20 bg-gradient-to-b from-primary/95 to-primary border-t border-white/10 py-16 overflow-hidden">
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none"></div>
 

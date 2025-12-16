@@ -18,7 +18,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
     { id: 'home', labelAr: 'الرئيسية', labelEn: 'Home', icon: 'fa-home' },
     { id: 'about', labelAr: 'من نحن', labelEn: 'About Us', icon: 'fa-info-circle' },
     { id: 'services', labelAr: 'خدماتنا', labelEn: 'Services', icon: 'fa-concierge-bell' },
-    { id: 'products', labelAr: 'منتجاتنا', labelEn: 'Products', icon: 'fa-boxes' }, // Added Products
+    { id: 'products', labelAr: 'منتجاتنا', labelEn: 'Products', icon: 'fa-boxes' },
     { id: 'contact', labelAr: 'اتصل بنا', labelEn: 'Contact', icon: 'fa-envelope' },
   ];
 
@@ -55,12 +55,12 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
                  <img src={APP_CONFIG.logo} alt="Logo" className="w-full h-full object-contain" />
               </div>
               <span className="font-bold text-xl sm:text-2xl tracking-wider group-hover:text-tertiary transition-colors duration-300 transform group-hover:translate-x-1">
-                {isAr ? 'فرست اير' : 'Al-Rayan'}
+                {isAr ? 'فرست اير' : 'First Air'}
               </span>
             </div>
 
-            {/* Desktop Menu */}
-            <div className="hidden md:flex items-center space-x-1 lg:space-x-6 space-x-reverse">
+            {/* Desktop Menu - Uses gap instead of space-x for better bidirectional support */}
+            <div className="hidden md:flex items-center gap-2 lg:gap-6">
               {navLinks.map((link) => (
                 <button 
                   key={link.id}
@@ -80,7 +80,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
 
               <button 
                 onClick={() => handleNavClick('backend')}
-                className={`px-3 py-1.5 rounded-full text-xs font-medium border border-tertiary text-tertiary hover:bg-tertiary hover:text-white transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-tertiary/50 transform hover:-translate-y-1 ml-2 mr-2`}
+                className={`px-3 py-1.5 rounded-full text-xs font-medium border border-tertiary text-tertiary hover:bg-tertiary hover:text-white transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-tertiary/50 transform hover:-translate-y-1 mx-2`}
               >
                 <span className="flex items-center gap-1">
                    <i className="fas fa-code"></i>
@@ -88,11 +88,11 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
                 </span>
               </button>
               
-              <div className="border-l border-secondary h-6 mx-2 opacity-50"></div>
+              <div className="border-l border-secondary h-6 mx-1 opacity-50"></div>
 
               <button
                 onClick={() => setLang(isAr ? 'en' : 'ar')}
-                className="flex items-center space-x-2 bg-secondary/50 hover:bg-white hover:text-primary px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-300 backdrop-blur-sm transform hover:scale-105"
+                className="flex items-center gap-2 bg-secondary/50 hover:bg-white hover:text-primary px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-300 backdrop-blur-sm transform hover:scale-105"
               >
                 <i className="fas fa-globe"></i>
                 <span className="uppercase tracking-wider">{isAr ? 'English' : 'عربي'}</span>

@@ -1,3 +1,4 @@
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -11,10 +12,10 @@ export default {
         sans: ['Cairo', 'sans-serif'],
       },
       colors: {
-        primary: '#0F2C59', // Deep Royal Navy (New)
-        secondary: '#3282B8', // Bright Ocean Blue (New)
-        tertiary: '#00ADB5', // Vibrant Cyan (New - Cheerful)
-        light: '#F4F7F6', // Cool Mint White (New - Modern Background)
+        primary: '#0F2C59', // Deep Royal Navy
+        secondary: '#3282B8', // Bright Ocean Blue
+        tertiary: '#E63946', // Soft Red (Updated)
+        light: '#F4F7F6', // Cool Mint White
         white: '#ffffff',
       },
       animation: {
@@ -60,8 +61,8 @@ export default {
           '50%': { transform: 'translateY(-20px)' },
         },
         pulseGlow: {
-          '0%, 100%': { opacity: '1', boxShadow: '0 0 0 0px rgba(0, 173, 181, 0.7)' }, // Updated to match Cyan
-          '50%': { opacity: '1', boxShadow: '0 0 0 10px rgba(0, 173, 181, 0)' },
+          '0%, 100%': { opacity: '1', boxShadow: '0 0 0 0px rgba(230, 57, 70, 0.7)' }, // Updated to Soft Red RGB
+          '50%': { opacity: '1', boxShadow: '0 0 0 10px rgba(230, 57, 70, 0)' },
         },
         zoomIn: {
           '0%': { opacity: '0', transform: 'scale(0.9)' },

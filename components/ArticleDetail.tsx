@@ -30,7 +30,7 @@ const ArticleDetail: React.FC<ArticleDetailProps> = ({ article, lang, onBack }) 
     const url = window.location.href;
     const text = isAr 
         ? `${title}\n\nاقرأ المزيد على منصة فرست اير:` 
-        : `${title}\n\nRead more at Al-Rayan Platform:`;
+        : `${title}\n\nRead more at First Air Platform:`;
 
     try {
         // Try to fetch the image and share it as a file
@@ -141,7 +141,7 @@ const ArticleDetail: React.FC<ArticleDetailProps> = ({ article, lang, onBack }) 
              <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center gap-3 text-white/80 text-sm font-medium mb-3">
                     <span className="bg-tertiary px-3 py-1 rounded-md text-white font-bold shadow-sm">
-                        {isAr ? 'مدونة الاستقدام' : 'Recruitment Blog'}
+                        {isAr ? 'مدونة المقاولات' : 'Contracting Blog'}
                     </span>
                     <span>•</span>
                     <time dateTime={article.created_at}>
