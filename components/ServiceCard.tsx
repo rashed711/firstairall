@@ -25,29 +25,29 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, lang, index = 0, onC
         className="group relative bg-white rounded-2xl shadow-lg border border-gray-100 overflow-visible h-full flex flex-col transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl text-center w-full animate-fade-in-up"
         style={{ animationDelay: `${index * 0.1}s` }}
     >
-      {/* Decorative Gradient Background on Hover */}
-      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-tertiary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+      {/* Decorative Gradient Background on Hover (Clean Blue/Red) */}
+      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
       
-      {/* Top Accent Line */}
-      <div className={`absolute top-0 w-full h-1 bg-gradient-to-r from-secondary to-tertiary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-t-2xl ${isAr ? 'right-0 origin-right' : 'left-0 origin-left'}`}></div>
+      {/* Top Accent Line (Red) */}
+      <div className={`absolute top-0 w-full h-1 bg-tertiary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-t-2xl ${isAr ? 'right-0 origin-right' : 'left-0 origin-left'}`}></div>
 
       <div className="p-6 relative z-10 flex flex-col items-center h-full">
         
         {/* Complex Image Container with Motion Effects */}
         <div className="mb-6 relative inline-flex justify-center items-center cursor-pointer" onClick={handleClick}>
              
-             {/* 1. Pulsing/Expanding Outer Glow (Always Visible) */}
-             <div className="absolute inset-0 bg-tertiary/10 rounded-full scale-125 animate-pulse-glow"></div>
+             {/* 1. Pulsing/Expanding Outer Glow (Always Visible) - Light Blue */}
+             <div className="absolute inset-0 bg-secondary/5 rounded-full scale-125 animate-pulse-glow group-hover:bg-tertiary/5 transition-colors"></div>
              
-             {/* 2. Spinning Dashed Border (Always Visible) */}
-             <div className="absolute -inset-2 border-2 border-dashed border-tertiary/30 rounded-full animate-[spin_10s_linear_infinite]"></div>
+             {/* 2. Spinning Dashed Border - Blue to Red on Hover */}
+             <div className="absolute -inset-2 border-2 border-dashed border-secondary/20 group-hover:border-tertiary/50 rounded-full animate-[spin_10s_linear_infinite] transition-colors duration-500"></div>
 
              {/* 3. Main Image Wrapper */}
-             <div className="w-28 h-28 rounded-full border-4 border-white shadow-xl overflow-hidden relative z-10 transform transition-all duration-500 group-hover:rotate-3 group-hover:border-tertiary/20">
+             <div className="w-28 h-28 rounded-full border-4 border-white shadow-xl overflow-hidden relative z-10 transform transition-all duration-500 group-hover:rotate-3 group-hover:border-tertiary/20 group-hover:shadow-[0_10px_20px_rgba(230,57,70,0.2)]">
                 
                 {/* Shine Effect Overlay */}
                 <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden rounded-full">
-                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-transparent via-white/40 to-transparent -translate-x-[150%] group-hover:animate-shimmer"></div>
+                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-transparent via-white/60 to-transparent -translate-x-[150%] group-hover:animate-shimmer"></div>
                 </div>
                 
                 <img 

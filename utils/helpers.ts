@@ -5,12 +5,12 @@
  */
 export const getServiceImage = (id: number): string => {
     switch(id) {
-      case 1: return "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=1200"; // HVAC/Ducts
-      case 2: return "https://images.unsplash.com/photo-1615915233146-24e5b321c83c?auto=format&fit=crop&q=80&w=1200"; // Fire Pipes
-      case 3: return "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1200"; // Plumbing/Industrial
-      case 4: return "https://images.unsplash.com/photo-1563968743333-044cef8004c3?auto=format&fit=crop&q=80&w=1200"; // Electrical
-      case 5: return "https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&q=80&w=1200"; // Maintenance
-      default: return "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1200"; // Generic Engineering
+      case 1: return "https://i.postimg.cc/dVv64Qqx/004.webp"; // HVAC/Ducts
+      case 2: return "https://i.pinimg.com/736x/41/03/ac/4103ac81a87dd14de2a7fc06d2f8c575.jpg"; // Fire Pipes
+      case 3: return "https://i.pinimg.com/736x/f9/b4/09/f9b4093fa3cfb2175284e5c10d0f3781.jpg"; // Plumbing/Industrial
+      case 4: return "https://i.pinimg.com/736x/2c/92/aa/2c92aa0758b6526f89cd671a315c9157.jpg"; // Electrical
+      case 5: return "https://i.pinimg.com/736x/de/9b/33/de9b33bb9ce4bef56fb7849820fdda6f.jpg"; // Maintenance
+      default: return "https://i.pinimg.com/1200x/24/63/81/246381c237c6fa0e851ea3130d4f40a4.jpg"; // Generic Engineering
     }
 };
 

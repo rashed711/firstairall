@@ -42,7 +42,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
 
   return (
     <>
-      <nav className="bg-primary/95 backdrop-blur-md text-white shadow-lg sticky top-0 z-50 border-b border-secondary transition-all duration-300">
+      <nav className="bg-primary/95 backdrop-blur-md text-white shadow-lg sticky top-0 z-50 border-b border-white/5 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20 items-center">
             {/* Brand */}
@@ -51,36 +51,38 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
               onClick={() => handleNavClick('home')}
             >
               {/* LOGO IMAGE */}
-              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mr-3 ml-3 transform group-hover:rotate-6 group-hover:scale-105 transition-all duration-300 shadow-lg p-1">
+              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mr-3 ml-3 transform group-hover:scale-105 transition-all duration-300 shadow-lg p-1">
                  <img src={APP_CONFIG.logo} alt="Logo" className="w-full h-full object-contain" />
               </div>
-              <span className="font-bold text-xl sm:text-2xl tracking-wider group-hover:text-tertiary transition-colors duration-300 transform group-hover:translate-x-1">
+              <span className="font-bold text-xl sm:text-2xl tracking-wider group-hover:text-tertiary transition-colors duration-300">
                 {isAr ? 'فرست اير' : 'First Air'}
               </span>
             </div>
 
-            {/* Desktop Menu - Uses gap instead of space-x for better bidirectional support */}
+            {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-2 lg:gap-6">
               {navLinks.map((link) => (
                 <button 
                   key={link.id}
                   onClick={() => handleNavClick(link.id)}
-                  className={`relative px-3 py-2 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 ${
+                  className={`relative px-3 py-2 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 group ${
                     activeTab === link.id 
-                      ? 'text-white after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-tertiary after:animate-pulse' 
+                      ? 'text-white' 
                       : 'text-gray-300 hover:text-white'
                   }`}
                 >
-                  <span className="flex items-center gap-2">
-                     <i className={`fas ${link.icon} text-xs`}></i>
+                  <span className="flex items-center gap-2 relative z-10">
+                     <i className={`fas ${link.icon} text-xs ${activeTab === link.id ? 'text-tertiary' : 'text-gray-400 group-hover:text-tertiary'}`}></i>
                      {isAr ? link.labelAr : link.labelEn}
                   </span>
+                  {/* Simple Clean Red Underline for Active State */}
+                  <span className={`absolute bottom-0 left-0 h-0.5 bg-tertiary transition-all duration-300 ${activeTab === link.id ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
                 </button>
               ))}
 
               <button 
                 onClick={() => handleNavClick('backend')}
-                className={`px-3 py-1.5 rounded-full text-xs font-medium border border-tertiary text-tertiary hover:bg-tertiary hover:text-white transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-tertiary/50 transform hover:-translate-y-1 mx-2`}
+                className={`px-3 py-1.5 rounded-full text-xs font-medium border border-tertiary text-tertiary hover:bg-tertiary hover:text-white transition-all duration-300 transform hover:-translate-y-1 mx-2`}
               >
                 <span className="flex items-center gap-1">
                    <i className="fas fa-code"></i>
@@ -88,13 +90,13 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
                 </span>
               </button>
               
-              <div className="border-l border-secondary h-6 mx-1 opacity-50"></div>
+              <div className="border-l border-white/20 h-6 mx-1 opacity-50"></div>
 
               <button
                 onClick={() => setLang(isAr ? 'en' : 'ar')}
-                className="flex items-center gap-2 bg-secondary/50 hover:bg-white hover:text-primary px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-300 backdrop-blur-sm transform hover:scale-105"
+                className="flex items-center gap-2 bg-white/5 hover:bg-white hover:text-primary px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-300 backdrop-blur-sm border border-white/10"
               >
-                <i className="fas fa-globe"></i>
+                <i className="fas fa-globe text-accent"></i>
                 <span className="uppercase tracking-wider">{isAr ? 'English' : 'عربي'}</span>
               </button>
             </div>
@@ -113,9 +115,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
         </div>
       </nav>
 
-      {/* Mobile Sidebar Menu (Drawer) - MOVED OUTSIDE NAV TO FIX STACKING CONTEXT ISSUES */}
-      
-      {/* 1. Backdrop */}
+      {/* Mobile Sidebar Menu (Drawer) */}
       <div 
         className={`fixed inset-0 bg-black/60 z-[60] transition-opacity duration-300 md:hidden ${
           isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
@@ -123,7 +123,6 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
         onClick={() => setIsMobileMenuOpen(false)}
       />
 
-      {/* 2. Drawer Panel */}
       <div 
         className={`fixed inset-y-0 h-full ${isAr ? 'left-0' : 'right-0'} z-[70] w-[85%] max-w-[300px] bg-primary shadow-2xl transform transition-transform duration-300 cubic-bezier(0.4, 0, 0.2, 1) md:hidden flex flex-col ${
             isMobileMenuOpen ? 'translate-x-0' : (isAr ? '-translate-x-full' : 'translate-x-full')
@@ -132,7 +131,6 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
         {/* Sidebar Header */}
         <div className="h-20 flex-shrink-0 flex items-center justify-between px-6 border-b border-white/10 bg-black/20">
            <div className="flex items-center gap-3">
-              {/* MOBILE LOGO */}
               <div className="w-8 h-8 bg-white rounded flex items-center justify-center p-1">
                 <img src={APP_CONFIG.logo} alt="Logo" className="w-full h-full object-contain" />
               </div>
@@ -142,7 +140,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
            </div>
            <button
               onClick={() => setIsMobileMenuOpen(false)}
-              className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-red-500 hover:text-white transition-all"
+              className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-tertiary hover:text-white transition-all"
               aria-label="Close menu"
            >
               <i className="fas fa-times"></i>
@@ -167,28 +165,11 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
                    <i className={`fas ${link.icon} text-sm`}></i>
                  </div>
                  <span className="text-sm font-medium">{isAr ? link.labelAr : link.labelEn}</span>
-                 
-                 {/* Active Indicator Dot */}
-                 {activeTab === link.id && (
-                    <div className={`w-2 h-2 rounded-full bg-white ${isAr ? 'mr-auto' : 'ml-auto'}`}></div>
-                 )}
               </button>
            ))}
-
-           <div className="my-4 border-t border-white/10 mx-2"></div>
-
-           <button 
-              onClick={() => handleNavClick('backend')}
-              className="w-full flex items-center gap-4 px-4 py-3 rounded-xl text-yellow-400 hover:bg-yellow-400/10 transition-all group"
-           >
-              <div className="w-8 h-8 rounded-lg bg-yellow-400/10 flex-shrink-0 flex items-center justify-center group-hover:bg-yellow-400/20">
-                 <i className="fas fa-code"></i>
-              </div>
-              <span className="text-sm font-bold">{isAr ? 'ملفات المبرمج' : 'Developer Files'}</span>
-           </button>
         </div>
 
-        {/* Sidebar Footer (Language Switch) */}
+        {/* Sidebar Footer */}
         <div className="p-6 border-t border-white/10 bg-black/20 flex-shrink-0">
            <button
               onClick={() => {
@@ -197,7 +178,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
               }}
               className="w-full flex items-center justify-center gap-2 bg-white/5 hover:bg-white hover:text-primary py-3 rounded-xl text-white font-bold transition-all duration-300 border border-white/10"
            >
-              <i className="fas fa-globe"></i>
+              <i className="fas fa-globe text-accent"></i>
               <span>{isAr ? 'English' : 'عربي'}</span>
            </button>
         </div>

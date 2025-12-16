@@ -65,7 +65,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ lang }) => {
   const items = [
     {
       id: 1,
-      image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      image: "https://i.pinimg.com/736x/7e/89/9e/7e899ec4e4580407fe330df18d2cee0b.jpg",
       titleAr: "التصميم الهندسي",
       titleEn: "Engineering Design",
       categoryAr: "مرحلة 1",
@@ -73,7 +73,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ lang }) => {
     },
     {
       id: 2,
-      image: "https://images.unsplash.com/photo-1581093588401-fbb62a02f120?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      image: "https://i.pinimg.com/736x/d2/1b/f5/d21bf584e6caf3813475807377865ba0.jpg",
       titleAr: "التوريد",
       titleEn: "Supply",
       categoryAr: "مرحلة 2",
@@ -81,7 +81,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ lang }) => {
     },
     {
       id: 3,
-      image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      image: "https://i.pinimg.com/736x/19/ca/46/19ca46332ab41c162b6433db6a6bd4e1.jpg",
       titleAr: "التركيب",
       titleEn: "Installation",
       categoryAr: "مرحلة 3",
@@ -89,7 +89,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ lang }) => {
     },
     {
       id: 4,
-      image: "https://images.unsplash.com/photo-1581092334651-ddf26f9a09d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      image: "https://i.pinimg.com/736x/e6/eb/c6/e6ebc61212fb4a701c3b9f64bd274140.jpg",
       titleAr: "الاختبار والتشغيل",
       titleEn: "Testing & Commissioning",
       categoryAr: "مرحلة 4",
@@ -97,7 +97,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ lang }) => {
     },
     {
         id: 5,
-        image: "https://images.unsplash.com/photo-1531835551805-16d864c8d311?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        image: "https://i.pinimg.com/1200x/15/51/91/1551917cf6023f9bbf9fcb1e03c8ef34.jpg",
         titleAr: "إدارة المشاريع",
         titleEn: "Project Management",
         categoryAr: "إشراف",
@@ -105,7 +105,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ lang }) => {
       },
       {
         id: 6,
-        image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        image: "https://i.pinimg.com/1200x/ba/45/30/ba45304ddb5286dc0e3b98d4ff94c174.jpg",
         titleAr: "الصيانة",
         titleEn: "Maintenance",
         categoryAr: "خدمة",
