@@ -24,12 +24,12 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading, lang }) => {
 
             <div className="relative">
                 {/* Ripple Effect Circles - Updated to Soft Red */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 border border-[#E63946]/30 rounded-full animate-[ping_2.5s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-60 h-60 border border-[#E63946]/10 rounded-full animate-[ping_2.5s_cubic-bezier(0,0,0.2,1)_infinite]" style={{ animationDelay: '0.5s' }}></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 border border-[#E63946]/30 rounded-full animate-[ping_2.5s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-[#E63946]/10 rounded-full animate-[ping_2.5s_cubic-bezier(0,0,0.2,1)_infinite]" style={{ animationDelay: '0.5s' }}></div>
 
                 {/* Rotating Rings Container */}
-                <div className="relative w-28 h-28 flex items-center justify-center">
-                     {/* Outer Ring (Red) */}
+                <div className="relative w-40 h-40 flex items-center justify-center">
+                     {/* Outer Ring (Red) - Increased Size to fit rect logo */}
                     <div className="absolute inset-0 border-t-4 border-r-4 border-[#E63946] rounded-full animate-[spin_1s_linear_infinite] shadow-[0_0_15px_rgba(230,57,70,0.5)]"></div>
                     
                     {/* Middle Ring (White, Reverse) */}
@@ -38,8 +38,8 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading, lang }) => {
                     {/* Inner Static Ring Decoration */}
                     <div className="absolute inset-8 border border-white/10 rounded-full"></div>
 
-                    {/* Logo Center */}
-                    <div className="w-14 h-14 bg-white rounded-full shadow-[0_0_30px_rgba(230,57,70,0.4)] flex items-center justify-center relative z-10 animate-pulse p-2">
+                    {/* Logo Center - RECTANGULAR for wide logo */}
+                    <div className="w-24 h-12 bg-white rounded-lg shadow-[0_0_30px_rgba(230,57,70,0.4)] flex items-center justify-center relative z-10 animate-pulse p-2 px-2">
                          <img src={APP_CONFIG.logo} alt="Logo" className="w-full h-full object-contain" />
                     </div>
                 </div>

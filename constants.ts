@@ -6,8 +6,8 @@ export const APP_CONFIG = {
     // Toggle this to true to immediately show a maintenance screen to users
     MAINTENANCE_MODE: false,
 
-    // Logo Configuration - Using a generic MEP/Engineering icon concept
-    logo: "https://cdn-icons-png.flaticon.com/512/3062/3062634.png", 
+    // Logo Configuration - Updated to new brand logo
+    logo: "https://i.postimg.cc/vBC0GW5k/02-frst-ayr-llmqawlat.webp", 
 
     // General Site Info
     siteName: {
@@ -17,7 +17,11 @@ export const APP_CONFIG = {
     
     // Contact Information (Primary Contact - usually HQ or Main Branch)
     contact: {
-        phone: '+966532425777', // KSA as primary for quick action
+        phone: '+966532425777', // Default/Primary
+        phones: {
+            ksa: '966532425777', // KSA Branch
+            egypt: '201065550024' // Egypt Branch (01065550024 formatted for WA)
+        },
         email: 'info@firstair-sa.com',
         address: {
             ar: 'مصر والسعودية',

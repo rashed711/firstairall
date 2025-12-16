@@ -38,11 +38,18 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, activeTab, onN
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-start mb-12">
                         <div className="flex flex-col items-center md:items-start animate-fade-in-up">
                                 <div className="flex items-center gap-3 mb-6">
-                                    {/* FOOTER LOGO */}
-                                    <div className="w-14 h-14 bg-white rounded-lg flex items-center justify-center shadow-lg transform rotate-3 hover:rotate-0 transition-transform p-2">
+                                    {/* FOOTER LOGO - Updated Dimensions */}
+                                    <div className="w-32 h-16 bg-white rounded-lg flex items-center justify-center shadow-lg transform rotate-3 hover:rotate-0 transition-transform p-2 px-3">
                                         <img src={APP_CONFIG.logo} alt="Logo" className="w-full h-full object-contain" />
                                     </div>
-                                    <span className="text-2xl font-bold">{isAr ? APP_CONFIG.siteName.ar : APP_CONFIG.siteName.en}</span>
+                                    
+                                    {/* Footer Name - Split into two lines */}
+                                    <div className="flex flex-col items-start leading-none">
+                                        <span className="text-2xl font-bold">{isAr ? 'فرست اير' : 'First Air'}</span>
+                                        <span className="text-sm text-tertiary font-bold tracking-widest mt-1 uppercase">
+                                            {isAr ? 'للمقاولات' : 'CONTRACTING'}
+                                        </span>
+                                    </div>
                                 </div>
                                 <p className="text-gray-300 text-sm leading-relaxed max-w-xs mb-6">
                                     {isAr ? 'خيارك الأول للعمالة المنزلية والمهنية. نلتزم بأعلى معايير الجودة والمصداقية.' : 'Your first choice for domestic and professional workers. We adhere to the highest standards of quality and credibility.'}
@@ -98,7 +105,7 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, activeTab, onN
                     </div>
                     
                     <div className="border-t border-white/10 mt-12 pt-8 text-center text-gray-500 text-sm flex flex-col md:flex-row justify-between items-center">
-                        <p>&copy; {new Date().getFullYear()} {isAr ? APP_CONFIG.siteName.ar : APP_CONFIG.siteName.en}. All rights reserved.</p>
+                        <p>&copy; {new Date().getFullYear()} {isAr ? 'فرست اير' : 'First Air'}. All rights reserved.</p>
                         <div className="flex gap-4 mt-4 md:mt-0">
                             <a href="#" className="hover:text-white transition-colors">{isAr ? 'سياسة الخصوصية' : 'Privacy Policy'}</a>
                             <a href="#" className="hover:text-white transition-colors">{isAr ? 'الشروط والأحكام' : 'Terms & Conditions'}</a>
