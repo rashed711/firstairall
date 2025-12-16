@@ -33,9 +33,9 @@ export const APP_CONFIG = {
 
     // Social Media Links
     socials: {
-        facebook: '#',
-        twitter: '#',
-        instagram: '#',
+        facebook: 'https://web.facebook.com/firstaireg',
+        linkedin: '#',
+        instagram: 'https://www.instagram.com/firstaireg',
         whatsapp: 'https://wa.me/966532425777'
     },
 

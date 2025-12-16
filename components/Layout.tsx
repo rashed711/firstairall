@@ -114,7 +114,7 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, activeTab, onN
                 </div>
             </div>
             
-            <FloatingWhatsApp phone={APP_CONFIG.contact.phone} lang={lang} />
+            <FloatingWhatsApp lang={lang} />
         </div>
     );
 };

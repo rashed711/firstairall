@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Language, Settings } from '../types';
+import { APP_CONFIG } from '../constants';
 
 interface HeroProps {
   lang: Language;
@@ -107,30 +108,31 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
             
             {/* TEXT SECTION */}
             <div className={`w-full lg:w-3/5 text-center ${isAr ? 'lg:text-right' : 'lg:text-left'}`}>
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-white text-sm font-bold animate-fade-in-down shadow-lg">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-white text-xs sm:text-sm font-bold animate-fade-in-down shadow-lg">
                     <span className="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
                     {isAr ? 'رواد الأعمال الكهروميكانيكية (MEP)' : 'Leaders in Electromechanical Works (MEP)'}
                 </div>
                 
-                <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-tight mb-6 animate-fade-in-right drop-shadow-xl">
+                {/* ADJUSTED FONT SIZES FOR BETTER RESPONSIVENESS */}
+                <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-tight mb-6 animate-fade-in-right drop-shadow-xl">
                     <span className="block">{isAr ? 'فيرست إير' : 'First Air'}</span>
                     {/* Clean White Text - No confusing gradients */}
-                    <span className="block text-white/90 text-3xl sm:text-5xl mt-2 pb-2">
+                    <span className="block text-white/90 text-2xl sm:text-3xl md:text-5xl mt-2 pb-2">
                         {isAr ? 'للمقاولات الكهروميكانيكية' : 'For Contracting'}
                     </span>
                 </h1>
 
-                <p className="mt-4 max-w-lg mx-auto lg:mx-0 text-xl text-gray-200 sm:mt-6 animate-fade-in-up leading-relaxed drop-shadow-md border-l-4 border-tertiary pl-4 rtl:border-l-0 rtl:border-r-4 rtl:pr-4" style={{animationDelay: '0.3s'}}>
+                <p className="mt-4 max-w-lg mx-auto lg:mx-0 text-base sm:text-lg md:text-xl text-gray-200 sm:mt-6 animate-fade-in-up leading-relaxed drop-shadow-md border-l-4 border-tertiary pl-4 rtl:border-l-0 rtl:border-r-4 rtl:pr-4" style={{animationDelay: '0.3s'}}>
                 {isAr 
                     ? 'شريكك الهندسي الموثوق لتنفيذ المشاريع الكبرى في مصر والمملكة. نقدم حلولاً متكاملة في التكييف، الحريق، والأنظمة الميكانيكية بأعلى المعايير الدولية.'
                     : 'Your trusted engineering partner for major projects in Egypt & KSA. We provide integrated solutions in HVAC, Fire Fighting, and Mechanical systems with highest international standards.'}
                 </p>
 
                 {/* BUTTONS */}
-                <div className={`mt-10 flex flex-row flex-wrap gap-4 justify-center ${isAr ? 'lg:justify-start' : 'lg:justify-start'} animate-fade-in-up`} style={{animationDelay: '0.5s'}}>
+                <div className={`mt-8 sm:mt-10 flex flex-col sm:flex-row gap-4 justify-center ${isAr ? 'lg:justify-start' : 'lg:justify-start'} animate-fade-in-up`} style={{animationDelay: '0.5s'}}>
                     <button
                         onClick={() => onNavigate('contact')}
-                        className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-tertiary text-white font-bold rounded-full overflow-hidden shadow-[0_5px_15px_rgba(230,57,70,0.4)] hover:shadow-[0_8px_25px_rgba(230,57,70,0.6)] transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 flex-1 sm:flex-none justify-center flex"
+                        className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-tertiary text-white font-bold rounded-full overflow-hidden shadow-[0_5px_15px_rgba(230,57,70,0.4)] hover:shadow-[0_8px_25px_rgba(230,57,70,0.6)] transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 w-full sm:w-auto flex justify-center items-center"
                     >
                         <span className="relative z-10 flex items-center gap-2">
                           {isAr ? 'اطلب عرض سعر' : 'Request Quotation'}
@@ -142,7 +144,7 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
                     
                     <button
                         onClick={() => onNavigate('services')}
-                        className="px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-white/30 text-white font-bold rounded-full backdrop-blur-sm hover:bg-white hover:text-primary transition-all duration-300 transform hover:-translate-y-1 shadow-md flex-1 sm:flex-none justify-center flex group"
+                        className="px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-white/30 text-white font-bold rounded-full backdrop-blur-sm hover:bg-white hover:text-primary transition-all duration-300 transform hover:-translate-y-1 shadow-md w-full sm:w-auto flex justify-center items-center group"
                     >
                         <span className="transition-colors">{isAr ? 'خدماتنا' : 'Our Services'}</span>
                     </button>
@@ -150,7 +152,7 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
             </div>
 
             {/* STATS/SECTORS SECTION (Right Side) */}
-            <div className="w-full lg:w-2/5 relative mt-12 lg:mt-0 flex justify-center animate-fade-in-left" style={{animationDelay: '0.2s'}}>
+            <div className="w-full lg:w-2/5 relative mt-12 lg:mt-0 flex justify-center animate-fade-in-left hidden md:flex" style={{animationDelay: '0.2s'}}>
                 <div className="relative z-10 w-full max-w-sm">
                     {/* Stats Card */}
                     <div className="bg-white/10 backdrop-blur-xl border-t border-l border-white/20 p-6 rounded-2xl shadow-2xl mb-6 animate-float relative overflow-hidden group">
@@ -188,12 +190,12 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
             {[...Array(2)].map((_, setIndex) => (
                 <div key={setIndex} className="flex items-center shrink-0">
                     {marqueeItems.map((item, index) => (
-                        <div key={index} className="flex items-center mx-8 group cursor-pointer">
-                            <i className={`fas ${item.icon} text-accent text-lg mx-2 transform group-hover:scale-125 transition-transform`}></i>
-                            <span className="text-white font-bold text-sm tracking-wide group-hover:text-tertiary transition-colors">
+                        <div key={index} className="flex items-center mx-4 sm:mx-8 group cursor-pointer">
+                            <i className={`fas ${item.icon} text-accent text-base sm:text-lg mx-2 transform group-hover:scale-125 transition-transform`}></i>
+                            <span className="text-white font-bold text-xs sm:text-sm tracking-wide group-hover:text-tertiary transition-colors whitespace-nowrap">
                                 {isAr ? item.textAr : item.textEn}
                             </span>
-                            <span className="w-1.5 h-1.5 rounded-full bg-white/30 mx-8"></span>
+                            <span className="w-1.5 h-1.5 rounded-full bg-white/30 mx-4 sm:mx-8"></span>
                         </div>
                     ))}
                 </div>
@@ -202,7 +204,7 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
       </div>
 
       {/* Contracting COUNTRIES / SECTORS DOUBLE ORBIT */}
-      <div className="relative z-20 bg-gradient-to-b from-primary/95 to-primary border-t border-white/5 py-16 overflow-hidden">
+      <div className="relative z-20 bg-gradient-to-b from-primary/95 to-primary border-t border-white/5 py-12 sm:py-16 overflow-hidden">
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none"></div>
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
@@ -213,7 +215,7 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
                        <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
                        <span className="text-accent font-bold tracking-widest text-xs uppercase">{isAr ? 'نطاق أعمالنا' : 'OUR SCOPE'}</span>
                    </div>
-                   <h3 className="text-3xl font-extrabold text-white mb-3">
+                   <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">
                        {isAr ? 'قطاعات وتواجد إقليمي' : 'Sectors & Presence'}
                    </h3>
                    <p className="text-gray-300 text-sm leading-relaxed mb-6">
@@ -229,15 +231,15 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
               </div>
 
               {/* Dual Orbit Visualization */}
-              <div className="w-full md:w-2/3 h-[320px] sm:h-[400px] md:h-[450px] relative flex items-center justify-center perspective-1000 overflow-hidden md:overflow-visible">
+              <div className="w-full md:w-2/3 h-[280px] sm:h-[400px] md:h-[450px] relative flex items-center justify-center perspective-1000 overflow-hidden md:overflow-visible">
                   
-                  <div className="relative flex items-center justify-center transform scale-[0.85] sm:scale-75 md:scale-100 origin-center">
+                  <div className="relative flex items-center justify-center transform scale-[0.6] sm:scale-75 md:scale-100 origin-center">
 
-                      {/* Central Globe Core */}
-                      <div className="w-32 h-32 rounded-full bg-primary relative z-20 shadow-[0_0_60px_rgba(50,130,184,0.4)] flex items-center justify-center border border-white/20">
-                          <div className="absolute inset-0 rounded-full border border-white/10 rotate-45"></div>
-                          <div className="absolute inset-0 rounded-full border border-white/10 -rotate-45"></div>
-                          <i className="fas fa-industry text-6xl text-white/90 drop-shadow-lg animate-pulse-glow"></i>
+                      {/* Central Globe Core - LOGO REPLACEMENT */}
+                      <div className="w-32 h-32 rounded-full bg-white relative z-20 shadow-[0_0_60px_rgba(50,130,184,0.4)] flex items-center justify-center border border-gray-200 p-3">
+                          <div className="absolute inset-0 rounded-full border border-gray-100 rotate-45"></div>
+                          <div className="absolute inset-0 rounded-full border border-gray-100 -rotate-45"></div>
+                          <img src={APP_CONFIG.logo} alt="First Air Logo" className="w-full h-full object-contain animate-pulse-glow" />
                       </div>
 
                       {/* INNER ORBIT (Sectors) - Red (Fire) Accent */}

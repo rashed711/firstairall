@@ -50,29 +50,30 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
               className="flex-shrink-0 flex items-center cursor-pointer group z-50" 
               onClick={() => handleNavClick('home')}
             >
-              {/* LOGO IMAGE - Updated for Rectangular Shape (approx 2:1 ratio) */}
-              <div className="w-28 h-14 bg-white rounded-lg flex items-center justify-center mr-3 ml-3 transform group-hover:scale-105 transition-all duration-300 shadow-lg p-1 px-2">
+              {/* LOGO IMAGE */}
+              <div className="w-24 h-12 md:w-28 md:h-14 bg-white rounded-lg flex items-center justify-center mr-3 ml-3 transform group-hover:scale-105 transition-all duration-300 shadow-lg p-1 px-2">
                  <img src={APP_CONFIG.logo} alt="Logo" className="w-full h-full object-contain" />
               </div>
               
-              {/* Brand Text - Split into two lines */}
+              {/* Brand Text */}
               <div className="hidden sm:flex flex-col items-start justify-center">
-                  <span className="font-bold text-xl tracking-wider group-hover:text-tertiary transition-colors duration-300 leading-none">
+                  <span className="font-bold text-lg md:text-xl tracking-wider group-hover:text-white transition-colors duration-300 leading-none">
                     {isAr ? 'فرست اير' : 'First Air'}
                   </span>
-                  <span className="text-[10px] md:text-xs font-medium text-gray-300 tracking-[0.15em] mt-1 group-hover:text-white transition-colors duration-300 uppercase">
+                  {/* UPDATED: Contracting text to Red (tertiary) and Bold */}
+                  <span className="text-[10px] md:text-xs font-extrabold text-tertiary tracking-[0.15em] mt-1 transition-colors duration-300 uppercase">
                     {isAr ? 'للمقاولات' : 'Contracting'}
                   </span>
               </div>
             </div>
 
             {/* Desktop Menu */}
-            <div className="hidden md:flex items-center gap-2 lg:gap-6">
+            <div className="hidden md:flex items-center gap-1 lg:gap-6">
               {navLinks.map((link) => (
                 <button 
                   key={link.id}
                   onClick={() => handleNavClick(link.id)}
-                  className={`relative px-3 py-2 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 group ${
+                  className={`relative px-2 lg:px-3 py-2 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 group ${
                     activeTab === link.id 
                       ? 'text-white' 
                       : 'text-gray-300 hover:text-white'
@@ -138,7 +139,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
         {/* Sidebar Header */}
         <div className="h-20 flex-shrink-0 flex items-center justify-between px-6 border-b border-white/10 bg-black/20">
            <div className="flex items-center gap-3">
-              {/* Mobile Sidebar Logo - Rectangular */}
+              {/* Mobile Sidebar Logo */}
               <div className="w-20 h-10 bg-white rounded flex items-center justify-center p-1 px-2">
                 <img src={APP_CONFIG.logo} alt="Logo" className="w-full h-full object-contain" />
               </div>
@@ -169,7 +170,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
                  }`}>
                    <i className={`fas ${link.icon} text-sm`}></i>
                  </div>
-                 <span className="text-sm font-medium">{isAr ? link.labelAr : link.labelEn}</span>
+                 <span className="text-base font-medium">{isAr ? link.labelAr : link.labelEn}</span>
               </button>
            ))}
         </div>
