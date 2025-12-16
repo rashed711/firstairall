@@ -75,7 +75,7 @@ const ArticleDetail: React.FC<ArticleDetailProps> = ({ article, lang, onBack }) 
   };
 
   // Handle Social Sharing Links
-  const handleSocialShare = (platform: 'facebook' | 'twitter' | 'whatsapp' | 'pinterest') => {
+  const handleSocialShare = (platform: 'facebook' | 'linkedin' | 'whatsapp' | 'pinterest') => {
     const url = encodeURIComponent(window.location.href);
     const title = encodeURIComponent(isAr ? article.title_ar : article.title_en);
     const img = encodeURIComponent(imageUrl);
@@ -93,8 +93,9 @@ const ArticleDetail: React.FC<ArticleDetailProps> = ({ article, lang, onBack }) 
         case 'facebook':
             shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
             break;
-        case 'twitter':
-            shareUrl = `https://twitter.com/intent/tweet?text=${title}&url=${url}`;
+        case 'linkedin':
+            // LinkedIn Share Logic
+            shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
             break;
         case 'whatsapp':
             // Richer text for WhatsApp
@@ -209,13 +210,13 @@ const ArticleDetail: React.FC<ArticleDetailProps> = ({ article, lang, onBack }) 
                             <i className="fab fa-facebook-f text-xl"></i>
                         </button>
 
-                         {/* Twitter */}
+                         {/* LinkedIn (Replaced Twitter) */}
                          <button 
-                            onClick={() => handleSocialShare('twitter')}
-                            className="w-12 h-12 rounded-full bg-[#1DA1F2] text-white flex items-center justify-center hover:bg-[#1a94da] transition-all hover:scale-110 shadow-md"
-                            title="Twitter"
+                            onClick={() => handleSocialShare('linkedin')}
+                            className="w-12 h-12 rounded-full bg-[#0077B5] text-white flex items-center justify-center hover:bg-[#005e93] transition-all hover:scale-110 shadow-md"
+                            title="LinkedIn"
                         >
-                            <i className="fab fa-twitter text-xl"></i>
+                            <i className="fab fa-linkedin-in text-xl"></i>
                         </button>
 
                         {/* Pinterest (Supports Image Sharing) */}

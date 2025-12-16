@@ -56,10 +56,17 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, activeTab, onN
                                 </p>
                                 
                                 <div className="flex gap-4">
-                                    <a href={APP_CONFIG.socials.facebook} className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-all transform hover:-translate-y-1"><i className="fab fa-facebook-f"></i></a>
-                                    <a href={APP_CONFIG.socials.twitter} className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#1DA1F2] hover:text-white transition-all transform hover:-translate-y-1"><i className="fab fa-twitter"></i></a>
-                                    <a href={APP_CONFIG.socials.instagram} className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E4405F] hover:text-white transition-all transform hover:-translate-y-1"><i className="fab fa-instagram"></i></a>
-                                    <a href={APP_CONFIG.socials.whatsapp} className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-all transform hover:-translate-y-1"><i className="fab fa-whatsapp"></i></a>
+                                    {/* Facebook */}
+                                    <a href={APP_CONFIG.socials.facebook} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-all transform hover:-translate-y-1"><i className="fab fa-facebook-f"></i></a>
+                                    
+                                    {/* LinkedIn (Replaced Twitter) */}
+                                    <a href={APP_CONFIG.socials.linkedin} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#0077B5] hover:text-white transition-all transform hover:-translate-y-1"><i className="fab fa-linkedin-in"></i></a>
+                                    
+                                    {/* Instagram */}
+                                    <a href={APP_CONFIG.socials.instagram} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E4405F] hover:text-white transition-all transform hover:-translate-y-1"><i className="fab fa-instagram"></i></a>
+                                    
+                                    {/* WhatsApp */}
+                                    <a href={APP_CONFIG.socials.whatsapp} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-all transform hover:-translate-y-1"><i className="fab fa-whatsapp"></i></a>
                                 </div>
                         </div>
                         
