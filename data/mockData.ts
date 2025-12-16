@@ -121,7 +121,8 @@ export const mockArticles: Article[] = [
     title_en: "Importance of VRF Systems in Energy Saving for Commercial Buildings",
     content_ar: "<p>تعتبر أنظمة التدفق المتغير (VRF) ثورة في عالم التكييف، حيث توفر ما يصل إلى 40% من استهلاك الكهرباء مقارنة بالأنظمة التقليدية...</p>",
     content_en: "<p>Variable Refrigerant Flow (VRF) systems are a revolution in HVAC, saving up to 40% of electricity consumption compared to traditional systems...</p>",
-    created_at: "2025-01-15T10:00:00Z"
+    created_at: "2025-01-15T10:00:00Z",
+    image: "https://i.pinimg.com/1200x/93/e4/c0/93e4c08e57c93b6f31e0f637fff21e5c.jpg"
   },
   { 
     id: 2, 
@@ -129,7 +130,8 @@ export const mockArticles: Article[] = [
     title_en: "NFPA Standards for Designing Fire Systems in Factories",
     content_ar: "<p>الالتزام بأكواد NFPA ليس رفاهية بل ضرورة. نناقش في هذا المقال الاشتراطات الخاصة بالمصانع والمستودعات ذات الخطورة العالية...</p>",
     content_en: "<p>Adhering to NFPA codes is not a luxury but a necessity. In this article, we discuss requirements for high-hazard factories and warehouses...</p>",
-    created_at: "2025-02-01T14:30:00Z"
+    created_at: "2025-02-01T14:30:00Z",
+    image: "https://i.pinimg.com/736x/25/a1/10/25a110ade6f76b6971bbd967cb3c2f73.jpg"
   },
   { 
     id: 3, 
@@ -137,7 +139,8 @@ export const mockArticles: Article[] = [
     title_en: "Mechanical Systems in Hospitals: Medical Gases",
     content_ar: "<p>تتطلب المستشفيات دقة متناهية في تصميم شبكات الأكسجين والغازات الطبية. تعرف على المواصفات الفنية وطرق الاختبار...</p>",
     content_en: "<p>Hospitals require extreme precision in designing oxygen and medical gas networks. Learn about technical specs and testing methods...</p>",
-    created_at: "2025-02-10T09:15:00Z"
+    created_at: "2025-02-10T09:15:00Z",
+    image: "https://i.pinimg.com/736x/d2/1b/f5/d21bf584e6caf3813475807377865ba0.jpg"
   },
   { 
     id: 4, 
@@ -145,6 +148,7 @@ export const mockArticles: Article[] = [
     title_en: "Future of Contracting in KSA Vision 2030",
     content_ar: "<p>مع المشاريع العملاقة مثل نيوم والقدية، يتزايد الطلب على حلول MEP المستدامة والذكية التي تواكب تطلعات الرؤية...</p>",
     content_en: "<p>With mega-projects like NEOM and Qiddiya, demand is rising for sustainable and smart MEP solutions aligning with the Vision...</p>",
-    created_at: "2025-02-20T11:45:00Z"
+    created_at: "2025-02-20T11:45:00Z",
+    image: "https://i.pinimg.com/736x/d5/af/d0/d5afd04ab7545682463d08c56d06fbe3.jpg"
   },
 ];

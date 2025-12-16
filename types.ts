@@ -29,6 +29,7 @@ export interface Article {
   content_ar: string;
   content_en: string;
   created_at: string;
+  image?: string; // Added optional image field
 }
 
 export interface Settings {

@@ -65,7 +65,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ lang }) => {
   const items = [
     {
       id: 1,
-      image: "https://i.pinimg.com/736x/7e/89/9e/7e899ec4e4580407fe330df18d2cee0b.jpg",
+      image: "https://i.pinimg.com/736x/5b/44/bf/5b44bfd7a6f27ef80527d0ff4ff6e905.jpg",
       titleAr: "التصميم الهندسي",
       titleEn: "Engineering Design",
       categoryAr: "مرحلة 1",

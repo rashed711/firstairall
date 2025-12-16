@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Article, Language } from '../types';
 
@@ -10,6 +11,9 @@ interface ArticleCardProps {
 
 const ArticleCard: React.FC<ArticleCardProps> = ({ article, lang, onClick, index }) => {
   const isAr = lang === 'ar';
+  
+  // Use custom image or fallback to a seeded random image
+  const imageUrl = article.image || `https://picsum.photos/seed/${article.id}/800/600`;
 
   return (
     <div 
@@ -22,7 +26,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, lang, onClick, index
          
          {/* Zooming Image */}
          <img 
-            src={`https://picsum.photos/seed/${article.id}/800/600`} 
+            src={imageUrl} 
             alt="Article thumbnail" 
             className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
          />

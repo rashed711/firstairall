@@ -83,8 +83,16 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
                 index === currentImageIndex ? 'animate-ken-burns' : ''
               }`}
             />
-            {/* Gradient Overlay - Darker for contrast */}
-            <div className={`absolute inset-0 bg-gradient-to-r ${isAr ? 'from-primary/70 via-primary/80 to-primary' : 'from-primary via-primary/80 to-primary/70'}`}></div>
+            {/* 
+                Gradient Overlay - Controls opacity over images.
+                To change transparency: modify the number after slash (e.g., primary/40).
+                Higher number = Darker. Lower number = More transparent.
+            */}
+            <div className={`absolute inset-0 bg-gradient-to-r ${
+                isAr 
+                ? 'from-primary/30 via-primary/60 to-primary/95' // AR: Lighter on Left (Image), Darker on Right (Text)
+                : 'from-primary/95 via-primary/60 to-primary/30' // EN: Darker on Left (Text), Lighter on Right (Image)
+            }`}></div>
           </div>
         ))}
       </div>

@@ -11,7 +11,9 @@ interface ArticleDetailProps {
 const ArticleDetail: React.FC<ArticleDetailProps> = ({ article, lang, onBack }) => {
   const isAr = lang === 'ar';
   const [isSharing, setIsSharing] = useState(false);
-  const imageUrl = `https://picsum.photos/seed/${article.id}/1600/900`;
+  
+  // Use custom image or fallback
+  const imageUrl = article.image || `https://picsum.photos/seed/${article.id}/1600/900`;
   
   // Scroll to top when component mounts
   useEffect(() => {
@@ -165,8 +167,8 @@ const ArticleDetail: React.FC<ArticleDetailProps> = ({ article, lang, onBack }) 
                 <p className="mt-8 bg-light p-8 rounded-2xl border-r-4 border-tertiary italic text-gray-700 shadow-sm">
                     {/* Professional disclaimer/CTA */}
                     {isAr 
-                     ? 'للمزيد من المعلومات حول هذا الموضوع، يمكنك التواصل مع فريق خدمة العملاء لدينا. نحن هنا لمساعدتك في اتخاذ القرارات الصحيحة بشأن العمالة المنزلية.'
-                     : 'For more information on this topic, feel free to contact our customer support team. We are here to help you make the right decisions regarding domestic workers.'}
+                     ? 'للمزيد من المعلومات حول هذا الموضوع، يمكنك التواصل مع فريق خدمة العملاء لدينا. نحن هنا لمساعدتك في اتخاذ القرارات الصحيحة.'
+                     : 'For more information on this topic, feel free to contact our customer support team. We are here to help you make the right decisions.'}
                 </p>
             </div>
             
