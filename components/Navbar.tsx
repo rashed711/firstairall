@@ -50,8 +50,8 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
               className="flex-shrink-0 flex items-center cursor-pointer group z-50" 
               onClick={() => handleNavClick('home')}
             >
-              {/* LOGO IMAGE */}
-              <div className="w-24 h-12 md:w-28 md:h-14 bg-white rounded-lg flex items-center justify-center mr-3 ml-3 transform group-hover:scale-105 transition-all duration-300 shadow-lg p-1 px-2">
+              {/* LOGO IMAGE - Updated Sizes for better visibility */}
+              <div className="w-28 h-12 sm:w-32 sm:h-14 md:w-40 md:h-16 bg-white rounded-lg flex items-center justify-center mr-3 ml-3 transform group-hover:scale-105 transition-all duration-300 shadow-lg p-2">
                  <img src={APP_CONFIG.logo} alt="Logo" className="w-full h-full object-contain" />
               </div>
               
@@ -137,10 +137,10 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
         }`}
       >
         {/* Sidebar Header */}
-        <div className="h-20 flex-shrink-0 flex items-center justify-between px-6 border-b border-white/10 bg-black/20">
+        <div className="h-24 flex-shrink-0 flex items-center justify-between px-6 border-b border-white/10 bg-black/20">
            <div className="flex items-center gap-3">
-              {/* Mobile Sidebar Logo */}
-              <div className="w-20 h-10 bg-white rounded flex items-center justify-center p-1 px-2">
+              {/* Mobile Sidebar Logo - Increased size */}
+              <div className="w-32 h-14 bg-white rounded-lg flex items-center justify-center p-2 shadow-inner">
                 <img src={APP_CONFIG.logo} alt="Logo" className="w-full h-full object-contain" />
               </div>
            </div>

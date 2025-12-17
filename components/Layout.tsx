@@ -37,9 +37,9 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, activeTab, onN
                 <div className="max-w-7xl mx-auto px-4 relative z-10">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-start mb-12">
                         <div className="flex flex-col items-center md:items-start animate-fade-in-up">
-                                <div className="flex items-center gap-3 mb-6">
+                                <div className="flex items-center gap-4 mb-6">
                                     {/* FOOTER LOGO - Updated Dimensions */}
-                                    <div className="w-32 h-16 bg-white rounded-lg flex items-center justify-center shadow-lg transform rotate-3 hover:rotate-0 transition-transform p-2 px-3">
+                                    <div className="w-40 h-20 bg-white rounded-lg flex items-center justify-center shadow-lg transform rotate-3 hover:rotate-0 transition-transform p-3">
                                         <img src={APP_CONFIG.logo} alt="Logo" className="w-full h-full object-contain" />
                                     </div>
                                     

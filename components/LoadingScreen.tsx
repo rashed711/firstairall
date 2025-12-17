@@ -24,34 +24,34 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading, lang }) => {
 
             <div className="relative">
                 {/* Ripple Effect Circles - Updated to Soft Red */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 border border-[#E63946]/30 rounded-full animate-[ping_2.5s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-[#E63946]/10 rounded-full animate-[ping_2.5s_cubic-bezier(0,0,0.2,1)_infinite]" style={{ animationDelay: '0.5s' }}></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-[#E63946]/30 rounded-full animate-[ping_2.5s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 border border-[#E63946]/10 rounded-full animate-[ping_2.5s_cubic-bezier(0,0,0.2,1)_infinite]" style={{ animationDelay: '0.5s' }}></div>
 
-                {/* Rotating Rings Container */}
-                <div className="relative w-40 h-40 flex items-center justify-center">
-                     {/* Outer Ring (Red) - Increased Size to fit rect logo */}
-                    <div className="absolute inset-0 border-t-4 border-r-4 border-[#E63946] rounded-full animate-[spin_1s_linear_infinite] shadow-[0_0_15px_rgba(230,57,70,0.5)]"></div>
+                {/* Rotating Rings Container - Increased Size */}
+                <div className="relative w-56 h-56 flex items-center justify-center">
+                     {/* Outer Ring (Red) */}
+                    <div className="absolute inset-0 border-t-4 border-r-4 border-[#E63946] rounded-full animate-[spin_1.5s_linear_infinite] shadow-[0_0_25px_rgba(230,57,70,0.5)]"></div>
                     
                     {/* Middle Ring (White, Reverse) */}
-                    <div className="absolute inset-3 border-b-4 border-l-4 border-white/40 rounded-full animate-[spin_2s_linear_infinite_reverse]"></div>
+                    <div className="absolute inset-4 border-b-4 border-l-4 border-white/40 rounded-full animate-[spin_2.5s_linear_infinite_reverse]"></div>
                     
                     {/* Inner Static Ring Decoration */}
-                    <div className="absolute inset-8 border border-white/10 rounded-full"></div>
+                    <div className="absolute inset-10 border border-white/10 rounded-full"></div>
 
-                    {/* Logo Center - RECTANGULAR for wide logo */}
-                    <div className="w-24 h-12 bg-white rounded-lg shadow-[0_0_30px_rgba(230,57,70,0.4)] flex items-center justify-center relative z-10 animate-pulse p-2 px-2">
+                    {/* Logo Center - Significantly Larger */}
+                    <div className="w-40 h-20 bg-white rounded-xl shadow-[0_0_40px_rgba(230,57,70,0.4)] flex items-center justify-center relative z-10 animate-pulse p-3">
                          <img src={APP_CONFIG.logo} alt="Logo" className="w-full h-full object-contain" />
                     </div>
                 </div>
             </div>
 
             {/* Text Section */}
-            <div className="mt-10 text-center relative z-10">
-                <div className="flex items-center justify-center gap-2 bg-white/5 px-6 py-2 rounded-full backdrop-blur-sm border border-white/10 mx-auto w-fit">
-                    <span className="text-[#E63946] text-sm font-bold tracking-widest uppercase">
+            <div className="mt-12 text-center relative z-10">
+                <div className="flex items-center justify-center gap-2 bg-white/5 px-8 py-3 rounded-full backdrop-blur-sm border border-white/10 mx-auto w-fit shadow-lg">
+                    <span className="text-[#E63946] text-base font-bold tracking-widest uppercase">
                         {isAr ? 'جاري التجهيز' : 'PROCESSING'}
                     </span>
-                    <div className="flex gap-1 items-end h-4 pb-1">
+                    <div className="flex gap-1 items-end h-5 pb-1">
                          <span className="w-1.5 h-1.5 bg-white rounded-full animate-bounce" style={{ animationDelay: '0s' }}></span>
                          <span className="w-1.5 h-1.5 bg-white rounded-full animate-bounce" style={{ animationDelay: '0.15s' }}></span>
                          <span className="w-1.5 h-1.5 bg-white rounded-full animate-bounce" style={{ animationDelay: '0.3s' }}></span>
