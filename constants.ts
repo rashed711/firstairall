@@ -7,7 +7,7 @@ export const APP_CONFIG = {
     MAINTENANCE_MODE: false,
 
     // Logo Configuration - Updated to new brand logo
-    logo: "https://i.postimg.cc/vBC0GW5k/02-frst-ayr-llmqawlat.webp", 
+    logo: "https://www2.0zz0.com/2025/12/17/10/686134709.png", 
 
     // General Site Info
     siteName: {

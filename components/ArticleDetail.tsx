@@ -120,19 +120,19 @@ const ArticleDetail: React.FC<ArticleDetailProps> = ({ article, lang, onBack }) 
             alt="Article Banner" 
             className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000"
         />
-        <div className="absolute top-8 left-8 right-8 z-20 max-w-7xl mx-auto flex justify-between items-start">
+        <div className="absolute top-4 left-4 right-4 md:top-8 md:left-8 md:right-8 z-20 max-w-7xl mx-auto flex justify-between items-start">
              <button 
                 onClick={onBack}
-                className="bg-black/30 backdrop-blur-md border border-white/30 text-white px-5 py-2.5 rounded-full hover:bg-black/50 transition-all flex items-center gap-2 font-bold shadow-lg"
+                className="bg-black/30 backdrop-blur-md border border-white/30 text-white px-4 py-2 md:px-5 md:py-2.5 rounded-full hover:bg-black/50 transition-all flex items-center gap-2 font-bold shadow-lg text-sm md:text-base"
             >
-                <i className={`fas fa-arrow-${isAr ? 'right' : 'left'}`}></i> {isAr ? 'العودة للمقالات' : 'Back to Articles'}
+                <i className={`fas fa-arrow-${isAr ? 'right' : 'left'}`}></i> {isAr ? 'العودة' : 'Back'}
             </button>
 
             {/* Floating Share Button on Image */}
              <button 
                 onClick={handleNativeShare}
                 disabled={isSharing}
-                className="bg-white/90 backdrop-blur-md text-primary px-5 py-2.5 rounded-full hover:bg-white transition-all flex items-center gap-2 font-bold shadow-lg transform hover:scale-105"
+                className="bg-white/90 backdrop-blur-md text-primary px-4 py-2 md:px-5 md:py-2.5 rounded-full hover:bg-white transition-all flex items-center gap-2 font-bold shadow-lg transform hover:scale-105 text-sm md:text-base"
             >
                 {isSharing ? <i className="fas fa-spinner fa-spin"></i> : <i className="fas fa-share-alt"></i>}
                 {isAr ? 'مشاركة' : 'Share'}
@@ -140,10 +140,10 @@ const ArticleDetail: React.FC<ArticleDetailProps> = ({ article, lang, onBack }) 
         </div>
         
         {/* Title Overlay */}
-        <div className="absolute bottom-0 left-0 w-full z-20 bg-gradient-to-t from-black/90 via-black/50 to-transparent pt-24 pb-12 px-4">
-             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center gap-3 text-white/80 text-sm font-medium mb-3">
-                    <span className="bg-tertiary px-3 py-1 rounded-md text-white font-bold shadow-sm">
+        <div className="absolute bottom-0 left-0 w-full z-20 bg-gradient-to-t from-black/90 via-black/50 to-transparent pt-24 pb-8 md:pb-12 px-4">
+             <div className="max-w-4xl mx-auto px-0 md:px-6 lg:px-8">
+                <div className="flex items-center gap-3 text-white/80 text-xs md:text-sm font-medium mb-2 md:mb-3">
+                    <span className="bg-tertiary px-2 py-0.5 md:px-3 md:py-1 rounded-md text-white font-bold shadow-sm">
                         {isAr ? 'مدونة المقاولات' : 'Contracting Blog'}
                     </span>
                     <span>•</span>
@@ -151,21 +151,21 @@ const ArticleDetail: React.FC<ArticleDetailProps> = ({ article, lang, onBack }) 
                         {new Date(article.created_at).toLocaleDateString(lang === 'ar' ? 'ar-SA' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                     </time>
                 </div>
-                <h1 className="text-3xl md:text-5xl font-extrabold text-white leading-tight drop-shadow-md">
+                <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight drop-shadow-md">
                     {isAr ? article.title_ar : article.title_en}
                 </h1>
              </div>
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-30">
-        <div className="bg-white rounded-t-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.1)] p-8 md:p-12 border-x border-t border-gray-100">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 md:-mt-8 relative z-30">
+        <div className="bg-white rounded-t-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.1)] p-6 md:p-12 border-x border-t border-gray-100">
             
-            <div className="prose prose-lg prose-slate max-w-none text-gray-600 leading-9">
+            <div className="prose prose-base md:prose-lg prose-slate max-w-none text-gray-600 leading-8 md:leading-9">
                 {/* SEO: Rendering HTML content. In a real app we'd sanitize this. */}
                 <div dangerouslySetInnerHTML={{ __html: isAr ? article.content_ar : article.content_en }} />
                 
-                <p className="mt-8 bg-light p-8 rounded-2xl border-r-4 border-tertiary italic text-gray-700 shadow-sm">
+                <p className="mt-6 md:mt-8 bg-light p-6 md:p-8 rounded-2xl border-r-4 border-tertiary italic text-gray-700 shadow-sm text-sm md:text-base">
                     {/* Professional disclaimer/CTA */}
                     {isAr 
                      ? 'للمزيد من المعلومات حول هذا الموضوع، يمكنك التواصل مع فريق خدمة العملاء لدينا. نحن هنا لمساعدتك في اتخاذ القرارات الصحيحة.'
@@ -173,9 +173,9 @@ const ArticleDetail: React.FC<ArticleDetailProps> = ({ article, lang, onBack }) 
                 </p>
             </div>
             
-            <div className="mt-16 pt-10 border-t border-gray-100">
+            <div className="mt-12 md:mt-16 pt-8 md:pt-10 border-t border-gray-100">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                    <h3 className="text-xl font-bold text-primary flex items-center gap-2">
+                    <h3 className="text-lg md:text-xl font-bold text-primary flex items-center gap-2">
                         <span className="w-8 h-8 rounded-full bg-tertiary/10 flex items-center justify-center text-tertiary text-sm">
                             <i className="fas fa-heart"></i>
                         </span>
@@ -186,7 +186,7 @@ const ArticleDetail: React.FC<ArticleDetailProps> = ({ article, lang, onBack }) 
                         {/* Native Share Button (Mobile Friendly) */}
                         <button 
                             onClick={handleNativeShare}
-                            className="w-12 h-12 rounded-full bg-gray-800 text-white flex items-center justify-center hover:bg-black transition-all hover:scale-110 shadow-md"
+                            className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gray-800 text-white flex items-center justify-center hover:bg-black transition-all hover:scale-110 shadow-md"
                             title={isAr ? 'مشاركة (مع الصورة)' : 'Share (with Image)'}
                         >
                             <i className="fas fa-share-alt"></i>
@@ -195,37 +195,28 @@ const ArticleDetail: React.FC<ArticleDetailProps> = ({ article, lang, onBack }) 
                         {/* WhatsApp */}
                         <button 
                             onClick={() => handleSocialShare('whatsapp')}
-                            className="w-12 h-12 rounded-full bg-[#25D366] text-white flex items-center justify-center hover:bg-[#20bd5a] transition-all hover:scale-110 shadow-md"
+                            className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#25D366] text-white flex items-center justify-center hover:bg-[#20bd5a] transition-all hover:scale-110 shadow-md"
                             title="WhatsApp"
                         >
-                            <i className="fab fa-whatsapp text-xl"></i>
+                            <i className="fab fa-whatsapp text-lg md:text-xl"></i>
                         </button>
 
                         {/* Facebook */}
                         <button 
                             onClick={() => handleSocialShare('facebook')}
-                            className="w-12 h-12 rounded-full bg-[#1877F2] text-white flex items-center justify-center hover:bg-[#166fe5] transition-all hover:scale-110 shadow-md"
+                            className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#1877F2] text-white flex items-center justify-center hover:bg-[#166fe5] transition-all hover:scale-110 shadow-md"
                             title="Facebook"
                         >
-                            <i className="fab fa-facebook-f text-xl"></i>
+                            <i className="fab fa-facebook-f text-lg md:text-xl"></i>
                         </button>
 
                          {/* LinkedIn (Replaced Twitter) */}
                          <button 
                             onClick={() => handleSocialShare('linkedin')}
-                            className="w-12 h-12 rounded-full bg-[#0077B5] text-white flex items-center justify-center hover:bg-[#005e93] transition-all hover:scale-110 shadow-md"
+                            className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#0077B5] text-white flex items-center justify-center hover:bg-[#005e93] transition-all hover:scale-110 shadow-md"
                             title="LinkedIn"
                         >
-                            <i className="fab fa-linkedin-in text-xl"></i>
-                        </button>
-
-                        {/* Pinterest (Supports Image Sharing) */}
-                        <button 
-                            onClick={() => handleSocialShare('pinterest')}
-                            className="w-12 h-12 rounded-full bg-[#E60023] text-white flex items-center justify-center hover:bg-[#cc001f] transition-all hover:scale-110 shadow-md"
-                            title="Pinterest"
-                        >
-                            <i className="fab fa-pinterest text-xl"></i>
+                            <i className="fab fa-linkedin-in text-lg md:text-xl"></i>
                         </button>
                     </div>
                 </div>

@@ -18,8 +18,8 @@ const AboutPage: React.FC<AboutPageProps> = ({ lang, settings }) => {
          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-10"></div>
          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
              <ScrollReveal animation="fade-down">
-                <h1 className="text-3xl md:text-6xl font-extrabold mb-4">{isAr ? 'من نحن' : 'About Us'}</h1>
-                <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                <h1 className="text-4xl md:text-6xl font-extrabold mb-4">{isAr ? 'من نحن' : 'About Us'}</h1>
+                <p className="text-base md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
                     {isAr ? 'First Air: شريكك الهندسي الموثوق للأعمال الكهروميكانيكية.' : 'First Air: Your trusted engineering partner for MEP works.'}
                 </p>
              </ScrollReveal>
@@ -45,9 +45,9 @@ const AboutPage: React.FC<AboutPageProps> = ({ lang, settings }) => {
             <div className="w-full lg:w-1/2">
                 <ScrollReveal animation="fade-left" delay={200}>
                     <h2 className="text-xs md:text-sm font-bold text-tertiary uppercase tracking-wider mb-2">{isAr ? 'عن الشركة' : 'Company Profile'}</h2>
-                    <h3 className="text-2xl md:text-3xl font-extrabold text-primary mb-6">{isAr ? 'خبرة ممتدة في السوق المصري والسعودي' : 'Extensive Experience in Egyptian & Saudi Markets'}</h3>
+                    <h3 className="text-2xl md:text-4xl font-extrabold text-primary mb-6 leading-tight">{isAr ? 'خبرة ممتدة في السوق المصري والسعودي' : 'Extensive Experience in Egyptian & Saudi Markets'}</h3>
                     
-                    <div className="space-y-4 text-gray-600 leading-relaxed text-sm md:text-base">
+                    <div className="space-y-4 text-gray-600 leading-relaxed text-sm md:text-lg">
                         <p>
                             {isAr 
                             ? 'First Air for Contracting هي شركة متخصصة في مقاولات الأعمال الكهروميكانيكية (MEP)، تمتلك خبرة تنفيذية ممتدة، وتعمل حاليًا من خلال فروعها في جمهورية مصر العربية والمملكة العربية السعودية على تنفيذ مشروعات كبرى وفق أعلى المعايير الهندسية الدولية.'
@@ -67,11 +67,11 @@ const AboutPage: React.FC<AboutPageProps> = ({ lang, settings }) => {
                     
                     <div className="grid grid-cols-2 gap-6 mt-8">
                         <div className="border-l-4 border-tertiary pl-4 rtl:border-l-0 rtl:border-r-4 rtl:pr-4">
-                            <span className="block text-2xl md:text-3xl font-bold text-primary mb-1">+2</span>
+                            <span className="block text-3xl md:text-4xl font-bold text-primary mb-1">+2</span>
                             <span className="text-sm text-gray-500">{isAr ? 'فروع إقليمية' : 'Regional Branches'}</span>
                         </div>
                         <div className="border-l-4 border-tertiary pl-4 rtl:border-l-0 rtl:border-r-4 rtl:pr-4">
-                            <span className="block text-2xl md:text-3xl font-bold text-primary mb-1">MEP</span>
+                            <span className="block text-3xl md:text-4xl font-bold text-primary mb-1">MEP</span>
                             <span className="text-sm text-gray-500">{isAr ? 'تخصص دقيق' : 'Specialization'}</span>
                         </div>
                     </div>
@@ -83,7 +83,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ lang, settings }) => {
         <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-16 md:mb-20">
             <ScrollReveal animation="fade-up" className="h-full">
                 <div className="bg-gray-50 p-6 md:p-10 rounded-3xl border border-gray-100 hover:shadow-xl transition-shadow h-full">
-                    <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-primary text-2xl shadow-md mb-6">
+                    <div className="w-14 h-14 md:w-16 md:h-16 bg-white rounded-2xl flex items-center justify-center text-primary text-xl md:text-2xl shadow-md mb-6">
                         <i className="fas fa-rocket"></i>
                     </div>
                     <h3 className="text-xl md:text-2xl font-bold text-primary mb-4">{isAr ? 'تواجدنا في السعودية' : 'Presence in KSA'}</h3>
@@ -97,7 +97,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ lang, settings }) => {
             
             <ScrollReveal animation="fade-up" delay={200} className="h-full">
                 <div className="bg-primary text-white p-6 md:p-10 rounded-3xl border border-primary hover:shadow-xl transition-shadow h-full">
-                    <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-white text-2xl shadow-md mb-6">
+                    <div className="w-14 h-14 md:w-16 md:h-16 bg-white/10 rounded-2xl flex items-center justify-center text-white text-xl md:text-2xl shadow-md mb-6">
                         <i className="fas fa-handshake"></i>
                     </div>
                     <h3 className="text-xl md:text-2xl font-bold text-white mb-4">{isAr ? 'فلسفتنا' : 'Our Philosophy'}</h3>
@@ -113,7 +113,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ lang, settings }) => {
         {/* Why Choose Us */}
         <div className="text-center mb-16">
             <ScrollReveal animation="fade-up">
-                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-12">{isAr ? 'قطاعات الأعمال' : 'Business Sectors'}</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-primary mb-12">{isAr ? 'قطاعات الأعمال' : 'Business Sectors'}</h2>
             </ScrollReveal>
             <div className="grid md:grid-cols-3 gap-6 md:gap-8">
                 {[
@@ -122,12 +122,12 @@ const AboutPage: React.FC<AboutPageProps> = ({ lang, settings }) => {
                     { icon: 'fa-hotel', titleAr: 'القطاع الفندقي والتجاري', titleEn: 'Hospitality & Commercial', textAr: 'فنادق، مولات تجارية، ومباني إدارية.', textEn: 'Hotels, Malls, and Office buildings.' }
                 ].map((item, idx) => (
                     <ScrollReveal key={idx} animation="zoom-in" delay={idx * 150} className="h-full">
-                        <div className="p-6 rounded-2xl bg-white shadow-lg hover:-translate-y-2 transition-transform duration-300 border border-gray-50 h-full">
+                        <div className="p-6 md:p-8 rounded-2xl bg-white shadow-lg hover:-translate-y-2 transition-transform duration-300 border border-gray-50 h-full">
                             <div className="w-14 h-14 mx-auto bg-tertiary/10 rounded-full flex items-center justify-center text-tertiary text-2xl mb-4">
                                 <i className={`fas ${item.icon}`}></i>
                             </div>
                             <h4 className="text-xl font-bold text-primary mb-2">{isAr ? item.titleAr : item.titleEn}</h4>
-                            <p className="text-gray-500 text-sm">{isAr ? item.textAr : item.textEn}</p>
+                            <p className="text-gray-500 text-sm md:text-base">{isAr ? item.textAr : item.textEn}</p>
                         </div>
                     </ScrollReveal>
                 ))}

@@ -86,53 +86,50 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
             />
             {/* 
                 Gradient Overlay - Controls opacity over images.
-                To change transparency: modify the number after slash (e.g., primary/40).
-                Higher number = Darker. Lower number = More transparent.
             */}
-            <div className={`absolute inset-0 bg-gradient-to-r ${
+            <div className={`absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r ${
                 isAr 
-                ? 'from-primary/30 via-primary/60 to-primary/95' // AR: Lighter on Left (Image), Darker on Right (Text)
-                : 'from-primary/95 via-primary/60 to-primary/30' // EN: Darker on Left (Text), Lighter on Right (Image)
+                ? 'from-primary/50 via-primary/70 to-primary/95 md:from-primary/30 md:via-primary/60 md:to-primary/95' 
+                : 'from-primary/95 via-primary/70 to-primary/50 md:from-primary/95 md:via-primary/60 md:to-primary/30'
             }`}></div>
           </div>
         ))}
       </div>
 
-      {/* FLOATING DECORATIONS - Replaced Gold with Blue/Red */}
-      <div className="absolute top-20 left-20 w-32 h-32 bg-tertiary rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-float z-10 pointer-events-none"></div>
-      <div className="absolute bottom-40 right-20 w-48 h-48 bg-accent rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-float z-10 pointer-events-none" style={{animationDelay: '2s'}}></div>
+      {/* FLOATING DECORATIONS */}
+      <div className="absolute top-20 left-20 w-32 h-32 bg-tertiary rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-float z-10 pointer-events-none hidden md:block"></div>
+      <div className="absolute bottom-40 right-20 w-48 h-48 bg-accent rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-float z-10 pointer-events-none hidden md:block" style={{animationDelay: '2s'}}></div>
 
       {/* MAIN CONTENT AREA */}
-      <div className="flex-1 flex flex-col justify-center relative z-20 w-full pt-10 pb-8">
+      <div className="flex-1 flex flex-col justify-center relative z-20 w-full pt-20 pb-12 md:pt-10 md:pb-8">
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center">
             
             {/* TEXT SECTION */}
-            <div className={`w-full lg:w-3/5 text-center ${isAr ? 'lg:text-right' : 'lg:text-left'}`}>
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-white text-xs sm:text-sm font-bold animate-fade-in-down shadow-lg">
+            <div className={`w-full lg:w-3/5 text-center ${isAr ? 'lg:text-right' : 'lg:text-left'} mb-12 lg:mb-0`}>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-4 md:mb-6 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-white text-[10px] md:text-sm font-bold animate-fade-in-down shadow-lg mx-auto lg:mx-0">
                     <span className="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
                     {isAr ? 'رواد الأعمال الكهروميكانيكية (MEP)' : 'Leaders in Electromechanical Works (MEP)'}
                 </div>
                 
-                {/* ADJUSTED FONT SIZES FOR BETTER RESPONSIVENESS */}
-                <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-tight mb-6 animate-fade-in-right drop-shadow-xl">
+                {/* RESPONSIVE TYPOGRAPHY */}
+                <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-tight mb-4 md:mb-6 animate-fade-in-right drop-shadow-xl">
                     <span className="block">{isAr ? 'فيرست إير' : 'First Air'}</span>
-                    {/* Clean White Text - No confusing gradients */}
-                    <span className="block text-white/90 text-2xl sm:text-3xl md:text-5xl mt-2 pb-2">
+                    <span className="block text-white/90 text-xl sm:text-2xl md:text-4xl lg:text-5xl mt-1 md:mt-2 pb-2">
                         {isAr ? 'للمقاولات الكهروميكانيكية' : 'For Contracting'}
                     </span>
                 </h1>
 
-                <p className="mt-4 max-w-lg mx-auto lg:mx-0 text-base sm:text-lg md:text-xl text-gray-200 sm:mt-6 animate-fade-in-up leading-relaxed drop-shadow-md border-l-4 border-tertiary pl-4 rtl:border-l-0 rtl:border-r-4 rtl:pr-4" style={{animationDelay: '0.3s'}}>
+                <p className="mt-2 md:mt-4 max-w-lg mx-auto lg:mx-0 text-sm sm:text-base md:text-xl text-gray-200 animate-fade-in-up leading-relaxed drop-shadow-md lg:border-l-4 lg:border-tertiary lg:pl-4 lg:rtl:border-l-0 lg:rtl:border-r-4 lg:rtl:pr-4" style={{animationDelay: '0.3s'}}>
                 {isAr 
                     ? 'شريكك الهندسي الموثوق لتنفيذ المشاريع الكبرى في مصر والمملكة. نقدم حلولاً متكاملة في التكييف، الحريق، والأنظمة الميكانيكية بأعلى المعايير الدولية.'
                     : 'Your trusted engineering partner for major projects in Egypt & KSA. We provide integrated solutions in HVAC, Fire Fighting, and Mechanical systems with highest international standards.'}
                 </p>
 
-                {/* BUTTONS */}
-                <div className={`mt-8 sm:mt-10 flex flex-col sm:flex-row gap-4 justify-center ${isAr ? 'lg:justify-start' : 'lg:justify-start'} animate-fade-in-up`} style={{animationDelay: '0.5s'}}>
+                {/* RESPONSIVE BUTTONS */}
+                <div className={`mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center ${isAr ? 'lg:justify-start' : 'lg:justify-start'} animate-fade-in-up px-4 sm:px-0`} style={{animationDelay: '0.5s'}}>
                     <button
                         onClick={() => onNavigate('contact')}
-                        className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-tertiary text-white font-bold rounded-full overflow-hidden shadow-[0_5px_15px_rgba(230,57,70,0.4)] hover:shadow-[0_8px_25px_rgba(230,57,70,0.6)] transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 w-full sm:w-auto flex justify-center items-center"
+                        className="group relative w-full sm:w-auto px-6 py-3 md:py-4 bg-tertiary text-white font-bold rounded-full overflow-hidden shadow-[0_5px_15px_rgba(230,57,70,0.4)] hover:shadow-[0_8px_25px_rgba(230,57,70,0.6)] transition-all duration-300 transform hover:-translate-y-1 active:scale-95 flex justify-center items-center text-sm md:text-base"
                     >
                         <span className="relative z-10 flex items-center gap-2">
                           {isAr ? 'اطلب عرض سعر' : 'Request Quotation'}
@@ -144,15 +141,15 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
                     
                     <button
                         onClick={() => onNavigate('services')}
-                        className="px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-white/30 text-white font-bold rounded-full backdrop-blur-sm hover:bg-white hover:text-primary transition-all duration-300 transform hover:-translate-y-1 shadow-md w-full sm:w-auto flex justify-center items-center group"
+                        className="w-full sm:w-auto px-6 py-3 md:py-4 bg-transparent border-2 border-white/30 text-white font-bold rounded-full backdrop-blur-sm hover:bg-white hover:text-primary transition-all duration-300 transform hover:-translate-y-1 active:scale-95 shadow-md flex justify-center items-center group text-sm md:text-base"
                     >
                         <span className="transition-colors">{isAr ? 'خدماتنا' : 'Our Services'}</span>
                     </button>
                 </div>
             </div>
 
-            {/* STATS/SECTORS SECTION (Right Side) */}
-            <div className="w-full lg:w-2/5 relative mt-12 lg:mt-0 flex justify-center animate-fade-in-left hidden md:flex" style={{animationDelay: '0.2s'}}>
+            {/* STATS/SECTORS SECTION (Right Side) - Hidden on Mobile to reduce clutter, visible on Desktop */}
+            <div className="w-full lg:w-2/5 relative mt-12 lg:mt-0 flex justify-center animate-fade-in-left hidden lg:flex" style={{animationDelay: '0.2s'}}>
                 <div className="relative z-10 w-full max-w-sm">
                     {/* Stats Card */}
                     <div className="bg-white/10 backdrop-blur-xl border-t border-l border-white/20 p-6 rounded-2xl shadow-2xl mb-6 animate-float relative overflow-hidden group">
@@ -184,18 +181,18 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
         </div>
       </div>
 
-      {/* MARQUEE STRIP */}
-      <div className="relative z-20 h-14 bg-white/5 backdrop-blur-md border-t border-white/10 flex items-center overflow-hidden" dir="ltr">
+      {/* MARQUEE STRIP - Optimized for mobile */}
+      <div className="relative z-20 h-10 md:h-14 bg-white/5 backdrop-blur-md border-t border-white/10 flex items-center overflow-hidden" dir="ltr">
         <div className={`flex w-max ${isAr ? 'animate-scroll-infinite-reverse' : 'animate-scroll-infinite'} hover:[animation-play-state:paused]`}>
             {[...Array(2)].map((_, setIndex) => (
                 <div key={setIndex} className="flex items-center shrink-0">
                     {marqueeItems.map((item, index) => (
-                        <div key={index} className="flex items-center mx-4 sm:mx-8 group cursor-pointer">
-                            <i className={`fas ${item.icon} text-accent text-base sm:text-lg mx-2 transform group-hover:scale-125 transition-transform`}></i>
-                            <span className="text-white font-bold text-xs sm:text-sm tracking-wide group-hover:text-tertiary transition-colors whitespace-nowrap">
+                        <div key={index} className="flex items-center mx-3 md:mx-8 group cursor-pointer">
+                            <i className={`fas ${item.icon} text-accent text-sm md:text-lg mx-2 transform group-hover:scale-125 transition-transform`}></i>
+                            <span className="text-white font-bold text-[10px] md:text-sm tracking-wide group-hover:text-tertiary transition-colors whitespace-nowrap">
                                 {isAr ? item.textAr : item.textEn}
                             </span>
-                            <span className="w-1.5 h-1.5 rounded-full bg-white/30 mx-4 sm:mx-8"></span>
+                            <span className="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-white/30 mx-3 md:mx-8"></span>
                         </div>
                     ))}
                 </div>
@@ -204,10 +201,10 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
       </div>
 
       {/* Contracting COUNTRIES / SECTORS DOUBLE ORBIT */}
-      <div className="relative z-20 bg-gradient-to-b from-primary/95 to-primary border-t border-white/5 py-12 sm:py-16 overflow-hidden">
+      <div className="relative z-20 bg-gradient-to-b from-primary/95 to-primary border-t border-white/5 py-8 sm:py-16 overflow-hidden">
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none"></div>
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-8 md:gap-12">
               
               {/* Text Description */}
               <div className={`w-full md:w-1/3 text-center ${isAr ? 'md:text-right' : 'md:text-left'} z-10`}>
@@ -215,10 +212,10 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
                        <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
                        <span className="text-accent font-bold tracking-widest text-xs uppercase">{isAr ? 'نطاق أعمالنا' : 'OUR SCOPE'}</span>
                    </div>
-                   <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">
+                   <h3 className="text-xl md:text-3xl font-extrabold text-white mb-2 md:mb-3">
                        {isAr ? 'قطاعات وتواجد إقليمي' : 'Sectors & Presence'}
                    </h3>
-                   <p className="text-gray-300 text-sm leading-relaxed mb-6">
+                   <p className="text-gray-300 text-sm leading-relaxed mb-4 md:mb-6 max-w-sm mx-auto md:mx-0">
                        {isAr 
                        ? 'نعمل في المملكة العربية السعودية ومصر لخدمة قطاعات حيوية متعددة بكفاءة عالية.' 
                        : 'Operating in KSA and Egypt to serve multiple vital sectors with high efficiency.'}
@@ -230,10 +227,11 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
                    </div>
               </div>
 
-              {/* Dual Orbit Visualization */}
-              <div className="w-full md:w-2/3 h-[280px] sm:h-[400px] md:h-[450px] relative flex items-center justify-center perspective-1000 overflow-hidden md:overflow-visible">
+              {/* Dual Orbit Visualization - SCALED DOWN FOR MOBILE */}
+              <div className="w-full md:w-2/3 h-[240px] sm:h-[400px] md:h-[450px] relative flex items-center justify-center perspective-1000 overflow-hidden md:overflow-visible mt-4 md:mt-0">
                   
-                  <div className="relative flex items-center justify-center transform scale-[0.6] sm:scale-75 md:scale-100 origin-center">
+                  {/* Scale wrapper for Mobile vs Desktop */}
+                  <div className="relative flex items-center justify-center transform scale-[0.55] sm:scale-75 md:scale-100 origin-center">
 
                       {/* Central Globe Core - LOGO REPLACEMENT */}
                       <div className="w-32 h-32 rounded-full bg-white relative z-20 shadow-[0_0_60px_rgba(50,130,184,0.4)] flex items-center justify-center border border-gray-200 p-3">
