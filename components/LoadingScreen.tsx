@@ -27,7 +27,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading, lang }) => {
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-[#E63946]/30 rounded-full animate-[ping_2.5s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 border border-[#E63946]/10 rounded-full animate-[ping_2.5s_cubic-bezier(0,0,0.2,1)_infinite]" style={{ animationDelay: '0.5s' }}></div>
 
-                {/* Rotating Rings Container - Increased Size */}
+                {/* Rotating Rings Container */}
                 <div className="relative w-56 h-56 flex items-center justify-center">
                      {/* Outer Ring (Red) */}
                     <div className="absolute inset-0 border-t-4 border-r-4 border-[#E63946] rounded-full animate-[spin_1.5s_linear_infinite] shadow-[0_0_25px_rgba(230,57,70,0.5)]"></div>
@@ -38,8 +38,8 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ isLoading, lang }) => {
                     {/* Inner Static Ring Decoration */}
                     <div className="absolute inset-10 border border-white/10 rounded-full"></div>
 
-                    {/* Logo Center - Significantly Larger */}
-                    <div className="w-40 h-20 bg-white rounded-xl shadow-[0_0_40px_rgba(230,57,70,0.4)] flex items-center justify-center relative z-10 animate-pulse p-3">
+                    {/* Logo Center - Updated to Circular Design */}
+                    <div className="w-32 h-32 md:w-36 md:h-36 bg-white rounded-full shadow-[0_0_40px_rgba(230,57,70,0.4)] flex items-center justify-center relative z-10 animate-pulse p-4 border-4 border-white/20 overflow-hidden">
                          <img src={APP_CONFIG.logo} alt="Logo" className="w-full h-full object-contain" />
                     </div>
                 </div>

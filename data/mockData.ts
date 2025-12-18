@@ -8,6 +8,33 @@ export const mockSettings: Settings = {
   email: "info@firstair-sa.com"
 };
 
+// بيانات شريط الأخبار المتحرك (Marquee)
+export const marqueeItems = [
+  { textAr: "أنظمة تكييف مركزي", textEn: "Central HVAC Systems", icon: "fa-fan" },
+  { textAr: "مكافحة حريق", textEn: "Fire Fighting", icon: "fa-fire-extinguisher" },
+  { textAr: "أعمال كهروميكانيكية", textEn: "Electromechanical Works", icon: "fa-cogs" },
+  { textAr: "أنظمة صحية", textEn: "Plumbing Systems", icon: "fa-faucet" },
+  { textAr: "صيانة وتشغيل", textEn: "Operation & Maintenance", icon: "fa-tools" },
+  { textAr: "توريد وتركيب", textEn: "Supply & Installation", icon: "fa-truck-loading" },
+];
+
+// بيانات المدار الخارجي (الدول)
+export const countryOrbits = [
+  { code: 'sa', nameAr: 'السعودية', nameEn: 'Saudi Arabia' },
+  { code: 'eg', nameAr: 'مصر', nameEn: 'Egypt' },
+  { code: 'om', nameAr: 'عمان', nameEn: 'Oman' }, 
+  { code: 'ly', nameAr: 'ليبيا', nameEn: 'Libya' },
+  { code: 'iq', nameAr: 'العراق', nameEn: 'Iraq' },
+];
+
+// بيانات المدار الداخلي (القطاعات)
+export const sectorOrbits = [
+  { icon: 'fa-hospital', nameAr: 'مستشفيات', nameEn: 'Hospitals' },
+  { icon: 'fa-industry', nameAr: 'مصانع', nameEn: 'Factories' },
+  { icon: 'fa-building', nameAr: 'مباني إدارية', nameEn: 'Commercial' },
+  { icon: 'fa-hotel', nameAr: 'فنادق', nameEn: 'Hotels' },
+];
+
 export const mockServices: Service[] = [
   { 
     id: 1, 
@@ -71,15 +98,6 @@ export const mockProducts: Product[] = [
     description_en: "Manufacturing and supply of electrical control panels for motors, HVAC, and pumps.",
     image: "https://i.pinimg.com/736x/2c/92/aa/2c92aa0758b6526f89cd671a315c9157.jpg",
     specs: ["Schneider/ABB Parts", "IP65 Rating", "Custom Design"]
-  },
-  {
-    id: 4,
-    title_ar: "وحدات مناولة الهواء (AHU)",
-    title_en: "Air Handling Units (AHU)",
-    description_ar: "وحدات مناولة هواء عالية الجودة لتنقية وتوزيع الهواء في المستشفيات والمصانع.",
-    description_en: "High-quality AHUs for air purification and distribution in hospitals and factories.",
-    image: "https://i.pinimg.com/736x/de/c3/8c/dec38c3501a5e7834927289568770853.jpg",
-    specs: ["HEPA Filtration", "Double Skin", "Silent Operation"]
   }
 ];
 
@@ -88,74 +106,36 @@ export const mockArticles: Article[] = [
     id: 1, 
     title_ar: "دليل فرست اير لأنظمة VRF وترشيد الطاقة", 
     title_en: "First Air Guide to VRF Systems and Energy Efficiency",
-    content_ar: "<p>تعتبر أنظمة التدفق المتغير (VRF) التي تقدمها فرست اير للمقاولات ثورة في عالم التكييف المركزي، حيث توفر ما يصل إلى 40% من استهلاك الكهرباء مقارنة بالأنظمة التقليدية. تتميز هذه الأنظمة بقدرتها على التحكم في درجات الحرارة لكل غرفة بشكل مستقل.</p>",
-    content_en: "<p>Variable Refrigerant Flow (VRF) systems offered by First Air for Contracting are a revolution in central HVAC, saving up to 40% of electricity consumption. These systems feature individual temperature control for each room.</p>",
+    content_ar: "<p>تعتبر أنظمة التدفق المتغير (VRF) التي تقدمها فرست اير للمقاولات ثورة في عالم التكييف المركزي، حيث توفر ما يصل إلى 40% من استهلاك الكهرباء مقارنة بالأنظمة التقليدية. يعتمد هذا النظام على التحكم الذكي في كمية الفريون المتدفقة للوحدات الداخلية بناءً على الحاجة الفعلية لكل غرفة.</p>",
+    content_en: "<p>Variable Refrigerant Flow (VRF) systems offered by First Air are a revolution in central HVAC, saving up to 40% of electricity compared to traditional systems. This system relies on smart control of the refrigerant amount flowing to indoor units based on actual needs.</p>",
     created_at: "2025-01-15T10:00:00Z",
     image: "https://i.pinimg.com/1200x/93/e4/c0/93e4c08e57c93b6f31e0f637fff21e5c.jpg"
   },
   { 
     id: 2, 
-    title_ar: "معايير NFPA العالمية في مكافحة الحريق", 
-    title_en: "Global NFPA Standards in Fire Fighting",
-    content_ar: "<p>تلتزم فرست اير للمقاولات بأعلى معايير الجمعية الوطنية للحماية من الحرائق (NFPA). في هذا المقال نناقش كيفية تصميم شبكات الرش الآلي ومضخات الحريق لضمان حماية المنشآت الحيوية والمصانع من المخاطر.</p>",
-    content_en: "<p>First Air for Contracting adheres to the highest National Fire Protection Association (NFPA) standards. This article discusses designing automatic sprinkler networks and fire pumps to protect vital facilities.</p>",
-    created_at: "2025-02-01T12:00:00Z",
-    image: "https://i.pinimg.com/736x/f9/b4/09/f9b4093fa3cfb2175284e5c10d0f3781.jpg"
+    title_ar: "أهمية الصيانة الدورية لأنظمة مكافحة الحريق", 
+    title_en: "Importance of Periodic Maintenance for Fire Systems",
+    content_ar: "<p>في فرست اير، نؤمن أن نظام الحريق غير الخاضع للصيانة هو نظام غير موجود. تشمل خدماتنا الدورية فحص مضخات الحريق، التأكد من ضغط الشبكة، واختبار حساسات الإنذار لضمان استجابة فورية في حالات الطوارئ وفقاً لمعايير NFPA العالمية.</p>",
+    content_en: "<p>At First Air, we believe an unmaintained fire system is a non-existent one. Our periodic services include checking fire pumps, ensuring network pressure, and testing alarm sensors to guarantee immediate response in emergencies according to NFPA standards.</p>",
+    created_at: "2025-01-20T12:00:00Z",
+    image: "https://i.pinimg.com/736x/e6/eb/c6/e6ebc61212fb4a701c3b9f64bd274140.jpg"
   },
   { 
     id: 3, 
-    title_ar: "أهمية الصيانة الدورية لأنظمة التكييف المركزي", 
-    title_en: "Importance of Periodic Maintenance for Central HVAC",
-    content_ar: "<p>الصيانة ليست مجرد رفاهية، بل هي ضرورة للحفاظ على عمر المعدات. فريق فرست اير يقدم نصائح حول تنظيف المبادلات الحرارية وفحص غاز الفريون لضمان أداء مثالي وتقليل فواتير الكهرباء.</p>",
-    content_en: "<p>Maintenance is a necessity, not a luxury, to preserve equipment lifespan. First Air's team provides tips on cleaning heat exchangers and checking refrigerant for optimal performance.</p>",
-    created_at: "2025-02-10T09:30:00Z",
-    image: "https://i.pinimg.com/736x/de/9b/33/de9b33bb9ce4bef56fb7849820fdda6f.jpg"
+    title_ar: "التكنولوجيا الحديثة في تمديدات السباكة الصناعية", 
+    title_en: "Modern Technology in Industrial Plumbing Installations",
+    content_ar: "<p>تستخدم فرست اير أحدث تقنيات اللحام والربط الميكانيكي في تنفيذ شبكات التغذية والصرف للمصانع الكبرى. نحن نركز على استخدام مواد مقاومة للتآكل وعالية التحمل لضمان عمر افتراضي طويل للمنشأة وتقليل تكاليف الإصلاح المستقبلية.</p>",
+    content_en: "<p>First Air utilizes the latest welding and mechanical connection technologies in executing supply and drainage networks for major factories. We focus on using corrosion-resistant, high-durability materials to ensure a long lifespan for the facility.</p>",
+    created_at: "2025-01-25T08:30:00Z",
+    image: "https://i.pinimg.com/736x/f9/b4/09/f9b4093fa3cfb2175284e5c10d0f3781.jpg"
   },
   { 
     id: 4, 
-    title_ar: "الغازات الطبية في المستشفيات: تصميم وتنفيذ", 
-    title_en: "Medical Gases in Hospitals: Design & Execution",
-    content_ar: "<p>تنفيذ شبكات الغازات الطبية يتطلب دقة هندسية متناهية. فرست اير للمقاولات تستعرض خبراتها في توريد وتركيب غاز الأوكسجين والنيتروز للمستشفيات الكبرى في مصر والسعودية وفق أكواد السلامة الدولية.</p>",
-    content_en: "<p>Executing medical gas networks requires extreme engineering precision. First Air showcases its expertise in supplying Oxygen and Nitrous gas for major hospitals in Egypt and KSA.</p>",
-    created_at: "2025-02-15T14:20:00Z",
-    image: "https://i.pinimg.com/736x/2c/92/aa/2c92aa0758b6526f89cd671a315c9157.jpg"
-  },
-  { 
-    id: 5, 
-    title_ar: "تحديات تنفيذ الأعمال الكهروميكانيكية في الأبراج", 
-    title_en: "Challenges of MEP Execution in High-Rise Buildings",
-    content_ar: "<p>تواجه المشاريع الشاهقة تحديات فريدة في ضغط المياه وتوزيع الهواء. نوضح في هذا المقال كيف تتعامل فرست اير مع هذه التحديات باستخدام أنظمة الرفع المتقدمة ولوحات التحكم الذكية.</p>",
-    content_en: "<p>High-rise projects face unique challenges in water pressure and air distribution. We explain how First Air handles these challenges using advanced lifting systems and smart control panels.</p>",
-    created_at: "2025-03-01T11:00:00Z",
-    image: "https://i.pinimg.com/736x/de/c3/8c/dec38c3501a5e7834927289568770853.jpg"
-  },
-  { 
-    id: 6, 
-    title_ar: "حلول التهوية الصناعية للمصانع والمخازن", 
-    title_en: "Industrial Ventilation Solutions for Factories",
-    content_ar: "<p>التهوية الجيدة هي عصب الإنتاج في المصانع. تقدم فرست اير حلولاً تشمل مراوح السحب الضخمة وأنظمة سحب الأدخنة (Smoke Management) لضمان بيئة عمل آمنة وصحية للعمال.</p>",
-    content_en: "<p>Good ventilation is the backbone of production in factories. First Air provides solutions including large exhaust fans and smoke management systems for a safe environment.</p>",
-    created_at: "2025-03-05T08:00:00Z",
-    image: "https://i.postimg.cc/8zD4tk13/002.webp"
-  },
-  { 
-    id: 7, 
-    title_ar: "مستقبل المدن الذكية والأنظمة الميكانيكية", 
-    title_en: "Future of Smart Cities and Mechanical Systems",
-    content_ar: "<p>كيف تندمج أنظمة الـ MEP مع تقنيات إنترنت الأشياء (IoT)؟ فرست اير للمقاولات تطلعكم على مستقبل المباني الذكية التي تدار آلياً بالكامل لتحقيق أقصى درجات الكفاءة.</p>",
-    content_en: "<p>How do MEP systems integrate with IoT? First Air for Contracting shows you the future of smart buildings managed fully automatically for maximum efficiency.</p>",
-    created_at: "2025-03-10T16:00:00Z",
-    image: "https://i.postimg.cc/nhZ20VHd/001.webp"
-  },
-  { 
-    id: 8, 
     title_ar: "فرست اير وتوسعاتها الإقليمية في سلطنة عمان", 
-    title_en: "First Air and Regional Expansions in Oman",
-    content_ar: "<p>احتفاءً بافتتاح فرعنا الجديد، نستعرض أهم المشاريع القادمة في سلطنة عمان. تهدف فرست اير للمقاولات إلى نقل خبراتها العريقة في قطاع المقاولات الكهروميكانيكية إلى السوق العماني الواعد.</p>",
-    content_en: "<p>Celebrating our new branch, we review upcoming projects in Oman. First Air aims to transfer its long expertise in MEP contracting to the promising Omani market.</p>",
-    created_at: "2025-03-12T10:00:00Z",
-    image: "https://i.postimg.cc/6pwcY691/003.webp"
+    title_en: "First Air and its Regional Expansion in Oman",
+    content_ar: "<p>تماشياً مع رؤية فرست اير للتوسع الإقليمي، نفخر بالإعلان عن تعزيز تواجدنا في سلطنة عمان لتقديم خدمات الـ MEP المتكاملة. نهدف من خلال فرعنا الجديد إلى نقل خبراتنا الهندسية العميقة والمساهمة في النهضة العمرانية التي تشهدها السلطنة.</p>",
+    content_en: "<p>In line with First Air's vision for regional expansion, we are proud to announce strengthening our presence in Oman to provide integrated MEP services. Our goal is to transfer our deep engineering expertise to contribute to the urban development in the Sultanate.</p>",
+    created_at: "2025-02-01T09:00:00Z",
+    image: "https://i.pinimg.com/1200x/ba/45/30/ba45304ddb5286dc0e3b98d4ff94c174.jpg"
   }
 ];
-
-export const mockProductsPlaceholder: Product[] = [];
