@@ -29,46 +29,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ lang, settings }) => {
         {/* Updated Grid to support 3 columns for 3 branches */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12">
             
-            {/* KSA Branch */}
-            <ScrollReveal animation="fade-up" delay={0}>
-                <div className="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-tertiary/50 transition-all h-full relative overflow-hidden group">
-                    {/* Flag - Enhanced Visibility */}
-                    <div className="absolute top-4 right-4 rtl:right-auto rtl:left-4 shadow-xl rounded-md overflow-hidden w-12 md:w-16 border border-gray-200 z-10">
-                         <img src="https://flagcdn.com/w160/sa.png" alt="KSA" className="w-full h-auto object-cover opacity-100" />
-                    </div>
-                    
-                    <div className="flex items-center gap-4 mb-6 mt-2">
-                        <div className="w-12 h-12 bg-green-600/10 rounded-full flex items-center justify-center text-green-600 text-xl flex-shrink-0">
-                            <i className="fas fa-map-marked-alt"></i>
-                        </div>
-                        <h3 className="font-bold text-primary text-xl">{isAr ? 'فرع السعودية' : 'KSA Branch'}</h3>
-                    </div>
-                    
-                    <div className="space-y-4">
-                         <div className="flex items-start gap-3">
-                            <i className="fas fa-phone mt-1 text-tertiary"></i>
-                            <div>
-                                <p className="text-xs text-gray-500 mb-1">{isAr ? 'الهاتف' : 'Phone'}</p>
-                                <a href="tel:+966532425777" className="text-gray-800 font-bold hover:text-tertiary dir-ltr block text-left text-sm md:text-base">+966 53 242 5777</a>
-                            </div>
-                         </div>
-                         <div className="flex items-start gap-3">
-                            <i className="fas fa-envelope mt-1 text-tertiary"></i>
-                            <div>
-                                <p className="text-xs text-gray-500 mb-1">{isAr ? 'البريد الإلكتروني' : 'Email'}</p>
-                                <a href="mailto:info@firstair-sa.com" className="text-gray-800 font-bold hover:text-tertiary block break-all text-sm md:text-base">info@firstair-sa.com</a>
-                            </div>
-                         </div>
-                         <div className="flex items-start gap-3">
-                            <i className="fas fa-location-arrow mt-1 text-tertiary"></i>
-                            <div>
-                                <p className="text-xs text-gray-500 mb-1">{isAr ? 'العنوان' : 'Address'}</p>
-                                <p className="text-gray-800 font-medium text-sm">{isAr ? 'حي الربوة – الرياض' : 'Al-Rabwa Dist – Riyadh'}</p>
-                            </div>
-                         </div>
-                    </div>
-                </div>
-            </ScrollReveal>
+           
 
             {/* Egypt Branch */}
             <ScrollReveal animation="fade-up" delay={150}>
@@ -105,6 +66,47 @@ const ContactPage: React.FC<ContactPageProps> = ({ lang, settings }) => {
                             <div>
                                 <p className="text-xs text-gray-500 mb-1">{isAr ? 'العنوان' : 'Address'}</p>
                                 <p className="text-gray-800 font-medium text-sm">{isAr ? 'الطريق البطيء – المنطقة الصناعية' : 'Ind. Zone – Qalyub'}</p>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </ScrollReveal>
+
+             {/* KSA Branch */}
+            <ScrollReveal animation="fade-up" delay={0}>
+                <div className="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-tertiary/50 transition-all h-full relative overflow-hidden group">
+                    {/* Flag - Enhanced Visibility */}
+                    <div className="absolute top-4 right-4 rtl:right-auto rtl:left-4 shadow-xl rounded-md overflow-hidden w-12 md:w-16 border border-gray-200 z-10">
+                         <img src="https://flagcdn.com/w160/sa.png" alt="KSA" className="w-full h-auto object-cover opacity-100" />
+                    </div>
+                    
+                    <div className="flex items-center gap-4 mb-6 mt-2">
+                        <div className="w-12 h-12 bg-green-600/10 rounded-full flex items-center justify-center text-green-600 text-xl flex-shrink-0">
+                            <i className="fas fa-map-marked-alt"></i>
+                        </div>
+                        <h3 className="font-bold text-primary text-xl">{isAr ? 'فرع السعودية' : 'KSA Branch'}</h3>
+                    </div>
+                    
+                    <div className="space-y-4">
+                         <div className="flex items-start gap-3">
+                            <i className="fas fa-phone mt-1 text-tertiary"></i>
+                            <div>
+                                <p className="text-xs text-gray-500 mb-1">{isAr ? 'الهاتف' : 'Phone'}</p>
+                                <a href="tel:+966532425777" className="text-gray-800 font-bold hover:text-tertiary dir-ltr block text-left text-sm md:text-base">+966 53 242 5777</a>
+                            </div>
+                         </div>
+                         <div className="flex items-start gap-3">
+                            <i className="fas fa-envelope mt-1 text-tertiary"></i>
+                            <div>
+                                <p className="text-xs text-gray-500 mb-1">{isAr ? 'البريد الإلكتروني' : 'Email'}</p>
+                                <a href="mailto:info@firstair-sa.com" className="text-gray-800 font-bold hover:text-tertiary block break-all text-sm md:text-base">info@firstair-sa.com</a>
+                            </div>
+                         </div>
+                         <div className="flex items-start gap-3">
+                            <i className="fas fa-location-arrow mt-1 text-tertiary"></i>
+                            <div>
+                                <p className="text-xs text-gray-500 mb-1">{isAr ? 'العنوان' : 'Address'}</p>
+                                <p className="text-gray-800 font-medium text-sm">{isAr ? 'حي الربوة – الرياض' : 'Al-Rabwa Dist – Riyadh'}</p>
                             </div>
                          </div>
                     </div>
@@ -207,14 +209,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ lang, settings }) => {
                         </div>
                     </div>
                      <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 flex-wrap px-2">
-                        <a 
-                            href="https://maps.google.com/?q=Al-Rabwa+Dist+Riyadh" 
-                            target="_blank" 
-                            rel="noreferrer" 
-                            className="bg-white text-primary px-4 py-3 rounded-lg font-bold text-sm shadow-md hover:bg-gray-100 transition flex-1 text-center whitespace-nowrap"
-                        >
-                            {isAr ? 'السعودية' : 'KSA'}
-                        </a>
+                        
                         <a 
                             href="https://maps.google.com/?q=Qalyub+Industrial+Zone" 
                             target="_blank" 
@@ -222,6 +217,14 @@ const ContactPage: React.FC<ContactPageProps> = ({ lang, settings }) => {
                             className="bg-white text-primary px-4 py-3 rounded-lg font-bold text-sm shadow-md hover:bg-gray-100 transition flex-1 text-center whitespace-nowrap"
                         >
                             {isAr ? 'مصر' : 'Egypt'}
+                        </a>
+                        <a 
+                            href="https://maps.google.com/?q=Al-Rabwa+Dist+Riyadh" 
+                            target="_blank" 
+                            rel="noreferrer" 
+                            className="bg-white text-primary px-4 py-3 rounded-lg font-bold text-sm shadow-md hover:bg-gray-100 transition flex-1 text-center whitespace-nowrap"
+                        >
+                            {isAr ? 'السعودية' : 'KSA'}
                         </a>
                         <a 
                             href="https://maps.google.com/?q=Salalah+Oman" 

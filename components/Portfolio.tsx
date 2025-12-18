@@ -114,45 +114,45 @@ const Portfolio: React.FC<PortfolioProps> = ({ lang }) => {
   ];
 
   return (
-    <div className="py-24 bg-white">
+    <div className="pt-[5px] pb-[5px] bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Stats Strip - Moved to Top */}
-        <ScrollReveal animation="fade-up" delay={100} className="w-full mb-16">
-            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100 grid grid-cols-1 md:grid-cols-3 gap-8 text-center shadow-sm">
-                <div className="group border-b md:border-b-0 md:border-l border-gray-200 pb-4 md:pb-0 last:border-0 md:last:border-l-0 rtl:md:border-l-0 rtl:md:border-r">
-                    <div className="text-4xl font-black text-secondary mb-1 group-hover:text-tertiary transition-colors">
+        {/* Stats Strip - Reduced bottom margin to mb-6 */}
+        <ScrollReveal animation="fade-up" delay={100} className="w-full mb-6">
+            <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 grid grid-cols-1 md:grid-cols-3 gap-6 text-center shadow-sm">
+                <div className="group border-b md:border-b-0 md:border-l border-gray-200 pb-3 md:pb-0 last:border-0 md:last:border-l-0 rtl:md:border-l-0 rtl:md:border-r">
+                    <div className="text-3xl md:text-4xl font-black text-secondary mb-1 group-hover:text-tertiary transition-colors">
                         <AnimatedCounter end={100} suffix="%" />
                     </div>
-                    <div className="text-sm text-gray-500 font-bold">{isAr ? 'التزام بالمواصفات' : 'Specs Compliance'}</div>
+                    <div className="text-xs text-gray-500 font-bold">{isAr ? 'التزام بالمواصفات' : 'Specs Compliance'}</div>
                 </div>
-                <div className="group border-b md:border-b-0 md:border-l border-gray-200 pb-4 md:pb-0 last:border-0 md:last:border-l-0 rtl:md:border-l-0 rtl:md:border-r">
-                    <div className="text-4xl font-black text-secondary mb-1 group-hover:text-tertiary transition-colors">
+                <div className="group border-b md:border-b-0 md:border-l border-gray-200 pb-3 md:pb-0 last:border-0 md:last:border-l-0 rtl:md:border-l-0 rtl:md:border-r">
+                    <div className="text-3xl md:text-4xl font-black text-secondary mb-1 group-hover:text-tertiary transition-colors">
                         <AnimatedCounter end={50} prefix="+" />
                     </div>
-                    <div className="text-sm text-gray-500 font-bold">{isAr ? 'مشروع ضخم' : 'Mega Projects'}</div>
+                    <div className="text-xs text-gray-500 font-bold">{isAr ? 'مشروع ضخم' : 'Mega Projects'}</div>
                 </div>
                 <div className="group">
-                    <div className="text-4xl font-black text-secondary mb-1 group-hover:text-tertiary transition-colors">
+                    <div className="text-3xl md:text-4xl font-black text-secondary mb-1 group-hover:text-tertiary transition-colors">
                         <AnimatedCounter end={3} suffix={isAr ? ' فروع' : ' Branches'} />
                     </div>
-                    <div className="text-sm text-gray-500 font-bold">{isAr ? 'تغطية إقليمية' : 'Regional Coverage'}</div>
+                    <div className="text-xs text-gray-500 font-bold">{isAr ? 'تغطية إقليمية' : 'Regional Coverage'}</div>
                 </div>
             </div>
         </ScrollReveal>
 
-        {/* Section Header */}
+        {/* Section Header - Reduced bottom margin to mb-8 */}
         <ScrollReveal animation="fade-down">
-            <div className="text-center mb-16">
-                <h2 className="text-sm text-tertiary font-bold tracking-wide uppercase mb-2 flex items-center justify-center gap-2">
-                    <span className="w-8 h-[2px] bg-tertiary inline-block"></span>
+            <div className="text-center mb-8">
+                <h2 className="text-xs text-tertiary font-bold tracking-wide uppercase mb-1 flex items-center justify-center gap-2">
+                    <span className="w-6 h-[2px] bg-tertiary inline-block"></span>
                     {isAr ? 'منهجية العمل' : 'Our Methodology'}
-                    <span className="w-8 h-[2px] bg-tertiary inline-block"></span>
+                    <span className="w-6 h-[2px] bg-tertiary inline-block"></span>
                 </h2>
-                <h3 className="text-3xl md:text-5xl font-extrabold text-primary mb-4">
+                <h3 className="text-2xl md:text-4xl font-extrabold text-primary mb-2">
                     {isAr ? 'دورة حياة المشروع' : 'Project Lifecycle'}
                 </h3>
-                <p className="max-w-2xl mx-auto text-gray-500">
+                <p className="max-w-2xl mx-auto text-gray-500 text-xs md:text-sm">
                     {isAr 
                     ? 'نتبع في فرست اير منهجية دقيقة تبدأ من التصميم وحتى التشغيل والصيانة لضمان أعلى مستويات الجودة.' 
                     : 'We follow a precise methodology at First Air starting from design to commissioning and maintenance to ensure highest quality.'}
@@ -170,7 +170,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ lang }) => {
                     className="h-full"
                 >
                     <div 
-                        className="group relative h-72 rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-all duration-500"
+                        className="group relative h-64 rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-all duration-500"
                     >
                         {/* Image */}
                         <img 
@@ -184,17 +184,17 @@ const Portfolio: React.FC<PortfolioProps> = ({ lang }) => {
                         
                         {/* Content Overlay */}
                         <div className="absolute inset-0 flex flex-col justify-end p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                            <span className="text-tertiary text-xs font-bold uppercase tracking-wider mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                            <span className="text-tertiary text-[10px] font-bold uppercase tracking-wider mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
                                 {isAr ? item.categoryAr : item.categoryEn}
                             </span>
-                            <h4 className="text-white text-xl font-bold mb-1">
+                            <h4 className="text-white text-lg font-bold mb-1">
                                 {isAr ? item.titleAr : item.titleEn}
                             </h4>
                             <div className="h-1 w-12 bg-tertiary rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                         </div>
                         
                         {/* Icon Overlay */}
-                        <div className="absolute top-4 right-4 w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:rotate-90">
+                        <div className="absolute top-4 right-4 w-8 h-8 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:rotate-90 text-xs">
                             <i className="fas fa-plus"></i>
                         </div>
                     </div>
