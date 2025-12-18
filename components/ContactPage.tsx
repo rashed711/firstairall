@@ -32,8 +32,8 @@ const ContactPage: React.FC<ContactPageProps> = ({ lang, settings }) => {
             {/* KSA Branch */}
             <ScrollReveal animation="fade-up" delay={0}>
                 <div className="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-tertiary/50 transition-all h-full relative overflow-hidden group">
-                    {/* Flag - Fixed Clarity: Fully visible badge */}
-                    <div className="absolute top-4 right-4 rtl:right-auto rtl:left-4 shadow-md rounded overflow-hidden w-12 md:w-16">
+                    {/* Flag - Enhanced Visibility */}
+                    <div className="absolute top-4 right-4 rtl:right-auto rtl:left-4 shadow-xl rounded-md overflow-hidden w-12 md:w-16 border border-gray-200 z-10">
                          <img src="https://flagcdn.com/w160/sa.png" alt="KSA" className="w-full h-auto object-cover opacity-100" />
                     </div>
                     
@@ -73,8 +73,8 @@ const ContactPage: React.FC<ContactPageProps> = ({ lang, settings }) => {
             {/* Egypt Branch */}
             <ScrollReveal animation="fade-up" delay={150}>
                 <div className="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-tertiary/50 transition-all h-full relative overflow-hidden group">
-                    {/* Flag - Fixed Clarity */}
-                    <div className="absolute top-4 right-4 rtl:right-auto rtl:left-4 shadow-md rounded overflow-hidden w-12 md:w-16">
+                    {/* Flag - Enhanced Visibility */}
+                    <div className="absolute top-4 right-4 rtl:right-auto rtl:left-4 shadow-xl rounded-md overflow-hidden w-12 md:w-16 border border-gray-200 z-10">
                          <img src="https://flagcdn.com/w160/eg.png" alt="Egypt" className="w-full h-auto object-cover opacity-100" />
                     </div>
 
@@ -111,11 +111,11 @@ const ContactPage: React.FC<ContactPageProps> = ({ lang, settings }) => {
                 </div>
             </ScrollReveal>
 
-            {/* Oman Branch - ADDED */}
+            {/* Oman Branch */}
             <ScrollReveal animation="fade-up" delay={300}>
                 <div className="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-tertiary/50 transition-all h-full relative overflow-hidden group">
-                    {/* Flag - Fixed Clarity */}
-                    <div className="absolute top-4 right-4 rtl:right-auto rtl:left-4 shadow-md rounded overflow-hidden w-12 md:w-16">
+                    {/* Flag - Enhanced Visibility */}
+                    <div className="absolute top-4 right-4 rtl:right-auto rtl:left-4 shadow-xl rounded-md overflow-hidden w-12 md:w-16 border border-gray-200 z-10">
                          <img src="https://flagcdn.com/w160/om.png" alt="Oman" className="w-full h-auto object-cover opacity-100" />
                     </div>
 
@@ -166,7 +166,6 @@ const ContactPage: React.FC<ContactPageProps> = ({ lang, settings }) => {
                         <div className="grid md:grid-cols-2 gap-6">
                             <div className="space-y-2">
                                 <label className="text-sm font-bold text-gray-700">{isAr ? 'الاسم' : 'Name'}</label>
-                                {/* text-base on input prevents iOS zoom */}
                                 <input type="text" className="w-full px-4 py-3 md:py-4 text-base rounded-xl bg-gray-50 border border-gray-200 focus:border-tertiary focus:ring-2 focus:ring-tertiary/20 outline-none transition-all" />
                             </div>
                             <div className="space-y-2">
@@ -200,7 +199,6 @@ const ContactPage: React.FC<ContactPageProps> = ({ lang, settings }) => {
             
             <ScrollReveal animation="fade-up" delay={300}>
                 <div className="rounded-3xl overflow-hidden shadow-lg h-full min-h-[300px] md:min-h-[400px] bg-gray-200 relative group">
-                     {/* Simulating a Map focusing on Riyadh for example */}
                     <div className="absolute inset-0 bg-[url('https://www2.0zz0.com/2025/12/17/14/353044167.jpg')] bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-700"></div>
                     <div className="absolute inset-0 bg-primary/10 pointer-events-none"></div>
                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">

@@ -116,6 +116,31 @@ const Portfolio: React.FC<PortfolioProps> = ({ lang }) => {
   return (
     <div className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Stats Strip - Moved to Top */}
+        <ScrollReveal animation="fade-up" delay={100} className="w-full mb-16">
+            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100 grid grid-cols-1 md:grid-cols-3 gap-8 text-center shadow-sm">
+                <div className="group border-b md:border-b-0 md:border-l border-gray-200 pb-4 md:pb-0 last:border-0 md:last:border-l-0 rtl:md:border-l-0 rtl:md:border-r">
+                    <div className="text-4xl font-black text-secondary mb-1 group-hover:text-tertiary transition-colors">
+                        <AnimatedCounter end={100} suffix="%" />
+                    </div>
+                    <div className="text-sm text-gray-500 font-bold">{isAr ? 'التزام بالمواصفات' : 'Specs Compliance'}</div>
+                </div>
+                <div className="group border-b md:border-b-0 md:border-l border-gray-200 pb-4 md:pb-0 last:border-0 md:last:border-l-0 rtl:md:border-l-0 rtl:md:border-r">
+                    <div className="text-4xl font-black text-secondary mb-1 group-hover:text-tertiary transition-colors">
+                        <AnimatedCounter end={50} prefix="+" />
+                    </div>
+                    <div className="text-sm text-gray-500 font-bold">{isAr ? 'مشروع ضخم' : 'Mega Projects'}</div>
+                </div>
+                <div className="group">
+                    <div className="text-4xl font-black text-secondary mb-1 group-hover:text-tertiary transition-colors">
+                        <AnimatedCounter end={3} suffix={isAr ? ' فروع' : ' Branches'} />
+                    </div>
+                    <div className="text-sm text-gray-500 font-bold">{isAr ? 'تغطية إقليمية' : 'Regional Coverage'}</div>
+                </div>
+            </div>
+        </ScrollReveal>
+
         {/* Section Header */}
         <ScrollReveal animation="fade-down">
             <div className="text-center mb-16">
@@ -129,8 +154,8 @@ const Portfolio: React.FC<PortfolioProps> = ({ lang }) => {
                 </h3>
                 <p className="max-w-2xl mx-auto text-gray-500">
                     {isAr 
-                    ? 'نتبع منهجية دقيقة تبدأ من التصميم وحتى التشغيل والصيانة لضمان أعلى مستويات الجودة.' 
-                    : 'We follow a precise methodology starting from design to commissioning and maintenance to ensure highest quality.'}
+                    ? 'نتبع في فرست اير منهجية دقيقة تبدأ من التصميم وحتى التشغيل والصيانة لضمان أعلى مستويات الجودة.' 
+                    : 'We follow a precise methodology at First Air starting from design to commissioning and maintenance to ensure highest quality.'}
                 </p>
             </div>
         </ScrollReveal>
@@ -176,30 +201,6 @@ const Portfolio: React.FC<PortfolioProps> = ({ lang }) => {
                 </ScrollReveal>
             ))}
         </div>
-        
-        {/* Stats Strip */}
-        <ScrollReveal animation="fade-up" delay={400} className="w-full">
-            <div className="mt-16 bg-gray-50 rounded-2xl p-8 border border-gray-100 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                <div className="group border-b md:border-b-0 md:border-l border-gray-200 pb-4 md:pb-0 last:border-0 md:last:border-l-0 rtl:md:border-l-0 rtl:md:border-r">
-                    <div className="text-4xl font-black text-secondary mb-1 group-hover:text-tertiary transition-colors">
-                        <AnimatedCounter end={100} suffix="%" />
-                    </div>
-                    <div className="text-sm text-gray-500 font-bold">{isAr ? 'التزام بالمواصفات' : 'Specs Compliance'}</div>
-                </div>
-                <div className="group border-b md:border-b-0 md:border-l border-gray-200 pb-4 md:pb-0 last:border-0 md:last:border-l-0 rtl:md:border-l-0 rtl:md:border-r">
-                    <div className="text-4xl font-black text-secondary mb-1 group-hover:text-tertiary transition-colors">
-                        <AnimatedCounter end={50} prefix="+" />
-                    </div>
-                    <div className="text-sm text-gray-500 font-bold">{isAr ? 'مشروع ضخم' : 'Mega Projects'}</div>
-                </div>
-                <div className="group">
-                    <div className="text-4xl font-black text-secondary mb-1 group-hover:text-tertiary transition-colors">
-                        <AnimatedCounter end={2} suffix=" Branches" />
-                    </div>
-                    <div className="text-sm text-gray-500 font-bold">{isAr ? 'تغطية إقليمية' : 'Regional Coverage'}</div>
-                </div>
-            </div>
-        </ScrollReveal>
       </div>
     </div>
   );

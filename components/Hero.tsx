@@ -201,7 +201,7 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
       </div>
 
       <div className="relative z-20 bg-gradient-to-b from-primary/95 to-primary border-t border-white/5 py-8 sm:py-16 overflow-hidden">
-          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none"></div>
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-30 pointer-events-none"></div>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-8 md:gap-12">
               <div className={`w-full md:w-1/3 text-center ${isAr ? 'md:text-right' : 'md:text-left'} z-10`}>
                    <div className="flex items-center gap-2 justify-center md:justify-start mb-2">
