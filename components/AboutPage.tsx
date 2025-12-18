@@ -50,8 +50,8 @@ const AboutPage: React.FC<AboutPageProps> = ({ lang, settings }) => {
                     <div className="space-y-4 text-gray-600 leading-relaxed text-sm md:text-lg">
                         <p>
                             {isAr 
-                            ? 'First Air for Contracting هي شركة متخصصة في مقاولات الأعمال الكهروميكانيكية (MEP)، تمتلك خبرة تنفيذية ممتدة، وتعمل حاليًا من خلال فروعها في جمهورية مصر العربية والمملكة العربية السعودية على تنفيذ مشروعات كبرى وفق أعلى المعايير الهندسية الدولية.'
-                            : 'First Air for Contracting is specialized in MEP works, with extensive executive experience, currently operating through its branches in Egypt and KSA to execute major projects according to the highest international engineering standards.'}
+                            ? 'First Air for Contracting هي شركة متخصصة في مقاولات الأعمال الكهروميكانيكية (MEP)، تمتلك خبرة تنفيذية ممتدة، وتعمل حاليًا من خلال فروعها في جمهورية مصر العربية والمملكة العربية السعودية وسلطنة عمان على تنفيذ مشروعات كبرى وفق أعلى المعايير الهندسية الدولية.'
+                            : 'First Air for Contracting is specialized in MEP works, with extensive executive experience, currently operating through its branches in Egypt, KSA, and Oman to execute major projects according to the highest international engineering standards.'}
                         </p>
                         <p>
                             {isAr
@@ -67,7 +67,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ lang, settings }) => {
                     
                     <div className="grid grid-cols-2 gap-6 mt-8">
                         <div className="border-l-4 border-tertiary pl-4 rtl:border-l-0 rtl:border-r-4 rtl:pr-4">
-                            <span className="block text-3xl md:text-4xl font-bold text-primary mb-1">+2</span>
+                            <span className="block text-3xl md:text-4xl font-bold text-primary mb-1">+3</span>
                             <span className="text-sm text-gray-500">{isAr ? 'فروع إقليمية' : 'Regional Branches'}</span>
                         </div>
                         <div className="border-l-4 border-tertiary pl-4 rtl:border-l-0 rtl:border-r-4 rtl:pr-4">
@@ -86,11 +86,11 @@ const AboutPage: React.FC<AboutPageProps> = ({ lang, settings }) => {
                     <div className="w-14 h-14 md:w-16 md:h-16 bg-white rounded-2xl flex items-center justify-center text-primary text-xl md:text-2xl shadow-md mb-6">
                         <i className="fas fa-rocket"></i>
                     </div>
-                    <h3 className="text-xl md:text-2xl font-bold text-primary mb-4">{isAr ? 'تواجدنا في السعودية' : 'Presence in KSA'}</h3>
+                    <h3 className="text-xl md:text-2xl font-bold text-primary mb-4">{isAr ? 'تواجدنا في الخليج' : 'Presence in GCC'}</h3>
                     <p className="text-gray-600 leading-relaxed text-sm md:text-base">
                         {isAr
-                        ? 'تواصل First Air نقل خبراتها إلى سوق المملكة الذي يشهد نموًا متسارعًا، مساهمةً في تنفيذ أنظمة MEP استراتيجية تدعم مستهدفات رؤية السعودية 2030، مع الالتزام الكامل بمعايير الجودة والسلامة وتوطين الخبرات.'
-                        : 'First Air continues to transfer its expertise to the rapidly growing Saudi market, contributing to strategic MEP systems supporting Vision 2030, with full commitment to quality, safety, and localization.'}
+                        ? 'تواصل First Air نقل خبراتها إلى سوق الخليج (السعودية وعمان) الذي يشهد نموًا متسارعًا، مساهمةً في تنفيذ أنظمة MEP استراتيجية، مع الالتزام الكامل بمعايير الجودة والسلامة وتوطين الخبرات.'
+                        : 'First Air continues to transfer its expertise to the rapidly growing GCC market (KSA & Oman), contributing to strategic MEP systems, with full commitment to quality, safety, and localization.'}
                     </p>
                 </div>
             </ScrollReveal>
@@ -103,8 +103,8 @@ const AboutPage: React.FC<AboutPageProps> = ({ lang, settings }) => {
                     <h3 className="text-xl md:text-2xl font-bold text-white mb-4">{isAr ? 'فلسفتنا' : 'Our Philosophy'}</h3>
                     <p className="text-gray-300 leading-relaxed text-sm md:text-base">
                         {isAr
-                        ? 'تتموضع First Air كشريك هندسي وتنفيذي طويل المدى، وليس مجرد مقاول تنفيذ، حيث تركز على تقديم حلول مخصصة تلبي المتطلبات الفنية والتشغيلية لكل مشروع، وتحقق قيمة مستدامة لعملائها في مصر والمملكة.'
-                        : 'First Air positions itself as a long-term engineering partner, not just a contractor, focusing on providing customized solutions meeting technical requirements and creating sustainable value for clients in Egypt and KSA.'}
+                        ? 'تتموضع First Air كشريك هندسي وتنفيذي طويل المدى، وليس مجرد مقاول تنفيذ، حيث تركز على تقديم حلول مخصصة تلبي المتطلبات الفنية والتشغيلية لكل مشروع، وتحقق قيمة مستدامة لعملائها في مصر والمملكة وعمان.'
+                        : 'First Air positions itself as a long-term engineering partner, not just a contractor, focusing on providing customized solutions meeting technical requirements and creating sustainable value for clients in Egypt, KSA, and Oman.'}
                     </p>
                 </div>
             </ScrollReveal>

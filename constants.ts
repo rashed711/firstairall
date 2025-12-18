@@ -20,12 +20,13 @@ export const APP_CONFIG = {
         phone: '+966532425777', // Default/Primary
         phones: {
             ksa: '966532425777', // KSA Branch
-            egypt: '201065550024' // Egypt Branch (01065550024 formatted for WA)
+            egypt: '201065550024', // Egypt Branch (01065550024 formatted for WA)
+            oman: '966532425777'   // Oman Branch (Same as KSA per request)
         },
         email: 'info@firstair-sa.com',
         address: {
-            ar: 'مصر والسعودية',
-            en: 'Egypt & Saudi Arabia'
+            ar: 'مصر، السعودية، وسلطنة عمان',
+            en: 'Egypt, KSA & Oman'
         },
         // Coordinates for map links (KSA Branch as default)
         locationUrl: 'https://maps.google.com/?q=24.694970,46.724130' 

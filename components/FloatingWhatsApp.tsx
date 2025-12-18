@@ -64,6 +64,22 @@ const ContactFab: React.FC<ContactFabProps> = ({ type, lang, isOpen, onToggle, o
               </div>
           </button>
 
+          {/* Oman Option - ADDED */}
+          <button 
+              onClick={() => handleAction(APP_CONFIG.contact.phones.oman)}
+              className="flex items-center gap-3 bg-white p-2 pl-3 pr-4 rounded-full shadow-xl border border-gray-100 hover:bg-gray-50 transition-all group min-w-[170px]"
+          >
+              <div className="w-10 h-10 rounded-full overflow-hidden border border-gray-200 shadow-sm relative">
+                  <img src="https://flagcdn.com/w80/om.png" alt="Oman" className="w-full h-full object-cover" />
+              </div>
+              <div className="flex flex-col items-start">
+                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">{isAr ? 'عمان' : 'Oman Branch'}</span>
+                  <span className={`text-sm font-bold transition-colors ${isWA ? 'text-[#128C7E]' : 'text-primary'}`}>
+                      {isAr ? `${config.itemActionAr} الآن` : `${config.itemActionEn} Now`}
+                  </span>
+              </div>
+          </button>
+
           {/* Egypt Option */}
           <button 
               onClick={() => handleAction(APP_CONFIG.contact.phones.egypt)}
