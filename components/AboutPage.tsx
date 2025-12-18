@@ -35,7 +35,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ lang, settings }) => {
                     <div className="relative">
                         <div className="absolute -inset-4 bg-tertiary/20 rounded-xl transform rotate-3"></div>
                         <img 
-                            src="https://i.pinimg.com/1200x/24/63/81/246381c237c6fa0e851ea3130d4f40a4.jpg" 
+                            src="https://www2.0zz0.com/2025/12/18/06/202687878.jpg" 
                             alt="Engineering Team" 
                             className="relative rounded-xl shadow-2xl w-full"
                         />
