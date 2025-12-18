@@ -86,24 +86,23 @@ function App() {
                 <div className={contentClass}>
                   <Hero lang={lang} settings={mockSettings} onNavigate={navigate} />
 
-                  {/* Services Section */}
-                  <div className="py-24 bg-white relative overflow-hidden">
+                  {/* Services Section - Updated Padding from 96px (py-24) to 5px */}
+                  <div className="pt-[5px] pb-[5px] bg-white relative overflow-hidden">
                      <div className="absolute top-0 left-0 w-64 h-64 bg-secondary/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
                      <div className="absolute bottom-0 right-0 w-96 h-96 bg-tertiary/5 rounded-full translate-x-1/2 translate-y-1/2"></div>
 
                     <ScrollReveal animation="fade-up">
-                      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-12">
+                      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-8">
                         <div className="text-center">
                           <h2 className="text-sm text-tertiary font-bold tracking-wide uppercase mb-2 flex items-center justify-center gap-2">
                             <span className="w-8 h-[2px] bg-tertiary inline-block"></span>
                             {isAr ? 'خدماتنا' : 'Our Services'}
                             <span className="w-8 h-[2px] bg-tertiary inline-block"></span>
                           </h2>
-                          {/* UPDATED SLOGAN HERE */}
-                          <h3 className="text-3xl md:text-5xl font-extrabold text-primary mb-4">
+                          <h3 className="text-3xl md:text-5xl font-extrabold text-primary mb-2">
                             {isAr ? 'حلول هندسية متكاملة' : 'Integrated Engineering Solutions'}
                           </h3>
-                          <p className="max-w-2xl mx-auto text-gray-500">
+                          <p className="max-w-2xl mx-auto text-gray-500 text-sm md:text-base">
                                {isAr ? 'نقدم مجموعة واسعة من الخدمات لتلبية جميع احتياجاتك' : 'We offer a wide range of services to meet all your needs'}
                           </p>
                         </div>
@@ -117,7 +116,7 @@ function App() {
                                     <ServiceCard 
                                         service={service} 
                                         lang={lang} 
-                                        index={0} // Index handled by ScrollReveal delay
+                                        index={0} 
                                         onClick={handleServiceClick}
                                     />
                                 </ScrollReveal>
@@ -125,7 +124,7 @@ function App() {
                         </div>
                     </div>
                       
-                    <div className="text-center mt-12 max-w-7xl mx-auto px-4">
+                    <div className="text-center mt-8 mb-4 max-w-7xl mx-auto px-4">
                         <ScrollReveal animation="zoom-in" delay={600}>
                           <button 
                           onClick={() => navigate('services')}
