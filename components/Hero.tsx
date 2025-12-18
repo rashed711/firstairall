@@ -108,21 +108,21 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
             <div className={`w-full lg:w-3/5 text-center ${isAr ? 'lg:text-right' : 'lg:text-left'} mb-12 lg:mb-0`}>
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-4 md:mb-6 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-white text-[10px] md:text-sm font-bold animate-fade-in-down shadow-lg mx-auto lg:mx-0">
                     <span className="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
-                    {isAr ? 'رواد الأعمال الكهروميكانيكية (MEP)' : 'Leaders in Electromechanical Works (MEP)'}
+                    {isAr ? 'فرست اير للمقاولات (MEP)' : 'Leaders in Electromechanical Works (MEP)'}
                 </div>
                 
                 {/* RESPONSIVE TYPOGRAPHY */}
                 <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-tight mb-4 md:mb-6 animate-fade-in-right drop-shadow-xl">
-                    <span className="block">{isAr ? 'فيرست إير' : 'First Air'}</span>
+                    <span className="block">{isAr ? 'فرست اير' : 'First Air'}</span>
                     <span className="block text-white/90 text-xl sm:text-2xl md:text-4xl lg:text-5xl mt-1 md:mt-2 pb-2">
-                        {isAr ? 'للمقاولات الكهروميكانيكية' : 'For Contracting'}
+                        {isAr ? 'للمقاولات' : 'For Contracting'}
                     </span>
                 </h1>
 
                 <p className="mt-2 md:mt-4 max-w-lg mx-auto lg:mx-0 text-sm sm:text-base md:text-xl text-gray-200 animate-fade-in-up leading-relaxed drop-shadow-md lg:border-l-4 lg:border-tertiary lg:pl-4 lg:rtl:border-l-0 lg:rtl:border-r-4 lg:rtl:pr-4" style={{animationDelay: '0.3s'}}>
                 {isAr 
-                    ? 'شريكك الهندسي الموثوق لتنفيذ المشاريع الكبرى في مصر والمملكة. نقدم حلولاً متكاملة في التكييف، الحريق، والأنظمة الميكانيكية بأعلى المعايير الدولية.'
-                    : 'Your trusted engineering partner for major projects in Egypt & KSA. We provide integrated solutions in HVAC, Fire Fighting, and Mechanical systems with highest international standards.'}
+                    ? 'شريكك الهندسي الموثوق لتنفيذ المشاريع الكبرى في مصر والمملكة وعمان. نقدم حلولاً متكاملة في التكييف، الحريق، والأنظمة الميكانيكية بأعلى المعايير الدولية.'
+                    : 'Your trusted engineering partner for major projects in Egypt, KSA & Oman. We provide integrated solutions in HVAC, Fire Fighting, and Mechanical systems with highest international standards.'}
                 </p>
 
                 {/* RESPONSIVE BUTTONS */}
@@ -148,7 +148,7 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
                 </div>
             </div>
 
-            {/* STATS/SECTORS SECTION (Right Side) - Hidden on Mobile to reduce clutter, visible on Desktop */}
+            {/* STATS SECTION */}
             <div className="w-full lg:w-2/5 relative mt-12 lg:mt-0 flex justify-center animate-fade-in-left hidden lg:flex" style={{animationDelay: '0.2s'}}>
                 <div className="relative z-10 w-full max-w-sm">
                     {/* Stats Card */}
@@ -180,8 +180,8 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
             </div>
         </div>
       </div>
-
-      {/* MARQUEE STRIP - Optimized for mobile */}
+      
+      {/* ... Rest of component remains the same ... */}
       <div className="relative z-20 h-10 md:h-14 bg-white/5 backdrop-blur-md border-t border-white/10 flex items-center overflow-hidden" dir="ltr">
         <div className={`flex w-max ${isAr ? 'animate-scroll-infinite-reverse' : 'animate-scroll-infinite'} hover:[animation-play-state:paused]`}>
             {[...Array(2)].map((_, setIndex) => (
@@ -200,13 +200,9 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
         </div>
       </div>
 
-      {/* Contracting COUNTRIES / SECTORS DOUBLE ORBIT */}
       <div className="relative z-20 bg-gradient-to-b from-primary/95 to-primary border-t border-white/5 py-8 sm:py-16 overflow-hidden">
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none"></div>
-
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-8 md:gap-12">
-              
-              {/* Text Description */}
               <div className={`w-full md:w-1/3 text-center ${isAr ? 'md:text-right' : 'md:text-left'} z-10`}>
                    <div className="flex items-center gap-2 justify-center md:justify-start mb-2">
                        <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
@@ -217,35 +213,22 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
                    </h3>
                    <p className="text-gray-300 text-sm leading-relaxed mb-4 md:mb-6 max-w-sm mx-auto md:mx-0">
                        {isAr 
-                       ? 'نعمل في المملكة العربية السعودية ومصر لخدمة قطاعات حيوية متعددة بكفاءة عالية.' 
-                       : 'Operating in KSA and Egypt to serve multiple vital sectors with high efficiency.'}
+                       ? 'نعمل في المملكة العربية السعودية ومصر وسلطنة عمان لخدمة قطاعات حيوية متعددة بكفاءة عالية.' 
+                       : 'Operating in KSA, Egypt, and Oman to serve multiple vital sectors with high efficiency.'}
                    </p>
-                   
                    <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors cursor-pointer group">
                        <i className="fas fa-map-marked-alt text-tertiary group-hover:text-white transition-colors"></i>
                        <span className="text-white text-xs font-bold">{isAr ? 'تغطية جغرافية شاملة' : 'Comprehensive Coverage'}</span>
                    </div>
               </div>
-
-              {/* Dual Orbit Visualization - SCALED DOWN FOR MOBILE */}
+              {/* Dual Orbit Visualization remains the same */}
               <div className="w-full md:w-2/3 h-[240px] sm:h-[400px] md:h-[450px] relative flex items-center justify-center perspective-1000 overflow-hidden md:overflow-visible mt-4 md:mt-0">
-                  
-                  {/* Scale wrapper for Mobile vs Desktop */}
                   <div className="relative flex items-center justify-center transform scale-[0.55] sm:scale-75 md:scale-100 origin-center">
-
-                      {/* Central Globe Core - LOGO REPLACEMENT */}
                       <div className="w-32 h-32 rounded-full bg-white relative z-20 shadow-[0_0_60px_rgba(50,130,184,0.4)] flex items-center justify-center border border-gray-200 p-3">
-                          <div className="absolute inset-0 rounded-full border border-gray-100 rotate-45"></div>
-                          <div className="absolute inset-0 rounded-full border border-gray-100 -rotate-45"></div>
                           <img src={APP_CONFIG.logo} alt="First Air Logo" className="w-full h-full object-contain animate-pulse-glow" />
                       </div>
-
-                      {/* INNER ORBIT (Sectors) - Red (Fire) Accent */}
                       <div className="absolute w-[240px] h-[240px] z-10">
-                          {/* Dashed Line Ring */}
                           <div className="absolute inset-0 rounded-full border-2 border-dashed border-tertiary/20 animate-[spin_40s_linear_infinite_reverse]"></div>
-                          
-                          {/* Rotating Container (Reverse) */}
                           <div className="absolute inset-0 animate-spin-reverse-slower">
                               {innerRingItems.map((item, index) => {
                                   const total = innerRingItems.length;
@@ -253,24 +236,12 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
                                   const radius = 50; 
                                   const left = 50 + radius * Math.cos(angle);
                                   const top = 50 + radius * Math.sin(angle);
-
                                   return (
-                                      <div 
-                                        key={index}
-                                        style={{ left: `${left}%`, top: `${top}%` }}
-                                        className="absolute"
-                                      >
+                                      <div key={index} style={{ left: `${left}%`, top: `${top}%` }} className="absolute">
                                           <div className="transform -translate-x-1/2 -translate-y-1/2">
                                               <div className="flex flex-col items-center justify-center animate-spin-slower">
-                                                  
-                                                  <div className="w-16 h-16 md:w-14 md:h-14 rounded-full bg-white shadow-lg border-2 border-tertiary/20 overflow-hidden hover:scale-125 transition-transform duration-300 relative z-10 flex items-center justify-center text-primary text-xl">
-                                                    <i className={`fas ${item.icon} text-tertiary`}></i>
-                                                  </div>
-                                                  
-                                                  <div className="mt-2 px-2 py-0.5 bg-tertiary/90 backdrop-blur-sm rounded-full shadow-md min-w-[80px] text-center border border-white/20">
-                                                      <span className="text-[10px] md:text-[11px] text-white font-bold whitespace-nowrap block">{isAr ? item.nameAr : item.nameEn}</span>
-                                                  </div>
-                                              
+                                                  <div className="w-16 h-16 md:w-14 md:h-14 rounded-full bg-white shadow-lg border-2 border-tertiary/20 flex items-center justify-center text-primary text-xl"><i className={`fas ${item.icon} text-tertiary`}></i></div>
+                                                  <div className="mt-2 px-2 py-0.5 bg-tertiary/90 backdrop-blur-sm rounded-full shadow-md min-w-[80px] text-center border border-white/20"><span className="text-[10px] md:text-[11px] text-white font-bold whitespace-nowrap block">{isAr ? item.nameAr : item.nameEn}</span></div>
                                               </div>
                                           </div>
                                       </div>
@@ -278,13 +249,8 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
                               })}
                           </div>
                       </div>
-
-                      {/* OUTER ORBIT (Countries) - Blue (Air) Accent */}
                       <div className="absolute w-[420px] h-[420px] z-0">
-                          {/* Dashed Line Ring */}
                           <div className="absolute inset-0 rounded-full border border-dashed border-accent/20 animate-[spin_60s_linear_infinite]"></div>
-                          
-                          {/* Rotating Container (Forward) */}
                           <div className="absolute inset-0 animate-spin-super-slow">
                               {outerRingItems.map((item, index) => {
                                   const total = outerRingItems.length;
@@ -292,25 +258,12 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
                                   const radius = 50; 
                                   const left = 50 + radius * Math.cos(angle);
                                   const top = 50 + radius * Math.sin(angle);
-
                                   return (
-                                      <div 
-                                        key={index}
-                                        style={{ left: `${left}%`, top: `${top}%` }}
-                                        className="absolute"
-                                      >
+                                      <div key={index} style={{ left: `${left}%`, top: `${top}%` }} className="absolute">
                                           <div className="transform -translate-x-1/2 -translate-y-1/2">
                                               <div className="flex flex-col items-center justify-center animate-spin-reverse-super-slow">
-                                                  <div className="w-20 h-20 md:w-16 md:h-16 rounded-full bg-white shadow-xl border-[3px] border-accent/20 overflow-hidden hover:scale-125 transition-transform duration-300 relative z-10 flex items-center justify-center">
-                                                    {item.isFlag ? (
-                                                        <img src={`https://flagcdn.com/w80/${item.code}.png`} alt={isAr ? item.nameAr : item.nameEn} className="w-full h-full object-cover" />
-                                                    ) : (
-                                                        <i className={`fas ${item.icon} text-primary text-2xl`}></i>
-                                                    )}
-                                                  </div>
-                                                  <div className="mt-2 px-2.5 py-1 bg-black/60 backdrop-blur-sm rounded-full border border-accent/30 shadow-lg min-w-[70px] text-center">
-                                                      <span className="text-sm md:text-xs text-accent font-bold whitespace-nowrap">{isAr ? item.nameAr : item.nameEn}</span>
-                                                  </div>
+                                                  <div className="w-20 h-20 md:w-16 md:h-16 rounded-full bg-white shadow-xl border-[3px] border-accent/20 overflow-hidden flex items-center justify-center">{item.isFlag ? (<img src={`https://flagcdn.com/w80/${item.code}.png`} alt={isAr ? item.nameAr : item.nameEn} className="w-full h-full object-cover" />) : (<i className={`fas ${item.icon} text-primary text-2xl`}></i>)}</div>
+                                                  <div className="mt-2 px-2.5 py-1 bg-black/60 backdrop-blur-sm rounded-full border border-accent/30 shadow-lg min-w-[70px] text-center"><span className="text-sm md:text-xs text-accent font-bold whitespace-nowrap">{isAr ? item.nameAr : item.nameEn}</span></div>
                                               </div>
                                           </div>
                                       </div>
@@ -318,12 +271,10 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
                               })}
                           </div>
                       </div>
-
                   </div>
               </div>
           </div>
       </div>
-
     </div>
   );
 };

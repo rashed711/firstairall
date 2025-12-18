@@ -32,7 +32,7 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, activeTab, onN
 
             {/* Global Footer */}
             <div className="bg-primary text-white pt-16 pb-8 border-t-8 border-tertiary relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] opacity-30"></div>
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] opacity-90"></div>
 
                 <div className="max-w-7xl mx-auto px-4 relative z-10">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-start mb-12">

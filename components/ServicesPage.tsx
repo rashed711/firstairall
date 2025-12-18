@@ -45,7 +45,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ services, lang, onServiceCl
         {/* Call to Action Banner */}
         <ScrollReveal animation="zoom-in" delay={300} className="mt-16 md:mt-20">
             <div className="bg-gradient-to-r from-primary to-secondary rounded-3xl p-8 md:p-12 text-white text-center shadow-2xl relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-90"></div>
                 <div className="relative z-10">
                     <h2 className="text-2xl md:text-3xl font-bold mb-4">
                         {isAr ? 'لم تجد ما تبحث عنه؟' : 'Didn\'t find what you are looking for?'}
