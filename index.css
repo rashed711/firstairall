@@ -1,10 +1,18 @@
-/* @tailwind directives removed to prevent runtime errors in preview. 
-   Styles are handled by the CDN script in index.html */
 
 /* Global Styles */
-body {
+html, body {
   background-color: #F4F7F6; 
+  overflow-x: hidden !important;
+  width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  touch-action: manipulation; /* تحسين استجابة اللمس */
+}
+
+#root {
   overflow-x: hidden;
+  width: 100%;
 }
 
 .glass-effect {
@@ -21,17 +29,23 @@ html {
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   background: #f1f1f1; 
 }
 ::-webkit-scrollbar-thumb {
   background: #3282B8; 
-  border-radius: 5px;
+  border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #0F2C59; 
+}
+
+/* Utility to kill overflow */
+.no-overflow {
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 /* Ensure proper input styling */

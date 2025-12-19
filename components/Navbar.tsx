@@ -45,20 +45,17 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
           : 'bg-transparent h-20 md:h-24'
       }`}>
         <div className="max-w-7xl mx-auto px-4 h-full flex justify-between items-center">
-          {/* Logo */}
+          {/* Logo & Site Name */}
           <div 
-            className="flex items-center gap-3 cursor-pointer group"
+            className="flex items-center gap-2 md:gap-3 cursor-pointer group"
             onClick={() => handleNavClick('home')}
           >
-            <div className="w-12 h-12 md:w-14 md:h-14 bg-white rounded-xl p-2 shadow-lg group-hover:scale-105 transition-transform">
+            <div className="w-10 h-10 md:w-14 md:h-14 bg-white rounded-xl p-1.5 md:p-2 shadow-lg group-hover:scale-105 transition-transform shrink-0">
               <img src={APP_CONFIG.logo} alt="Logo" className="w-full h-full object-contain" />
             </div>
-            <div className="hidden sm:block">
-              <div className="text-white font-black text-lg md:text-xl leading-none">
+            <div className="flex flex-col justify-center">
+              <div className="text-white font-black text-sm sm:text-lg md:text-xl leading-none">
                 {isAr ? APP_CONFIG.siteName.ar : APP_CONFIG.siteName.en}
-              </div>
-              <div className="text-tertiary font-bold text-[10px] tracking-widest mt-1 uppercase">
-                Electromechanical
               </div>
             </div>
           </div>
@@ -103,13 +100,21 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
             </button>
           </div>
 
-          {/* Mobile Toggle */}
-          <button 
-            className="md:hidden text-white p-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            <i className={`fas ${isMobileMenuOpen ? 'fa-times' : 'fa-bars'} text-2xl`}></i>
-          </button>
+          {/* Mobile Right Actions */}
+          <div className="flex md:hidden items-center gap-3">
+            <button
+              onClick={() => setLang(isAr ? 'en' : 'ar')}
+              className="text-white text-xs font-bold px-2 py-1 bg-white/10 rounded-lg border border-white/20"
+            >
+              {isAr ? 'EN' : 'AR'}
+            </button>
+            <button 
+              className="text-white p-2"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              <i className={`fas ${isMobileMenuOpen ? 'fa-times' : 'fa-bars'} text-2xl`}></i>
+            </button>
+          </div>
         </div>
       </nav>
 
