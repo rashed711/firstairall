@@ -46,7 +46,7 @@ function App() {
 
   const { activeTab, selectedService, selectedArticle, selectedProduct, isLoading, showContent, navigate } = useNavigation();
 
-  // Sorting Logic: Newest First (Descending by ID)
+  // Sorting Logic: Newest First
   const sortedArticles = useMemo(() => [...articles].sort((a, b) => b.id - a.id), [articles]);
   const sortedMethodology = useMemo(() => [...methodology].sort((a, b) => b.id - a.id), [methodology]);
   const sortedProducts = useMemo(() => [...products].sort((a, b) => b.id - a.id), [products]);
@@ -76,14 +76,14 @@ function App() {
             <Hero lang={lang} settings={settings} onNavigate={navigate} />
             
             {/* Services Section */}
-            <div className="py-24 bg-white overflow-hidden">
-              <div className="max-w-7xl mx-auto px-4 mb-16 text-center">
+            <div className="py-16 md:py-24 bg-white overflow-hidden">
+              <div className="max-w-7xl mx-auto px-4 mb-10 md:mb-16 text-center">
                   <ScrollReveal animation="fade-down">
                     <h2 className="text-3xl md:text-5xl font-black text-primary mb-4">{isAr ? 'خدماتنا الهندسية' : 'Our Engineering Services'}</h2>
-                    <div className="w-20 h-1.5 bg-tertiary mx-auto rounded-full"></div>
+                    <div className="w-16 md:w-20 h-1 md:h-1.5 bg-tertiary mx-auto rounded-full"></div>
                   </ScrollReveal>
               </div>
-              <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+              <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
                 {services.slice(0, 6).map((s, idx) => (
                   <ScrollReveal key={s.id} animation="fade-up" delay={idx * 150}>
                     <ServiceCard service={s} lang={lang} index={0} onClick={() => navigate('service', s)} />
@@ -100,9 +100,9 @@ function App() {
               onViewAll={() => navigate('projects')}
             />
 
-            {/* Products Section - Updated Visualization */}
-            <div className="py-24 bg-gray-50 overflow-hidden">
-               <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-6">
+            {/* Products Section */}
+            <div className="py-16 md:py-24 bg-gray-50 overflow-hidden">
+               <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center md:items-end mb-10 md:mb-16 gap-6">
                   <ScrollReveal animation="fade-right">
                     <div className="text-center md:text-start">
                       <h2 className="text-3xl md:text-4xl font-black text-primary uppercase tracking-tighter">
@@ -112,46 +112,38 @@ function App() {
                     </div>
                   </ScrollReveal>
                   <ScrollReveal animation="fade-left">
-                    <button onClick={() => navigate('products')} className="bg-white px-8 py-4 rounded-2xl text-primary font-black shadow-sm border border-gray-100 hover:bg-primary hover:text-white hover:shadow-2xl transition-all flex items-center gap-3">
+                    <button onClick={() => navigate('products')} className="bg-white px-6 md:px-8 py-3 md:py-4 rounded-2xl text-primary font-black shadow-sm border border-gray-100 hover:bg-primary hover:text-white transition-all flex items-center gap-3 text-sm md:text-base">
                       {isAr ? 'كتالوج المنتجات' : 'Products Catalog'} <i className={`fas fa-arrow-${isAr ? 'left' : 'right'}`}></i>
                     </button>
                   </ScrollReveal>
                </div>
                
-               <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+               <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                   {sortedProducts.slice(0, 4).map((p, idx) => (
                     <ScrollReveal key={p.id} animation="zoom-in" delay={idx * 150}>
                       <div 
                         onClick={() => navigate('product', p)} 
                         className="group bg-white rounded-[2.5rem] p-4 shadow-sm border border-gray-100 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all duration-500 cursor-pointer h-full flex flex-col"
                       >
-                        <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-[#f8f9fa] flex items-center justify-center p-8">
-                            <div className="absolute inset-0 bg-gradient-to-br from-white to-transparent opacity-50"></div>
+                        <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-[#f8f9fa] flex items-center justify-center p-4 md:p-8">
                             <img 
                                 src={p.image} 
-                                className="w-full h-full object-contain relative z-10 transform group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-700" 
+                                className="w-full h-full object-contain relative z-10 transform group-hover:scale-110 transition-transform duration-700" 
                             />
-                            {/* Overlay Icon */}
                             <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-20">
-                                <div className="bg-white text-primary w-12 h-12 rounded-full flex items-center justify-center shadow-2xl scale-50 group-hover:scale-100 transition-transform">
+                                <div className="bg-white text-primary w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-2xl scale-50 group-hover:scale-100 transition-transform">
                                     <i className="fas fa-eye"></i>
                                 </div>
                             </div>
                         </div>
-                        <div className="p-5 flex flex-col flex-1">
-                            <div className="flex justify-between items-start mb-2">
-                                <span className="text-[10px] font-black text-tertiary bg-tertiary/5 px-3 py-1 rounded-full uppercase tracking-widest">
-                                    {categories.find(c => c.id === p.categoryId)?.[isAr ? 'name_ar' : 'name_en']}
-                                </span>
-                            </div>
-                            <h4 className="font-black text-primary text-xl truncate group-hover:text-tertiary transition-colors">{isAr ? p.title_ar : p.title_en}</h4>
-                            <p className="text-xs text-gray-400 font-bold mt-2 line-clamp-2 leading-relaxed">
+                        <div className="p-4 md:p-5 flex flex-col flex-1">
+                            <span className="text-[9px] md:text-[10px] font-black text-tertiary bg-tertiary/5 px-2 md:px-3 py-1 rounded-full uppercase tracking-widest w-fit mb-3">
+                                {categories.find(c => c.id === p.categoryId)?.[isAr ? 'name_ar' : 'name_en']}
+                            </span>
+                            <h4 className="font-black text-primary text-lg md:text-xl truncate group-hover:text-tertiary transition-colors">{isAr ? p.title_ar : p.title_en}</h4>
+                            <p className="text-[11px] md:text-xs text-gray-400 font-bold mt-2 line-clamp-2 leading-relaxed">
                                 {isAr ? p.description_ar : p.description_en}
                             </p>
-                            <div className="mt-4 pt-4 border-t border-gray-50 flex items-center text-primary font-black text-xs gap-2 group-hover:gap-4 transition-all">
-                                {isAr ? 'عرض المواصفات' : 'View Specs'}
-                                <i className={`fas fa-chevron-${isAr ? 'left' : 'right'} text-[10px]`}></i>
-                            </div>
                         </div>
                       </div>
                     </ScrollReveal>
@@ -160,27 +152,20 @@ function App() {
             </div>
 
             {/* Articles Section */}
-            <div className="py-24 bg-white overflow-hidden">
-              <div className="max-w-7xl mx-auto px-4 mb-16 text-center">
+            <div className="py-16 md:py-24 bg-white overflow-hidden">
+              <div className="max-w-7xl mx-auto px-4 mb-10 md:mb-16 text-center">
                   <ScrollReveal animation="fade-down">
                     <h2 className="text-3xl md:text-5xl font-black text-primary mb-4">{isAr ? 'المدونة الهندسية' : 'Engineering Blog'}</h2>
-                    <p className="text-gray-500 text-lg">{isAr ? 'ابقَ على اطلاع بأحدث المقالات والنصائح الهندسية' : 'Stay updated with our latest engineering insights'}</p>
+                    <p className="text-gray-500 text-sm md:text-lg">{isAr ? 'ابقَ على اطلاع بأحدث المقالات والنصائح الهندسية' : 'Stay updated with our latest engineering insights'}</p>
                   </ScrollReveal>
               </div>
-              <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10">
+              <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
                 {sortedArticles.slice(0, 3).map((a, idx) => (
                   <ScrollReveal key={a.id} animation="fade-up" delay={idx * 200}>
                     <ArticleCard article={a} lang={lang} index={0} onClick={() => navigate('article', a)} />
                   </ScrollReveal>
                 ))}
               </div>
-              <ScrollReveal animation="fade-up" delay={500}>
-                <div className="mt-16 text-center">
-                    <button onClick={() => navigate('articles')} className="bg-primary/5 text-primary px-10 py-4 rounded-full font-black hover:bg-primary hover:text-white transition-all shadow-sm">
-                        {isAr ? 'تصفح كافة المقالات' : 'Browse All Articles'}
-                    </button>
-                </div>
-              </ScrollReveal>
             </div>
           </div>
         );
