@@ -45,37 +45,37 @@ const ContactFab: React.FC<ContactFabProps> = ({ type, lang, isOpen, onToggle, o
     <div className="relative flex flex-col items-center gap-4">
       
       {/* MENU (Slides up) */}
-      <div className={`absolute bottom-full mb-4 flex flex-col gap-3 transition-all duration-300 transform origin-bottom ${
+      <div className={`absolute bottom-full mb-3 flex flex-col gap-2 transition-all duration-300 transform origin-bottom ${
           isOpen ? 'opacity-100 translate-y-0 scale-100 visible' : 'opacity-0 translate-y-8 scale-90 invisible pointer-events-none'
       }`}>
           {/* KSA Option */}
           <button 
               onClick={() => handleAction(APP_CONFIG.contact.phones.ksa)}
-              className="flex items-center gap-3 bg-white p-2 pl-3 pr-4 rounded-full shadow-xl border border-gray-100 hover:bg-gray-50 transition-all group min-w-[170px]"
+              className="flex items-center gap-3 bg-white p-1.5 pl-2 pr-3 rounded-full shadow-xl border border-gray-100 hover:bg-gray-50 transition-all group min-w-[140px] md:min-w-[170px]"
           >
-              <div className="w-10 h-10 rounded-full overflow-hidden border border-gray-200 shadow-sm relative">
+              <div className="w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden border border-gray-200 shadow-sm relative">
                   <img src="https://flagcdn.com/w80/sa.png" alt="KSA" className="w-full h-full object-cover" />
               </div>
               <div className="flex flex-col items-start">
-                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">{isAr ? 'السعودية' : 'KSA Branch'}</span>
-                  <span className={`text-sm font-bold transition-colors ${isWA ? 'text-[#128C7E]' : 'text-primary'}`}>
-                      {isAr ? `${config.itemActionAr} الآن` : `${config.itemActionEn} Now`}
+                  <span className="text-[8px] md:text-[10px] font-bold text-gray-400 uppercase tracking-wider">{isAr ? 'السعودية' : 'KSA'}</span>
+                  <span className={`text-xs md:text-sm font-bold transition-colors ${isWA ? 'text-[#128C7E]' : 'text-primary'}`}>
+                      {isAr ? config.itemActionAr : config.itemActionEn}
                   </span>
               </div>
           </button>
 
-          {/* Oman Option - ADDED */}
+          {/* Oman Option */}
           <button 
               onClick={() => handleAction(APP_CONFIG.contact.phones.oman)}
-              className="flex items-center gap-3 bg-white p-2 pl-3 pr-4 rounded-full shadow-xl border border-gray-100 hover:bg-gray-50 transition-all group min-w-[170px]"
+              className="flex items-center gap-3 bg-white p-1.5 pl-2 pr-3 rounded-full shadow-xl border border-gray-100 hover:bg-gray-50 transition-all group min-w-[140px] md:min-w-[170px]"
           >
-              <div className="w-10 h-10 rounded-full overflow-hidden border border-gray-200 shadow-sm relative">
+              <div className="w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden border border-gray-200 shadow-sm relative">
                   <img src="https://flagcdn.com/w80/om.png" alt="Oman" className="w-full h-full object-cover" />
               </div>
               <div className="flex flex-col items-start">
-                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">{isAr ? 'عمان' : 'Oman Branch'}</span>
-                  <span className={`text-sm font-bold transition-colors ${isWA ? 'text-[#128C7E]' : 'text-primary'}`}>
-                      {isAr ? `${config.itemActionAr} الآن` : `${config.itemActionEn} Now`}
+                  <span className="text-[8px] md:text-[10px] font-bold text-gray-400 uppercase tracking-wider">{isAr ? 'عمان' : 'Oman'}</span>
+                  <span className={`text-xs md:text-sm font-bold transition-colors ${isWA ? 'text-[#128C7E]' : 'text-primary'}`}>
+                      {isAr ? config.itemActionAr : config.itemActionEn}
                   </span>
               </div>
           </button>
@@ -83,15 +83,15 @@ const ContactFab: React.FC<ContactFabProps> = ({ type, lang, isOpen, onToggle, o
           {/* Egypt Option */}
           <button 
               onClick={() => handleAction(APP_CONFIG.contact.phones.egypt)}
-              className="flex items-center gap-3 bg-white p-2 pl-3 pr-4 rounded-full shadow-xl border border-gray-100 hover:bg-gray-50 transition-all group min-w-[170px]"
+              className="flex items-center gap-3 bg-white p-1.5 pl-2 pr-3 rounded-full shadow-xl border border-gray-100 hover:bg-gray-50 transition-all group min-w-[140px] md:min-w-[170px]"
           >
-              <div className="w-10 h-10 rounded-full overflow-hidden border border-gray-200 shadow-sm relative">
+              <div className="w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden border border-gray-200 shadow-sm relative">
                   <img src="https://flagcdn.com/w80/eg.png" alt="Egypt" className="w-full h-full object-cover" />
               </div>
               <div className="flex flex-col items-start">
-                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">{isAr ? 'مصر' : 'Egypt Branch'}</span>
-                  <span className={`text-sm font-bold transition-colors ${isWA ? 'text-[#128C7E]' : 'text-primary'}`}>
-                      {isAr ? `${config.itemActionAr} الآن` : `${config.itemActionEn} Now`}
+                  <span className="text-[8px] md:text-[10px] font-bold text-gray-400 uppercase tracking-wider">{isAr ? 'مصر' : 'Egypt'}</span>
+                  <span className={`text-xs md:text-sm font-bold transition-colors ${isWA ? 'text-[#128C7E]' : 'text-primary'}`}>
+                      {isAr ? config.itemActionAr : config.itemActionEn}
                   </span>
               </div>
           </button>
@@ -99,7 +99,7 @@ const ContactFab: React.FC<ContactFabProps> = ({ type, lang, isOpen, onToggle, o
 
       {/* BUTTON CONTAINER */}
       <div className="flex items-center gap-4">
-          {/* Text Label (Hidden on Mobile usually, or shown when closed) */}
+          {/* Text Label (Hidden on Mobile) */}
           <div className={`
               bg-white text-gray-700 px-4 py-1.5 rounded-full shadow-lg border border-gray-100
               font-bold text-xs tracking-wide whitespace-nowrap
@@ -112,26 +112,24 @@ const ContactFab: React.FC<ContactFabProps> = ({ type, lang, isOpen, onToggle, o
 
           <button 
               onClick={onToggle}
-              className="relative w-14 h-14 md:w-16 md:h-16 flex items-center justify-center focus:outline-none group z-20"
+              className="relative w-12 h-12 md:w-16 md:h-16 flex items-center justify-center focus:outline-none group z-20"
               aria-label={isWA ? 'WhatsApp' : 'Call'}
           >
               {/* Pulse Animation (Only when closed) */}
               {!isOpen && (
-                  <>
-                      <span className={`absolute inline-flex h-full w-full rounded-full opacity-30 animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite] ${config.pulseColor}`}></span>
-                  </>
+                  <span className={`absolute inline-flex h-full w-full rounded-full opacity-30 animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite] ${config.pulseColor}`}></span>
               )}
               
               {/* Main Icon Circle */}
               <div className={`
-                  relative w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center shadow-lg 
-                  transform transition-all duration-300 border-[3px] border-white overflow-hidden bg-gradient-to-tr
+                  relative w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center shadow-lg 
+                  transform transition-all duration-300 border-[2px] md:border-[3px] border-white overflow-hidden bg-gradient-to-tr
                   ${config.colorClass} ${config.shadowClass}
                   ${isOpen ? 'rotate-90 scale-90 grayscale' : 'rotate-0 scale-100 group-hover:scale-110'}
               `}>
                   {/* Icon Switching */}
-                  <i className={`${config.iconMain} text-3xl md:text-4xl text-white drop-shadow-md absolute transition-all duration-300 ${isOpen ? 'opacity-0 rotate-90 scale-50' : 'opacity-100 rotate-0 scale-100'}`}></i>
-                  <i className={`fas fa-times text-2xl md:text-3xl text-white drop-shadow-md absolute transition-all duration-300 ${isOpen ? 'opacity-100 -rotate-90 scale-100' : 'opacity-0 rotate-90 scale-50'}`}></i>
+                  <i className={`${config.iconMain} text-2xl md:text-4xl text-white drop-shadow-md absolute transition-all duration-300 ${isOpen ? 'opacity-0 rotate-90 scale-50' : 'opacity-100 rotate-0 scale-100'}`}></i>
+                  <i className={`fas fa-times text-xl md:text-3xl text-white drop-shadow-md absolute transition-all duration-300 ${isOpen ? 'opacity-100 -rotate-90 scale-100' : 'opacity-0 rotate-90 scale-50'}`}></i>
               </div>
           </button>
       </div>
@@ -155,14 +153,7 @@ const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({ lang }) => {
   };
 
   return (
-    <div className={`fixed bottom-6 ${isAr ? 'left-6' : 'right-6'} z-50 flex flex-col items-end gap-3 pointer-events-none`}>
-        {/* 
-            pointer-events-none on container so clicks pass through empty spaces.
-            pointer-events-auto is added to buttons automatically.
-            
-            FIX: Dynamic Z-Index ensures the active menu stays on top of the other button.
-        */}
-        
+    <div className={`fixed bottom-4 md:bottom-6 ${isAr ? 'left-4 md:left-6' : 'right-4 md:right-6'} z-50 flex flex-col items-end gap-2 md:gap-3 pointer-events-none`}>
         {/* Phone Button (Top) */}
         <div className={`pointer-events-auto relative transition-all duration-200 ${openMenu === 'phone' ? 'z-50' : 'z-30'}`}>
             <ContactFab 
