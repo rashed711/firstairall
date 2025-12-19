@@ -63,11 +63,11 @@ function App() {
       case 'admin': return <AdminDashboard lang={lang} services={services} setServices={setServices} products={products} setProducts={setProducts} articles={articles} setArticles={setArticles} categories={categories} setCategories={setCategories} methodology={methodology} setMethodology={setMethodology} settings={settings} setSettings={setSettings} />;
       case 'products': return <div className={cls}><ProductsPage products={sortedProducts} categories={categories} lang={lang} onProductClick={(p) => navigate('product', p)} /></div>;
       case 'product': return selectedProduct ? <ProductDetail product={selectedProduct} categories={categories} lang={lang} onBack={() => navigate('products')} onContact={() => navigate('contact')} /> : <div />;
-      case 'services': return <div className={cls}><ServicesPage services={services} lang={lang} onServiceClick={(s) => navigate('service', s)} /></div>;
+      case 'services': return <div className={cls}><ServicesPage services={services} lang={lang} onServiceClick={(s) => navigate('service', s)} onNavigate={navigate} /></div>;
       case 'service': return selectedService ? <ServiceDetail service={selectedService} lang={lang} onBack={() => navigate('services')} onContact={() => navigate('contact')} /> : <div />;
       case 'articles': return <div className={cls}><ArticlesPage articles={sortedArticles} lang={lang} onArticleClick={(a) => navigate('article', a)} /></div>;
       case 'article': return selectedArticle ? <ArticleDetail article={selectedArticle} lang={lang} onBack={() => navigate('articles')} /> : <div />;
-      case 'projects': return <div className={cls}><ProjectsPage methodology={sortedMethodology} lang={lang} /></div>;
+      case 'projects': return <div className={cls}><ProjectsPage methodology={sortedMethodology} lang={lang} onNavigate={navigate} /></div>;
       case 'contact': return <div className={cls}><ContactPage lang={lang} settings={settings} /></div>;
       case 'about': return <div className={cls}><AboutPage lang={lang} settings={settings} /></div>;
       case 'home': default:

@@ -4,12 +4,14 @@ import { Page, Service, Article, Product } from '../types';
 import { mockServices, mockArticles, mockProducts } from '../data/mockData';
 
 export const useNavigation = () => {
-  const getStateFromPathname = (): { tab: Page; item: any } => {
+  const getStateFromPathname = useCallback((): { tab: Page; item: any } => {
     if (typeof window === 'undefined') return { tab: 'home', item: null };
 
-    // نستخدم pathname بدلاً من hash
     const path = window.location.pathname;
     const segments = path.split('/').filter(Boolean);
+
+    // إذا لم تكن هناك أجزاء في المسار، نحن في الصفحة الرئيسية
+    if (segments.length === 0) return { tab: 'home', item: null };
 
     if (segments[0] === 'service' && segments[1]) {
         const id = parseInt(segments[1]);
@@ -30,7 +32,7 @@ export const useNavigation = () => {
     const validPages: Page[] = ['about', 'services', 'products', 'contact', 'articles', 'projects', 'backend', 'home', 'admin', 'admin-login'];
     const page: Page = validPages.includes(segments[0] as Page) ? (segments[0] as Page) : 'home';
     return { tab: page, item: null };
-  };
+  }, []);
 
   const initialState = getStateFromPathname();
   const [activeTab, setActiveTab] = useState<Page>(initialState.tab);
@@ -41,18 +43,17 @@ export const useNavigation = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showContent, setShowContent] = useState(true);
 
-  // الاستماع لتغييرات المسار عند الرجوع أو التقدم في المتصفح
   useEffect(() => {
     const handlePopState = () => {
       const state = getStateFromPathname();
       setActiveTab(state.tab);
-      if (state.tab === 'service') setSelectedService(state.item);
-      if (state.tab === 'article') setSelectedArticle(state.item);
-      if (state.tab === 'product') setSelectedProduct(state.item);
+      setSelectedService(state.tab === 'service' ? state.item : null);
+      setSelectedArticle(state.tab === 'article' ? state.item : null);
+      setSelectedProduct(state.tab === 'product' ? state.item : null);
     };
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
-  }, []);
+  }, [getStateFromPathname]);
 
   const navigate = useCallback((tab: string, item?: any) => {
     const targetTab = tab as Page;
@@ -64,19 +65,19 @@ export const useNavigation = () => {
         newPath = `/${targetTab}/${item.id}`;
     }
 
-    // تحديث الرابط بدون # باستخدام History API
-    window.history.pushState({}, '', newPath);
+    try {
+        // نستخدم الموضحة أدناه لضمان التوافق مع بيئات المعاينة
+        window.history.pushState({}, '', newPath);
+    } catch (e) {
+        console.warn("History pushState blocked by environment, but state will update.");
+    }
 
     setTimeout(() => {
         setActiveTab(targetTab);
-        if (targetTab === 'article') setSelectedArticle(item);
-        else if (targetTab === 'service') setSelectedService(item);
-        else if (targetTab === 'product') setSelectedProduct(item);
-        else {
-            setSelectedArticle(null);
-            setSelectedService(null);
-            setSelectedProduct(null);
-        }
+        setSelectedArticle(targetTab === 'article' ? item : null);
+        setSelectedService(targetTab === 'service' ? item : null);
+        setSelectedProduct(targetTab === 'product' ? item : null);
+        
         window.scrollTo(0, 0);
         setTimeout(() => {
             setIsLoading(false);
