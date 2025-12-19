@@ -10,7 +10,6 @@ export const useNavigation = () => {
     const path = window.location.pathname;
     const segments = path.split('/').filter(Boolean);
 
-    // إذا لم تكن هناك أجزاء في المسار، نحن في الصفحة الرئيسية
     if (segments.length === 0) return { tab: 'home', item: null };
 
     if (segments[0] === 'service' && segments[1]) {
@@ -65,11 +64,15 @@ export const useNavigation = () => {
         newPath = `/${targetTab}/${item.id}`;
     }
 
+    // محاولة تحديث الرابط بهدوء شديد
+    // إذا فشلت (بسبب بيئة المعاينة)، سيستمر التطبيق في العمل وتغيير الصفحة داخلياً
     try {
-        // نستخدم الموضحة أدناه لضمان التوافق مع بيئات المعاينة
-        window.history.pushState({}, '', newPath);
+        if (window.location.pathname !== newPath) {
+            window.history.pushState({}, '', newPath);
+        }
     } catch (e) {
-        console.warn("History pushState blocked by environment, but state will update.");
+        // تجاهل الخطأ في بيئة التطوير لضمان عدم توقف السكربت
+        console.info("Navigation: Internal state updated (URL update suppressed in this environment).");
     }
 
     setTimeout(() => {
@@ -78,13 +81,14 @@ export const useNavigation = () => {
         setSelectedService(targetTab === 'service' ? item : null);
         setSelectedProduct(targetTab === 'product' ? item : null);
         
-        window.scrollTo(0, 0);
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        
         setTimeout(() => {
             setIsLoading(false);
             setShowContent(true);
-        }, 100);
+        }, 50);
     }, 400);
-  }, []);
+  }, [getStateFromPathname]);
 
   return { activeTab, selectedService, selectedArticle, selectedProduct, isLoading, showContent, navigate };
 };

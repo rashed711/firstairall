@@ -37,9 +37,7 @@
         darkMode: 'class',
         theme: {
           extend: {
-            fontFamily: {
-              sans: ['Cairo', 'sans-serif'],
-            },
+            fontFamily: { sans: ['Cairo', 'sans-serif'] },
             colors: {
               primary: '#11428f', 
               secondary: '#3282B8', 
@@ -66,10 +64,6 @@
               'shimmer': 'shimmer 1.5s infinite',
               'spin-slow': 'spin 15s linear infinite',
               'spin-reverse-slow': 'spinReverse 15s linear infinite',
-              'spin-slower': 'spin 25s linear infinite',
-              'spin-reverse-slower': 'spinReverse 25s linear infinite',
-              'spin-super-slow': 'spin 40s linear infinite',
-              'spin-reverse-super-slow': 'spinReverse 40s linear infinite',
               'shake': 'shake 0.4s ease-in-out',
             },
             keyframes: {
@@ -88,11 +82,7 @@
               scrollInfiniteReverse: { '0%': { transform: 'translateX(-50%)' }, '100%': { transform: 'translateX(0)' } },
               shimmer: { '0%': { transform: 'translateX(-100%)' }, '100%': { transform: 'translateX(100%)' } },
               spinReverse: { '0%': { transform: 'rotate(360deg)' }, '100%': { transform: 'rotate(0deg)' } },
-              shake: {
-                '0%, 100%': { transform: 'translateX(0)' },
-                '25%': { transform: 'translateX(-10px)' },
-                '75%': { transform: 'translateX(10px)' }
-              }
+              shake: { '0%, 100%': { transform: 'translateX(0)' }, '25%': { transform: 'translateX(-10px)' }, '75%': { transform: 'translateX(10px)' } }
             }
           },
         },
@@ -112,26 +102,7 @@
   </head>
   <body class="bg-light text-slate-800 antialiased selection:bg-tertiary selection:text-white">
     <div id="root"></div>
+    <!-- التأكد من أن المسار يبدأ بـ / لضمان عدم حدوث Script Error -->
     <script type="module" src="/index.tsx"></script>
-
-    <script type="text/javascript">
-      _linkedin_partner_id = "8380482";
-      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
-      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
-    </script>
-    <script type="text/javascript">
-      (function(l) {
-        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
-        window.lintrk.q=[]}
-        var s = document.getElementsByTagName("script")[0];
-        var b = document.createElement("script");
-        b.type = "text/javascript";b.async = true;
-        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
-        s.parentNode.insertBefore(b, s);})(window.lintrk);
-    </script>
-    <noscript>
-      <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8380482&fmt=gif" />
-    </noscript>
-
   </body>
 </html>
