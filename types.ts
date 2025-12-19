@@ -1,5 +1,4 @@
 
-
 export interface Service {
   id: number;
   title_ar: string;
@@ -51,6 +50,5 @@ export type Page =
   | 'contact' 
   | 'articles' 
   | 'backend' 
-  | 'admin' 
   | 'service' 
   | 'article';

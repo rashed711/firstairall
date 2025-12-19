@@ -37,13 +37,13 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
             {heroImages.map((img, index) => (
               <div
                 key={index}
-                className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
+                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
                   index === currentImageIndex ? 'opacity-100' : 'opacity-0'
                 }`}
               >
                 <img src={img} alt="" className={`w-full h-full object-cover ${index === currentImageIndex ? 'animate-ken-burns' : ''}`} />
                 <div className={`absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r ${
-                    isAr ? 'from-primary/60 via-primary/80 to-primary/95' : 'from-primary/95 via-primary/80 to-primary/60'
+                    isAr ? 'from-primary/50 via-primary/70 to-primary/90' : 'from-primary/60 via-primary/40 to-primary/20'
                 }`}></div>
               </div>
             ))}
@@ -91,7 +91,7 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
 
       {/* 3. SECTION: SECTORS & PRESENCE (DATA-DRIVEN) */}
       <div className="relative z-20 bg-gradient-to-b from-primary/95 to-primary py-20 overflow-hidden">
-          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-30 pointer-events-none z-0"></div>
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-50 pointer-events-none z-0"></div>
           
           <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-12 relative z-10">
               <div className={`w-full md:w-1/3 text-center ${isAr ? 'md:text-right' : 'md:text-left'} relative z-20`}>

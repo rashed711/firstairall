@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Article, Language } from '../types';
+import { updateMetaTags, resetMetaTags } from '../utils/metaTags';
 
 interface ArticleDetailProps {
   article: Article;
@@ -15,10 +16,17 @@ const ArticleDetail: React.FC<ArticleDetailProps> = ({ article, lang, onBack }) 
   // Use custom image or fallback
   const imageUrl = article.image || `https://picsum.photos/seed/${article.id}/1600/900`;
   
-  // Scroll to top when component mounts
+  // Effect for updating meta tags on component mount and resetting on unmount
   useEffect(() => {
+    // Set the specific meta tags for this article
+    updateMetaTags(article, lang);
     window.scrollTo(0, 0);
-  }, []);
+
+    // Cleanup function: reset meta tags when the component is unmounted
+    return () => {
+      resetMetaTags(lang);
+    };
+  }, [article, lang]);
 
   // Advanced Native Share (With Image File if possible)
   const handleNativeShare = async () => {

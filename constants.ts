@@ -19,9 +19,9 @@ export const APP_CONFIG = {
     contact: {
         phone: '+966532425777', // Default/Primary
         phones: {
-            ksa: '+966532425777', // KSA Branch
-            egypt: '+201065550024', // Egypt Branch (01065550024 formatted for WA)
-            oman: '+966532425777'   // Oman Branch (Same as KSA per request)
+            ksa: '966532425777', // KSA Branch
+            egypt: '201065550024', // Egypt Branch (01065550024 formatted for WA)
+            oman: '966532425777'   // Oman Branch (Same as KSA per request)
         },
         email: 'info@firstair-sa.com',
         address: {
@@ -35,9 +35,9 @@ export const APP_CONFIG = {
     // Social Media Links
     socials: {
         facebook: 'https://web.facebook.com/firstaireg',
-        linkedin: 'https://www.linkedin.com/company/first-air-co', // Updated to LinkedIn
+        linkedin: 'https://www.linkedin.com/company/firstaireg', // Updated to LinkedIn
         instagram: 'https://www.instagram.com/firstaireg',
-        whatsapp: 'https://wa.me/+966532425777'
+        whatsapp: 'https://wa.me/966532425777'
     },
 
     // Theme Colors (matched with Tailwind config for consistency in JS logic)

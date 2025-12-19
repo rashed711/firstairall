@@ -1,3 +1,4 @@
+
 import React, { ReactNode } from 'react';
 import Navbar from './Navbar';
 import FloatingWhatsApp from './FloatingWhatsApp';
@@ -22,8 +23,7 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, activeTab, onN
                 lang={lang} 
                 setLang={setLang} 
                 activeTab={activeTab === 'article' || activeTab === 'service' ? 'services' : activeTab}
-                /* تم تصحيح اسم الخاصية هنا من setActiveTab إلى onNavigate */
-                onNavigate={onNavigate}
+                setActiveTab={onNavigate}
             />
 
             <main className="min-h-screen">
