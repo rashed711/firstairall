@@ -47,6 +47,7 @@ interface PortfolioProps {
   methodology: MethodologyItem[];
   isHomePage?: boolean;
   onViewAll?: () => void;
+  // أضفت onNavigate هنا إذا احتجناه، لكن سأعتمد على onViewAll الممرر من App
 }
 
 const Portfolio: React.FC<PortfolioProps> = ({ lang, methodology, isHomePage, onViewAll }) => {
@@ -56,7 +57,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ lang, methodology, isHomePage, on
     <div className="py-16 bg-white overflow-hidden w-full no-overflow">
       <div className="max-w-7xl mx-auto px-4">
         
-        {/* Stats Strip - Responsive Fix */}
+        {/* Stats Strip */}
         <ScrollReveal animation="fade-up" delay={100} className="w-full mb-12">
             <div className="bg-gray-50 rounded-2xl p-6 md:p-8 border border-gray-100 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 text-center shadow-sm">
                 <div className="group border-b md:border-b-0 md:border-l border-gray-200 pb-6 md:pb-0 last:border-0 md:last:border-l-0 rtl:md:border-l-0 rtl:md:border-r">
@@ -94,7 +95,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ lang, methodology, isHomePage, on
             </div>
         </ScrollReveal>
 
-        {/* Gallery Grid - Responsive Fix */}
+        {/* Gallery Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {methodology.map((item, index) => (
                 <ScrollReveal 

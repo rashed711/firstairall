@@ -4,11 +4,12 @@ import { Page, Service, Article, Product } from '../types';
 import { mockServices, mockArticles, mockProducts } from '../data/mockData';
 
 export const useNavigation = () => {
-  const getInitialStateFromHash = (): { tab: Page; item: any } => {
+  const getStateFromPathname = (): { tab: Page; item: any } => {
     if (typeof window === 'undefined') return { tab: 'home', item: null };
 
-    const hash = window.location.hash.replace('#', '');
-    const segments = hash.split('/').filter(Boolean);
+    // نستخدم pathname بدلاً من hash
+    const path = window.location.pathname;
+    const segments = path.split('/').filter(Boolean);
 
     if (segments[0] === 'service' && segments[1]) {
         const id = parseInt(segments[1]);
@@ -31,7 +32,7 @@ export const useNavigation = () => {
     return { tab: page, item: null };
   };
 
-  const initialState = getInitialStateFromHash();
+  const initialState = getStateFromPathname();
   const [activeTab, setActiveTab] = useState<Page>(initialState.tab);
   const [selectedService, setSelectedService] = useState<Service | null>(initialState.tab === 'service' ? initialState.item : null);
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(initialState.tab === 'article' ? initialState.item : null);
@@ -40,16 +41,17 @@ export const useNavigation = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showContent, setShowContent] = useState(true);
 
+  // الاستماع لتغييرات المسار عند الرجوع أو التقدم في المتصفح
   useEffect(() => {
-    const handleHashChange = () => {
-      const state = getInitialStateFromHash();
+    const handlePopState = () => {
+      const state = getStateFromPathname();
       setActiveTab(state.tab);
       if (state.tab === 'service') setSelectedService(state.item);
       if (state.tab === 'article') setSelectedArticle(state.item);
       if (state.tab === 'product') setSelectedProduct(state.item);
     };
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
   const navigate = useCallback((tab: string, item?: any) => {
@@ -57,12 +59,13 @@ export const useNavigation = () => {
     setIsLoading(true);
     setShowContent(false);
 
-    let newHash = `#${targetTab}`;
+    let newPath = targetTab === 'home' ? '/' : `/${targetTab}`;
     if (item && (targetTab === 'service' || targetTab === 'article' || targetTab === 'product')) {
-        newHash = `#${targetTab}/${item.id}`;
+        newPath = `/${targetTab}/${item.id}`;
     }
 
-    window.location.hash = newHash;
+    // تحديث الرابط بدون # باستخدام History API
+    window.history.pushState({}, '', newPath);
 
     setTimeout(() => {
         setActiveTab(targetTab);

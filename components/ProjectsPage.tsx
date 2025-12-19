@@ -2,6 +2,7 @@
 import React from 'react';
 import { MethodologyItem, Language } from '../types';
 import ScrollReveal from './ScrollReveal';
+import { useNavigation } from '../hooks/useNavigation';
 
 interface ProjectsPageProps {
   methodology: MethodologyItem[];
@@ -10,6 +11,8 @@ interface ProjectsPageProps {
 
 const ProjectsPage: React.FC<ProjectsPageProps> = ({ methodology, lang }) => {
   const isAr = lang === 'ar';
+  // استخدم الهوك للتنقل النظيف
+  const { navigate } = useNavigation();
 
   return (
     <div className="py-20 bg-gray-50 min-h-screen">
@@ -63,9 +66,12 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ methodology, lang }) => {
                  <p className="text-white/60 mb-10 max-w-2xl mx-auto relative z-10">
                     {isAr ? 'فريقنا الهندسي مستعد لتقديم الحلول المتكاملة لمشروعك بأعلى معايير الجودة العالمية.' : 'Our engineering team is ready to provide integrated solutions for your project with global quality standards.'}
                  </p>
-                 <a href="#contact" className="inline-block bg-tertiary text-white px-12 py-5 rounded-2xl font-black hover:scale-105 transition-all shadow-xl relative z-10">
+                 <button 
+                    onClick={() => navigate('contact')}
+                    className="inline-block bg-tertiary text-white px-12 py-5 rounded-2xl font-black hover:scale-105 transition-all shadow-xl relative z-10"
+                 >
                     {isAr ? 'ابدأ مشروعك معنا الآن' : 'Start Your Project Now'}
-                 </a>
+                 </button>
             </div>
         </ScrollReveal>
       </div>

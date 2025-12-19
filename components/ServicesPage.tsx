@@ -3,6 +3,7 @@ import React from 'react';
 import ServiceCard from './ServiceCard';
 import { Service, Language } from '../types';
 import ScrollReveal from './ScrollReveal';
+import { useNavigation } from '../hooks/useNavigation';
 
 interface ServicesPageProps {
   services: Service[];
@@ -12,6 +13,7 @@ interface ServicesPageProps {
 
 const ServicesPage: React.FC<ServicesPageProps> = ({ services, lang, onServiceClick }) => {
   const isAr = lang === 'ar';
+  const { navigate } = useNavigation();
 
   return (
     <div className="py-12 md:py-20 bg-gray-50 min-h-screen">
@@ -53,9 +55,12 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ services, lang, onServiceCl
                     <p className="mb-8 text-white/80 max-w-2xl mx-auto text-base md:text-lg">
                         {isAr ? 'فريقنا مستعد لتلبية طلباتك الخاصة. تواصل معنا الآن للحصول على استشارة مجانية.' : 'Our team is ready to fulfill your special requests. Contact us now for a free consultation.'}
                     </p>
-                    <a href="#contact" className="inline-block bg-tertiary text-white px-8 py-3 md:py-4 rounded-full font-bold hover:bg-white hover:text-primary transition-all transform hover:-translate-y-1 shadow-lg text-base md:text-lg">
+                    <button 
+                        onClick={() => navigate('contact')}
+                        className="inline-block bg-tertiary text-white px-8 py-3 md:py-4 rounded-full font-bold hover:bg-white hover:text-primary transition-all transform hover:-translate-y-1 shadow-lg text-base md:text-lg"
+                    >
                         {isAr ? 'تواصل معنا' : 'Contact Us'}
-                    </a>
+                    </button>
                 </div>
             </div>
         </ScrollReveal>
