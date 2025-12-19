@@ -17,13 +17,13 @@ export const APP_CONFIG = {
     
     // Contact Information (Primary Contact - usually HQ or Main Branch)
     contact: {
-        phone: '+966532425777', // Default/Primary
+        phone: '+201065550024', // Default/Primary
         phones: {
             ksa: '+966532425777', // KSA Branch
             egypt: '+201065550024', // Egypt Branch (01065550024 formatted for WA)
-            oman: '966532425777'   // Oman Branch (Same as KSA per request)
+            oman: '+966532425777'   // Oman Branch (Same as KSA per request)
         },
-        email: 'info@firstair-sa.com',
+        email: 'info@firstair-Eg.com',
         address: {
             ar: 'مصر، السعودية، وسلطنة عمان',
             en: 'Egypt, KSA & Oman'
