@@ -21,12 +21,10 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, lang, onBack, on
 
   return (
     <div className="bg-light min-h-screen animate-fade-in" dir={isAr ? 'rtl' : 'ltr'}>
-      
-      {/* Hero Banner - Responsive Height */}
       <div className="relative h-72 md:h-[400px] w-full overflow-hidden">
         <div className="absolute inset-0 bg-primary/60 z-10"></div>
         <img 
-            src={getServiceImage(service.id)} 
+            src={getServiceImage(service)} 
             alt={isAr ? service.title_ar : service.title_en}
             className="w-full h-full object-cover animate-ken-burns"
         />
@@ -49,8 +47,6 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, lang, onBack, on
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid lg:grid-cols-3 gap-8 md:gap-12">
-            
-            {/* Main Content */}
             <div className="lg:col-span-2">
                 <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 mb-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
                     <h2 className="text-xl md:text-2xl font-bold text-primary mb-4 md:mb-6 border-b border-gray-100 pb-4">
@@ -77,7 +73,6 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, lang, onBack, on
                     </div>
                 </div>
 
-                {/* FAQ or Additional Info Placeholder */}
                 <div className="bg-primary/5 rounded-2xl p-6 md:p-8 border border-primary/10 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
                     <div className="flex items-start gap-4">
                         <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary text-2xl shadow-md flex-shrink-0">
@@ -103,10 +98,8 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, lang, onBack, on
                 </div>
             </div>
 
-            {/* Sticky Sidebar */}
             <div className="lg:col-span-1">
                 <div className="sticky top-24 space-y-6">
-                    {/* Booking Card */}
                     <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 border-t-8 border-tertiary animate-fade-in-left">
                         <h3 className="text-xl md:text-2xl font-bold text-primary mb-2">{isAr ? 'اطلب الخدمة' : 'Request Service'}</h3>
                         <p className="text-gray-500 text-sm mb-6">

@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import Layout from './components/Layout';
 import LoadingScreen from './components/LoadingScreen';
 import Hero from './components/Hero';
@@ -8,189 +8,154 @@ import Portfolio from './components/Portfolio';
 import ArticleCard from './components/ArticleCard';
 import ArticleDetail from './components/ArticleDetail';
 import ServiceDetail from './components/ServiceDetail';
-import BackendViewer from './components/BackendViewer';
+import ProductDetail from './components/ProductDetail';
+import AdminDashboard from './components/AdminDashboard';
+import AdminLogin from './components/AdminLogin';
 import AboutPage from './components/AboutPage';
 import ServicesPage from './components/ServicesPage';
 import ArticlesPage from './components/ArticlesPage';
 import ContactPage from './components/ContactPage';
 import ProductsPage from './components/ProductsPage';
+import ProjectsPage from './components/ProjectsPage';
 import ScrollReveal from './components/ScrollReveal';
 import { useNavigation } from './hooks/useNavigation';
-import { mockSettings, mockServices, mockArticles, mockProducts } from './data/mockData';
-import { APP_CONFIG } from './constants';
-import { Language, Article, Service } from './types';
+import { mockSettings, mockServices, mockArticles, mockProducts, mockCategories, mockMethodology } from './data/mockData';
+import { Language, Article, Service, Product, Settings, Category, MethodologyItem } from './types';
 
 function App() {
-  // Global Language State - Default set to English ('en')
   const [lang, setLang] = useState<Language>('en');
   const isAr = lang === 'ar';
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // Use Custom Hook for Routing & State Management
-  const { 
-    activeTab, 
-    selectedService, 
-    selectedArticle, 
-    isLoading, 
-    showContent, 
-    navigate 
-  } = useNavigation();
+  // States with Persistence
+  const [services, setServices] = useState<Service[]>(() => JSON.parse(localStorage.getItem('fa_services') || JSON.stringify(mockServices)));
+  const [products, setProducts] = useState<Product[]>(() => JSON.parse(localStorage.getItem('fa_products') || JSON.stringify(mockProducts)));
+  const [articles, setArticles] = useState<Article[]>(() => JSON.parse(localStorage.getItem('fa_articles') || JSON.stringify(mockArticles)));
+  const [categories, setCategories] = useState<Category[]>(() => JSON.parse(localStorage.getItem('fa_categories') || JSON.stringify(mockCategories)));
+  const [methodology, setMethodology] = useState<MethodologyItem[]>(() => JSON.parse(localStorage.getItem('fa_methodology') || JSON.stringify(mockMethodology)));
+  const [settings, setSettings] = useState<Settings>(() => JSON.parse(localStorage.getItem('fa_settings') || JSON.stringify(mockSettings)));
 
-  // Handle Maintenance Mode
-  if (APP_CONFIG.MAINTENANCE_MODE) {
-    return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-primary text-white text-center p-4">
-        <i className="fas fa-tools text-6xl text-tertiary mb-6 animate-bounce"></i>
-        <h1 className="text-4xl font-bold mb-4">{isAr ? 'الموقع تحت الصيانة' : 'Website Under Maintenance'}</h1>
-        <p className="text-gray-300">{isAr ? 'نعود إليكم قريباً بشكل أفضل.' : 'We will be back soon.'}</p>
-      </div>
-    );
-  }
+  useEffect(() => {
+    localStorage.setItem('fa_services', JSON.stringify(services));
+    localStorage.setItem('fa_products', JSON.stringify(products));
+    localStorage.setItem('fa_articles', JSON.stringify(articles));
+    localStorage.setItem('fa_categories', JSON.stringify(categories));
+    localStorage.setItem('fa_methodology', JSON.stringify(methodology));
+    localStorage.setItem('fa_settings', JSON.stringify(settings));
+  }, [services, products, articles, categories, methodology, settings]);
 
-  // Helper Wrappers for Navigation to match component props
-  const handleArticleClick = (article: Article) => navigate('article', article);
-  const handleServiceClick = (service: Service) => navigate('service', service);
-  const handleBack = (target: string) => navigate(target);
+  const { activeTab, selectedService, selectedArticle, selectedProduct, isLoading, showContent, navigate } = useNavigation();
 
-  // Content Renderer
+  // Sorting Logic: Newest First (Descending by ID)
+  const sortedArticles = useMemo(() => [...articles].sort((a, b) => b.id - a.id), [articles]);
+  const sortedMethodology = useMemo(() => [...methodology].sort((a, b) => b.id - a.id), [methodology]);
+  const sortedProducts = useMemo(() => [...products].sort((a, b) => b.id - a.id), [products]);
+
+  useEffect(() => {
+    if (activeTab === 'admin' && !isAuthenticated) navigate('admin-login');
+  }, [activeTab, isAuthenticated, navigate]);
+
   const renderContent = () => {
-      const contentClass = `transition-opacity duration-500 ${showContent ? 'opacity-100' : 'opacity-0'}`;
+    const cls = `transition-opacity duration-500 ${showContent ? 'opacity-100' : 'opacity-0'}`;
 
-      switch (activeTab) {
-        case 'about':
-            return <div className={contentClass}><AboutPage lang={lang} settings={mockSettings} /></div>;
-        case 'services':
-            return <div className={contentClass}><ServicesPage services={mockServices} lang={lang} onServiceClick={handleServiceClick} /></div>;
-        case 'products':
-            return <div className={contentClass}><ProductsPage products={mockProducts} lang={lang} onNavigate={navigate} /></div>;
-        case 'contact':
-            return <div className={contentClass}><ContactPage lang={lang} settings={mockSettings} /></div>;
-        case 'articles':
-            return <div className={contentClass}><ArticlesPage articles={mockArticles} lang={lang} onArticleClick={handleArticleClick} /></div>;
-        case 'backend':
-            return <div className={contentClass}><BackendViewer lang={lang} /></div>;
-        case 'article':
-            return selectedArticle ? (
-                <div className={contentClass}>
-                    <ArticleDetail article={selectedArticle} lang={lang} onBack={() => handleBack('articles')} />
-                </div>
-            ) : <div />;
-        case 'service':
-            return selectedService ? (
-                <div className={contentClass}>
-                    <ServiceDetail service={selectedService} lang={lang} onBack={() => handleBack('services')} onContact={() => handleBack('contact')} />
-                </div>
-            ) : <div />;
-        case 'home':
-        default:
-            return (
-                <div className={contentClass}>
-                  <Hero lang={lang} settings={mockSettings} onNavigate={navigate} />
+    switch (activeTab) {
+      case 'admin-login': return <AdminLogin lang={lang} onLogin={(s) => { if(s){setIsAuthenticated(true); navigate('admin');} }} />;
+      case 'admin': return <AdminDashboard lang={lang} services={services} setServices={setServices} products={products} setProducts={setProducts} articles={articles} setArticles={setArticles} categories={categories} setCategories={setCategories} methodology={methodology} setMethodology={setMethodology} settings={settings} setSettings={setSettings} />;
+      case 'products': return <div className={cls}><ProductsPage products={sortedProducts} categories={categories} lang={lang} onProductClick={(p) => navigate('product', p)} /></div>;
+      case 'product': return selectedProduct ? <ProductDetail product={selectedProduct} categories={categories} lang={lang} onBack={() => navigate('products')} onContact={() => navigate('contact')} /> : <div />;
+      case 'services': return <div className={cls}><ServicesPage services={services} lang={lang} onServiceClick={(s) => navigate('service', s)} /></div>;
+      case 'service': return selectedService ? <ServiceDetail service={selectedService} lang={lang} onBack={() => navigate('services')} onContact={() => navigate('contact')} /> : <div />;
+      case 'articles': return <div className={cls}><ArticlesPage articles={sortedArticles} lang={lang} onArticleClick={(a) => navigate('article', a)} /></div>;
+      case 'article': return selectedArticle ? <ArticleDetail article={selectedArticle} lang={lang} onBack={() => navigate('articles')} /> : <div />;
+      case 'projects': return <div className={cls}><ProjectsPage methodology={sortedMethodology} lang={lang} /></div>;
+      case 'contact': return <div className={cls}><ContactPage lang={lang} settings={settings} /></div>;
+      case 'about': return <div className={cls}><AboutPage lang={lang} settings={settings} /></div>;
+      case 'home': default:
+        return (
+          <div className={cls}>
+            <Hero lang={lang} settings={settings} onNavigate={navigate} />
+            
+            {/* Services Section */}
+            <div className="py-24 bg-white overflow-hidden">
+              <div className="max-w-7xl mx-auto px-4 mb-16 text-center">
+                  <ScrollReveal animation="fade-down">
+                    <h2 className="text-3xl md:text-5xl font-black text-primary mb-4">{isAr ? 'خدماتنا الهندسية' : 'Our Engineering Services'}</h2>
+                    <div className="w-20 h-1.5 bg-tertiary mx-auto rounded-full"></div>
+                  </ScrollReveal>
+              </div>
+              <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                {services.slice(0, 6).map((s, idx) => (
+                  <ScrollReveal key={s.id} animation="fade-up" delay={idx * 150}>
+                    <ServiceCard service={s} lang={lang} index={0} onClick={() => navigate('service', s)} />
+                  </ScrollReveal>
+                ))}
+              </div>
+            </div>
 
-                  {/* Services Section - Updated Padding from 96px (py-24) to 5px */}
-                  <div className="pt-[5px] pb-[5px] bg-white relative overflow-hidden">
-                     <div className="absolute top-0 left-0 w-64 h-64 bg-secondary/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-                     <div className="absolute bottom-0 right-0 w-96 h-96 bg-tertiary/5 rounded-full translate-x-1/2 translate-y-1/2"></div>
+            {/* Projects Section */}
+            <Portfolio 
+              lang={lang} 
+              methodology={sortedMethodology.slice(0, 6)} 
+              isHomePage={true}
+              onViewAll={() => navigate('projects')}
+            />
 
-                    <ScrollReveal animation="fade-up">
-                      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-8">
-                        <div className="text-center">
-                          <h2 className="text-sm text-tertiary font-bold tracking-wide uppercase mb-2 flex items-center justify-center gap-2">
-                            <span className="w-8 h-[2px] bg-tertiary inline-block"></span>
-                            {isAr ? 'خدماتنا' : 'Our Services'}
-                            <span className="w-8 h-[2px] bg-tertiary inline-block"></span>
-                          </h2>
-                          <h3 className="text-3xl md:text-5xl font-extrabold text-primary mb-2">
-                            {isAr ? 'حلول هندسية متكاملة' : 'Integrated Engineering Solutions'}
-                          </h3>
-                          <p className="max-w-2xl mx-auto text-gray-500 text-sm md:text-base">
-                               {isAr ? 'نقدم مجموعة واسعة من الخدمات لتلبية جميع احتياجاتك' : 'We offer a wide range of services to meet all your needs'}
-                          </p>
+            {/* Products Section */}
+            <div className="py-24 bg-gray-50 overflow-hidden">
+               <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-6">
+                  <ScrollReveal animation="fade-right">
+                    <div className="text-center md:text-start">
+                      <h2 className="text-3xl md:text-4xl font-black text-primary">{isAr ? 'أحدث المنتجات' : 'Latest Products'}</h2>
+                      <p className="text-gray-400 mt-2">{isAr ? 'تصفح التكنولوجيا المتوفرة لدينا' : 'Browse our latest available tech'}</p>
+                    </div>
+                  </ScrollReveal>
+                  <ScrollReveal animation="fade-left">
+                    <button onClick={() => navigate('products')} className="bg-white px-8 py-3 rounded-full text-tertiary font-bold shadow-sm border border-gray-100 hover:bg-tertiary hover:text-white transition-all flex items-center gap-3">
+                      {isAr ? 'مشاهدة الكل' : 'View All'} <i className={`fas fa-arrow-${isAr ? 'left' : 'right'}`}></i>
+                    </button>
+                  </ScrollReveal>
+               </div>
+               <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8">
+                  {sortedProducts.slice(0, 4).map((p, idx) => (
+                    <ScrollReveal key={p.id} animation="zoom-in" delay={idx * 150}>
+                      <div onClick={() => navigate('product', p)} className="bg-white rounded-[32px] p-6 shadow-sm border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all cursor-pointer group h-full flex flex-col">
+                        <div className="aspect-square overflow-hidden rounded-2xl mb-6 bg-gray-50 p-6">
+                            <img src={p.image} className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500" />
                         </div>
+                        <h4 className="font-bold text-primary text-lg truncate mb-1">{isAr ? p.title_ar : p.title_en}</h4>
+                        <p className="text-xs text-gray-400 font-bold uppercase tracking-wider">{categories.find(c => c.id === p.categoryId)?.[isAr ? 'name_ar' : 'name_en']}</p>
                       </div>
                     </ScrollReveal>
+                  ))}
+               </div>
+            </div>
 
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {mockServices.map((service, index) => (
-                                <ScrollReveal key={service.id} animation="fade-up" delay={index * 150} className="h-full">
-                                    <ServiceCard 
-                                        service={service} 
-                                        lang={lang} 
-                                        index={0} 
-                                        onClick={handleServiceClick}
-                                    />
-                                </ScrollReveal>
-                            ))}
-                        </div>
-                    </div>
-                      
-                    <div className="text-center mt-8 mb-4 max-w-7xl mx-auto px-4">
-                        <ScrollReveal animation="zoom-in" delay={600}>
-                          <button 
-                          onClick={() => navigate('services')}
-                          className="inline-flex items-center gap-2 text-tertiary font-bold hover:text-primary transition-colors border-b-2 border-tertiary pb-1"
-                          >
-                              {isAr ? 'عرض جميع الخدمات' : 'View All Services'}
-                              <i className={`fas fa-arrow-${isAr ? 'left' : 'right'}`}></i>
-                          </button>
-                        </ScrollReveal>
-                    </div>
-                  </div>
-
-                  {/* Portfolio Section */}
-                  <Portfolio lang={lang} />
-
-                  {/* Blog Section */}
-                  <div className="py-24 bg-light relative overflow-hidden">
-                     <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
-                     <div className="absolute -left-20 top-20 text-[200px] text-gray-200 font-black opacity-20 pointer-events-none select-none">BLOG</div>
-                     
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-                      <ScrollReveal animation="fade-right">
-                        <div className="flex flex-col md:flex-row justify-between items-end mb-12">
-                            <div className="text-center md:text-start">
-                              <h2 className="text-4xl font-extrabold text-primary mb-2">
-                              {isAr ? 'أحدث المقالات والأخبار' : 'Latest Articles & News'}
-                              </h2>
-                              <p className="mt-2 text-lg text-gray-500 max-w-2xl">
-                              {isAr ? 'ابق على اطلاع دائم بكل ما يخص قطاع المقاولات والأنظمة الجديدة.' : 'Stay updated with everything related to the contracting sector and new regulations.'}
-                              </p>
-                            </div>
-                            <button 
-                              onClick={() => navigate('articles')}
-                              className="hidden md:flex items-center gap-2 text-white bg-tertiary px-6 py-3 rounded-full font-bold hover:bg-primary transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                            >
-                                {isAr ? 'عرض كل المقالات' : 'View All Articles'} <i className={`fas fa-arrow-${isAr ? 'left' : 'right'}`}></i>
-                            </button>
-                        </div>
-                      </ScrollReveal>
-                      
-                      <div className="grid gap-8 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-12">
-                        {mockArticles.map((article, index) => (
-                          <ScrollReveal key={article.id} animation="fade-up" delay={index * 200} className="h-full">
-                            <ArticleCard 
-                              article={article} 
-                              lang={lang} 
-                              onClick={handleArticleClick}
-                              index={0}
-                            />
-                          </ScrollReveal>
-                        ))}
-                      </div>
-                      
-                       <div className="md:hidden mt-10 text-center">
-                          <button 
-                             onClick={() => navigate('articles')}
-                             className="text-white bg-tertiary px-6 py-3 rounded-full font-bold shadow-lg w-full"
-                          >
-                              {isAr ? 'عرض كل المقالات' : 'View All Articles'}
-                          </button>
-                      </div>
-                    </div>
-                  </div>
+            {/* Articles Section */}
+            <div className="py-24 bg-white overflow-hidden">
+              <div className="max-w-7xl mx-auto px-4 mb-16 text-center">
+                  <ScrollReveal animation="fade-down">
+                    <h2 className="text-3xl md:text-5xl font-black text-primary mb-4">{isAr ? 'المدونة الهندسية' : 'Engineering Blog'}</h2>
+                    <p className="text-gray-500 text-lg">{isAr ? 'ابقَ على اطلاع بأحدث المقالات والنصائح الهندسية' : 'Stay updated with our latest engineering insights'}</p>
+                  </ScrollReveal>
+              </div>
+              <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10">
+                {sortedArticles.slice(0, 3).map((a, idx) => (
+                  <ScrollReveal key={a.id} animation="fade-up" delay={idx * 200}>
+                    <ArticleCard article={a} lang={lang} index={0} onClick={() => navigate('article', a)} />
+                  </ScrollReveal>
+                ))}
+              </div>
+              <ScrollReveal animation="fade-up" delay={500}>
+                <div className="mt-16 text-center">
+                    <button onClick={() => navigate('articles')} className="bg-primary/5 text-primary px-10 py-4 rounded-full font-black hover:bg-primary hover:text-white transition-all shadow-sm">
+                        {isAr ? 'تصفح كافة المقالات' : 'Browse All Articles'}
+                    </button>
                 </div>
-            );
-      }
+              </ScrollReveal>
+            </div>
+          </div>
+        );
+    }
   };
 
   return (

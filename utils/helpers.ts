@@ -1,10 +1,16 @@
 
+import { Service } from '../types';
+
 /**
  * Centralized logic to get service images.
- * This ensures ServiceCard and ServiceDetail always show the same image.
+ * Prioritizes custom image URL from dashboard, then falls back to defaults.
  */
-export const getServiceImage = (id: number): string => {
-    switch(id) {
+export const getServiceImage = (service: Service): string => {
+    // إذا كانت الخدمة تحتوي على رابط صورة مخصص من لوحة التحكم، نستخدمه
+    if (service.image) return service.image;
+
+    // سقوط احتياطي (Fallback) للصور الافتراضية بناءً على المعرف
+    switch(service.id) {
       case 1: return "https://i.postimg.cc/dVv64Qqx/004.webp"; // HVAC/Ducts
       case 2: return "https://i.pinimg.com/736x/41/03/ac/4103ac81a87dd14de2a7fc06d2f8c575.jpg"; // Fire Pipes
       case 3: return "https://i.pinimg.com/736x/f9/b4/09/f9b4093fa3cfb2175284e5c10d0f3781.jpg"; // Plumbing/Industrial

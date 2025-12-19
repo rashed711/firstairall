@@ -89,12 +89,17 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
               {isAr ? 'EN' : 'AR'}
             </button>
 
+            {/* Admin Icon Only Button */}
             <button 
-              onClick={() => handleNavClick('backend')}
-              className="bg-tertiary text-white px-5 py-2 rounded-xl text-xs font-black shadow-lg hover:bg-red-600 transition-all active:scale-95"
+              onClick={() => handleNavClick('admin')}
+              title={isAr ? 'الإدارة' : 'Admin'}
+              className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all active:scale-90 shadow-lg ${
+                activeTab === 'admin' || activeTab === 'admin-login'
+                  ? 'bg-tertiary text-white' 
+                  : 'bg-white text-primary hover:bg-tertiary hover:text-white'
+              }`}
             >
-              <i className="fas fa-terminal mr-2 ml-2"></i>
-              {isAr ? 'المطور' : 'API'}
+              <i className="fas fa-user-shield text-sm"></i>
             </button>
           </div>
 
@@ -131,6 +136,15 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
                 <span className="font-bold">{isAr ? link.labelAr : link.labelEn}</span>
               </button>
             ))}
+            <button
+                onClick={() => handleNavClick('admin')}
+                className={`w-full text-start p-4 rounded-xl flex items-center gap-4 transition-all ${
+                  activeTab === 'admin' ? 'bg-tertiary text-white' : 'bg-white/10 text-white'
+                }`}
+              >
+                <i className="fas fa-user-lock"></i>
+                <span className="font-bold">{isAr ? 'لوحة الإدارة' : 'Admin Dashboard'}</span>
+              </button>
           </div>
         </div>
       </div>

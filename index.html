@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
   <head>
@@ -68,6 +69,7 @@
               'spin-reverse-slower': 'spinReverse 25s linear infinite',
               'spin-super-slow': 'spin 40s linear infinite',
               'spin-reverse-super-slow': 'spinReverse 40s linear infinite',
+              'shake': 'shake 0.4s ease-in-out',
             },
             keyframes: {
               fadeInUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
@@ -84,7 +86,12 @@
               scrollInfinite: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
               scrollInfiniteReverse: { '0%': { transform: 'translateX(-50%)' }, '100%': { transform: 'translateX(0)' } },
               shimmer: { '0%': { transform: 'translateX(-100%)' }, '100%': { transform: 'translateX(100%)' } },
-              spinReverse: { '0%': { transform: 'rotate(360deg)' }, '100%': { transform: 'rotate(0deg)' } }
+              spinReverse: { '0%': { transform: 'rotate(360deg)' }, '100%': { transform: 'rotate(0deg)' } },
+              shake: {
+                '0%, 100%': { transform: 'translateX(0)' },
+                '25%': { transform: 'translateX(-10px)' },
+                '75%': { transform: 'translateX(10px)' }
+              }
             }
           },
         },

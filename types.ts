@@ -1,4 +1,24 @@
 
+export interface Category {
+  id: number;
+  name_ar: string;
+  name_en: string;
+  parentId: number | null; // null يعني قسم رئيسي
+}
+
+export interface Product {
+  id: number;
+  title_ar: string;
+  title_en: string;
+  description_ar: string;
+  description_en: string;
+  image: string;
+  categoryId: number;
+  specs?: string[];
+  features_ar?: string[];
+  features_en?: string[];
+}
+
 export interface Service {
   id: number;
   title_ar: string;
@@ -10,16 +30,7 @@ export interface Service {
   features_ar?: string[];
   features_en?: string[];
   icon?: string;
-}
-
-export interface Product {
-  id: number;
-  title_ar: string;
-  title_en: string;
-  description_ar: string;
-  description_en: string;
-  image: string;
-  specs?: string[];
+  image?: string;
 }
 
 export interface Article {
@@ -32,18 +43,29 @@ export interface Article {
   image?: string;
 }
 
+export interface MethodologyItem {
+  id: number;
+  title_ar: string;
+  title_en: string;
+  category_ar: string;
+  category_en: string;
+  image: string;
+}
+
 export interface Settings {
   site_name_ar: string;
   site_name_en: string;
   phone: string;
   email: string;
-}
-
-export interface ApiResponse<T> {
-  success: boolean;
-  data: T;
-  message?: string;
-  error?: string;
+  phones: {
+    ksa: string;
+    egypt: string;
+    oman: string;
+  };
+  addresses: {
+    ar: string;
+    en: string;
+  };
 }
 
 export type Language = 'ar' | 'en';
@@ -55,6 +77,10 @@ export type Page =
   | 'products'
   | 'contact' 
   | 'articles' 
+  | 'projects'
   | 'backend' 
+  | 'admin'
+  | 'admin-login'
   | 'service' 
-  | 'article';
+  | 'article'
+  | 'product';
