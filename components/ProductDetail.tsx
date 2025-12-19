@@ -117,7 +117,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, categories, lang
               </button>
               
               <a 
-                href={`tel:${isAr ? '966532425777' : '+966532425777'}`}
+                href={`tel:${isAr ? '+966532425777' : '+966532425777'}`}
                 className="px-8 bg-gray-100 text-primary py-5 rounded-2xl font-black flex items-center justify-center gap-3 hover:bg-gray-200 transition-all"
               >
                 <i className="fas fa-headset"></i>

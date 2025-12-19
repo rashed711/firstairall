@@ -6,7 +6,7 @@ export const mockSettings: Settings = {
   site_name_en: "First Air Contracting",
   phone: "+966532425777",
   email: "info@firstair-sa.com",
-  phones: { ksa: '966532425777', egypt: '201065550024', oman: '966532425777' },
+  phones: { ksa: '+966532425777', egypt: '+201065550024', oman: '+966532425777' },
   addresses: { ar: 'مصر، السعودية، وسلطنة عمان', en: 'Egypt, KSA & Oman' }
 };
 
