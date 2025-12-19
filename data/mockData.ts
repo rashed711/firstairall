@@ -108,7 +108,7 @@ export const mockProducts: Product[] = [
     id: 4, categoryId: 13, title_ar: "شيلر مبرد بالهواء", title_en: "Air-Cooled Chiller",
     description_ar: "شيلر عالي السعة مخصص للمباني الإدارية والمستشفيات.",
     description_en: "High-capacity chiller for commercial use.",
-    image: "https://i.pinimg.com/1200x/c1/98/67/c1986707323b7b9d62985338787c8975.jpg"
+    image: "google.comhttps://i.postimg.cc/dVv64Qqx/004.webp"
   },
   {
     id: 5, categoryId: 22, title_ar: "لوحة إنذار حريق معنونة", title_en: "Addressable Fire Panel",
@@ -144,7 +144,7 @@ export const mockProducts: Product[] = [
     id: 10, categoryId: 3, title_ar: "كابلات طاقة مدرعة", title_en: "Armored Power Cables",
     description_ar: "كابلات نحاسية معزولة مخصصة للدفن المباشر والأحمال الشاقة.",
     description_en: "Insulated copper cables for heavy loads.",
-    image: "https://i.pinimg.com/1200x/c1/98/67/c1986707323b7b9d62985338787c8975.jpg"
+    image: "https://i.pinimg.com/736x/4c/83/c3/4c83c3629642f4ad3969a50ee0d6b3c5.jpg"
   }
 ];
 

@@ -20,7 +20,6 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ products, categories, lang,
     setExpandedCats(prev => prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id]);
   };
 
-  // وظيفة للحصول على جميع معرفات الأقسام التابعة (الأبناء والأحفاد)
   const getChildCategoryIds = (parentId: number, cats: Category[]): number[] => {
     const children = cats.filter(c => c.parentId === parentId);
     let ids = children.map(c => c.id);
@@ -127,38 +126,48 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ products, categories, lang,
             </div>
           </div>
 
-          {/* Product Grid */}
+          {/* Product Grid - Updated Styling */}
           <div className="flex-1">
             {filteredProducts.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
                 {filteredProducts.map((product, idx) => (
                   <ScrollReveal key={product.id} animation="fade-up" delay={idx * 50}>
                     <div 
                       onClick={() => onProductClick(product)}
-                      className="group bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all cursor-pointer flex flex-col h-full"
+                      className="group bg-white rounded-[2rem] overflow-hidden shadow-sm border border-gray-100 hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col h-full"
                     >
-                      <div className="h-56 bg-gray-100 relative overflow-hidden p-4">
+                      <div className="relative h-64 bg-[#f8f9fa] flex items-center justify-center p-8 overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 to-transparent"></div>
                         <img 
                           src={product.image} 
-                          className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110" 
+                          className="w-full h-full object-contain relative z-10 transition-transform duration-700 group-hover:scale-110 group-hover:rotate-2" 
                           alt="" 
                         />
-                        <div className="absolute top-4 left-4 bg-primary/10 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-black text-primary">
-                          {categories.find(c => c.id === product.categoryId)?.[isAr ? 'name_ar' : 'name_en']}
+                        <div className="absolute top-4 left-4 z-20">
+                            <span className="bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg text-[10px] font-black text-primary shadow-sm">
+                                {categories.find(c => c.id === product.categoryId)?.[isAr ? 'name_ar' : 'name_en']}
+                            </span>
+                        </div>
+                        {/* Hover Overlay */}
+                        <div className="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-30">
+                            <span className="bg-white text-primary px-6 py-2 rounded-full font-black text-sm transform scale-50 group-hover:scale-100 transition-transform">
+                                {isAr ? 'التفاصيل' : 'Details'}
+                            </span>
                         </div>
                       </div>
                       <div className="p-6 flex-1 flex flex-col">
-                        <h4 className="text-lg font-black text-primary mb-2 group-hover:text-tertiary transition-colors">
+                        <h4 className="text-xl font-black text-primary mb-3 group-hover:text-tertiary transition-colors leading-tight">
                           {isAr ? product.title_ar : product.title_en}
                         </h4>
-                        <p className="text-gray-400 text-xs line-clamp-2 leading-relaxed mb-4">
+                        <p className="text-gray-400 text-sm font-medium line-clamp-2 leading-relaxed mb-6">
                           {isAr ? product.description_ar : product.description_en}
                         </p>
-                        <div className="mt-auto flex items-center justify-between pt-4 border-t border-gray-50">
-                          <span className="text-primary font-black text-xs uppercase tracking-widest">
-                            {isAr ? 'تفاصيل المنتج' : 'Details'}
+                        <div className="mt-auto flex items-center justify-between pt-5 border-t border-gray-50">
+                          <span className="text-primary font-black text-xs uppercase tracking-widest flex items-center gap-2">
+                            <i className="fas fa-plus-circle text-tertiary"></i>
+                            {isAr ? 'المواصفات' : 'Specs'}
                           </span>
-                          <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                          <div className="w-10 h-10 rounded-2xl bg-gray-50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white group-hover:rotate-[360deg] transition-all duration-500">
                             <i className={`fas fa-arrow-${isAr ? 'left' : 'right'} text-xs`}></i>
                           </div>
                         </div>
@@ -168,10 +177,10 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ products, categories, lang,
                 ))}
               </div>
             ) : (
-              <div className="bg-white rounded-3xl p-20 text-center shadow-sm border border-gray-100">
-                <i className="fas fa-search text-6xl text-gray-100 mb-6"></i>
-                <h3 className="text-xl font-bold text-gray-400">{isAr ? 'لا توجد منتجات مطابقة' : 'No matching products'}</h3>
-                <p className="text-gray-300 mt-2">{isAr ? 'جرب البحث عن شيء آخر أو اختيار قسم مختلف' : 'Try searching for something else or pick another category'}</p>
+              <div className="bg-white rounded-[3rem] p-20 text-center shadow-sm border border-gray-100">
+                <i className="fas fa-box-open text-7xl text-gray-100 mb-6"></i>
+                <h3 className="text-2xl font-black text-gray-400">{isAr ? 'لا توجد نتائج' : 'No results found'}</h3>
+                <p className="text-gray-300 mt-2 font-bold">{isAr ? 'جرب كلمات بحث أخرى أو أقسام مختلفة' : 'Try different keywords or categories'}</p>
               </div>
             )}
           </div>
