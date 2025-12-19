@@ -31,7 +31,8 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
 
   return (
     <div className="relative w-full overflow-hidden bg-primary no-overflow">
-      <div className="relative min-h-[85vh] md:min-h-[90vh] flex flex-col justify-center overflow-hidden">
+      {/* Updated height: min-h-[77vh] for mobile, md:min-h-[82vh] for desktop */}
+      <div className="relative min-h-[77vh] md:min-h-[82vh] flex flex-col justify-center overflow-hidden">
           <div className="absolute inset-0 z-0 bg-primary">
             {heroImages.map((img, index) => (
               <div
@@ -69,7 +70,6 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
                   </ScrollReveal>
 
                   <ScrollReveal animation="fade-up" delay={800}>
-                    {/* Updated container to flex-row on mobile */}
                     <div className="flex flex-row gap-2 md:gap-4 justify-center lg:justify-start items-center">
                         <button 
                           onClick={() => onNavigate('contact')} 
