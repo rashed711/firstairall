@@ -29,7 +29,7 @@ export interface Article {
   content_ar: string;
   content_en: string;
   created_at: string;
-  image?: string; // Added optional image field
+  image?: string;
 }
 
 export interface Settings {
@@ -39,9 +39,15 @@ export interface Settings {
   email: string;
 }
 
+export interface ApiResponse<T> {
+  success: boolean;
+  data: T;
+  message?: string;
+  error?: string;
+}
+
 export type Language = 'ar' | 'en';
 
-// Define strict Page types for routing safety
 export type Page = 
   | 'home' 
   | 'about' 
