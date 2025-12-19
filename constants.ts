@@ -37,7 +37,7 @@ export const APP_CONFIG = {
         facebook: 'https://web.facebook.com/firstaireg',
         linkedin: 'https://www.linkedin.com/company/first-air-co', // Updated to LinkedIn
         instagram: 'https://www.instagram.com/firstaireg',
-        whatsapp: 'https://wa.me/+966532425777'
+        whatsapp: 'https://wa.me/+201065550024'
     },
 
     // Theme Colors (matched with Tailwind config for consistency in JS logic)
