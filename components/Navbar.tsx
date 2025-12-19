@@ -45,16 +45,18 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
           : 'bg-transparent h-20 md:h-24'
       }`}>
         <div className="max-w-7xl mx-auto px-4 h-full flex justify-between items-center">
-          {/* Logo & Site Name */}
+          {/* Logo & Site Name - Rectangular Container */}
           <div 
-            className="flex items-center gap-2 md:gap-3 cursor-pointer group"
+            className="flex items-center gap-2 md:gap-4 cursor-pointer group"
             onClick={() => handleNavClick('home')}
           >
-            <div className="w-10 h-10 md:w-14 md:h-14 bg-white rounded-xl p-1.5 md:p-2 shadow-lg group-hover:scale-105 transition-transform shrink-0">
+            {/* Logo Box: Change w- and h- here to resize the rectangle */}
+            <div className="w-24 h-12 md:w-32 md:h-16 bg-white rounded-lg p-1 md:p-1.5 shadow-lg group-hover:scale-105 transition-transform shrink-0 flex items-center justify-center">
               <img src={APP_CONFIG.logo} alt="Logo" className="w-full h-full object-contain" />
             </div>
+            
             <div className="flex flex-col justify-center">
-              <div className="text-white font-black text-sm sm:text-lg md:text-xl leading-none">
+              <div className="text-white font-black text-xs sm:text-base md:text-lg leading-tight uppercase tracking-tight">
                 {isAr ? APP_CONFIG.siteName.ar : APP_CONFIG.siteName.en}
               </div>
             </div>
@@ -104,7 +106,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
           <div className="flex md:hidden items-center gap-3">
             <button
               onClick={() => setLang(isAr ? 'en' : 'ar')}
-              className="text-white text-xs font-bold px-2 py-1 bg-white/10 rounded-lg border border-white/20"
+              className="text-white text-[10px] font-bold px-2 py-1 bg-white/10 rounded-lg border border-white/20"
             >
               {isAr ? 'EN' : 'AR'}
             </button>
@@ -125,7 +127,10 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
           isMobileMenuOpen ? 'translate-x-0' : (isAr ? '-translate-x-full' : 'translate-x-full')
         }`}>
           <div className="p-8 border-b border-white/5 flex justify-between items-center">
-            <img src={APP_CONFIG.logo} className="h-10 w-auto bg-white p-1 rounded-md" alt="Logo" />
+            {/* Rectangular logo in drawer too for consistency */}
+            <div className="w-24 h-12 bg-white rounded-md p-1 flex items-center justify-center">
+              <img src={APP_CONFIG.logo} className="w-full h-full object-contain" alt="Logo" />
+            </div>
             <button onClick={() => setIsMobileMenuOpen(false)} className="text-white"><i className="fas fa-times"></i></button>
           </div>
           <div className="p-6 space-y-4">

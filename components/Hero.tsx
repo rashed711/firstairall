@@ -69,11 +69,18 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
                   </ScrollReveal>
 
                   <ScrollReveal animation="fade-up" delay={800}>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <button onClick={() => onNavigate('contact')} className="px-8 md:px-10 py-3 md:py-4 bg-tertiary text-white font-black rounded-full shadow-2xl hover:bg-red-700 hover:scale-105 transition-all text-sm md:text-base">
+                    {/* Updated container to flex-row on mobile */}
+                    <div className="flex flex-row gap-2 md:gap-4 justify-center lg:justify-start items-center">
+                        <button 
+                          onClick={() => onNavigate('contact')} 
+                          className="flex-1 sm:flex-none px-3 sm:px-8 md:px-10 py-3 md:py-4 bg-tertiary text-white font-black rounded-full shadow-2xl hover:bg-red-700 hover:scale-105 transition-all text-[10px] xs:text-xs sm:text-base whitespace-nowrap"
+                        >
                             {isAr ? 'اطلب عرض سعر' : 'Get a Quote'}
                         </button>
-                        <button onClick={() => onNavigate('services')} className="px-8 md:px-10 py-3 md:py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white font-black rounded-full hover:bg-white hover:text-primary transition-all text-sm md:text-base">
+                        <button 
+                          onClick={() => onNavigate('services')} 
+                          className="flex-1 sm:flex-none px-3 sm:px-8 md:px-10 py-3 md:py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white font-black rounded-full hover:bg-white hover:text-primary transition-all text-[10px] xs:text-xs sm:text-base whitespace-nowrap"
+                        >
                             {isAr ? 'خدماتنا' : 'Our Services'}
                         </button>
                     </div>
