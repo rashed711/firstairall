@@ -32,7 +32,7 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
   return (
     <div className="relative w-full overflow-hidden bg-primary no-overflow">
       {/* Updated height: min-h-[77vh] for mobile, md:min-h-[82vh] for desktop */}
-      <div className="relative min-h-[77vh] md:min-h-[82vh] flex flex-col justify-center overflow-hidden">
+      <div className="relative min-h-[72vh] md:min-h-[82vh] flex flex-col justify-center overflow-hidden">
           <div className="absolute inset-0 z-0 bg-primary">
             {heroImages.map((img, index) => (
               <div
