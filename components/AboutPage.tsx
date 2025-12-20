@@ -13,6 +13,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ lang, settings }) => {
 
   return (
     <div className="bg-white min-h-screen">
+      {/* Header Banner */}
       <div className="relative bg-primary py-16 md:py-24 text-white overflow-hidden">
          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-10"></div>
          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
@@ -27,6 +28,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ lang, settings }) => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         
+        {/* Main Story */}
         <div className="flex flex-col lg:flex-row items-center gap-12 mb-16 md:mb-20">
             <div className="w-full lg:w-1/2">
                 <ScrollReveal animation="fade-right">
@@ -34,9 +36,8 @@ const AboutPage: React.FC<AboutPageProps> = ({ lang, settings }) => {
                         <div className="absolute -inset-4 bg-tertiary/20 rounded-xl transform rotate-3"></div>
                         <img 
                             src="https://www2.0zz0.com/2025/12/18/06/202687878.jpg" 
-                            alt={isAr ? "فريق عمل فرست اير الهندسي" : "First Air Engineering Team"} 
+                            alt="Engineering Team" 
                             className="relative rounded-xl shadow-2xl w-full"
-                            loading="lazy"
                         />
                     </div>
                 </ScrollReveal>
@@ -51,6 +52,16 @@ const AboutPage: React.FC<AboutPageProps> = ({ lang, settings }) => {
                             {isAr 
                             ? 'فرست اير للمقاولات هي شركة متخصصة في مقاولات الأعمال الكهروميكانيكية (MEP)، تمتلك خبرة تنفيذية ممتدة، وتعمل حاليًا من خلال فروعها في جمهورية مصر العربية والمملكة العربية السعودية وسلطنة عمان على تنفيذ مشروعات كبرى وفق أعلى المعايير الهندسية الدولية.'
                             : 'First Air for Contracting is specialized in MEP works, with extensive executive experience, currently operating through its branches in Egypt, KSA, and Oman to execute major projects according to the highest international engineering standards.'}
+                        </p>
+                        <p>
+                            {isAr
+                            ? 'تقدّم فرست اير للمقاولات حلولًا متكاملة تشمل التصميم، التوريد، التركيب، الاختبار والتشغيل لأنظمة التكييف المركزي (HVAC)، التهوية، أنظمة مكافحة الحريق، وأعمال السباكة والأنظمة الميكانيكية، مع تركيز خاص على المشروعات ذات الطبيعة المعقدة.'
+                            : 'First Air provides integrated solutions including design, supply, installation, testing, and commissioning for HVAC, Fire Fighting, Plumbing, and Mechanical systems, focusing on complex projects.'}
+                        </p>
+                         <p>
+                            {isAr
+                            ? 'نعتمد في فرست اير على فرق فنية وهندسية مؤهلة، ومنهجيات عمل دقيقة تضمن الكفاءة التشغيلية، الاعتمادية، والالتزام الصارم بالجداول الزمنية.'
+                            : 'We rely on qualified technical and engineering teams, and precise methodologies ensuring operational efficiency, reliability, and strict adherence to schedules.'}
                         </p>
                     </div>
                     
@@ -68,17 +79,18 @@ const AboutPage: React.FC<AboutPageProps> = ({ lang, settings }) => {
             </div>
         </div>
 
+        {/* Vision & Mission */}
         <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-16 md:mb-20">
             <ScrollReveal animation="fade-up" className="h-full">
                 <div className="bg-gray-50 p-6 md:p-10 rounded-3xl border border-gray-100 hover:shadow-xl transition-shadow h-full">
                     <div className="w-14 h-14 md:w-16 md:h-16 bg-white rounded-2xl flex items-center justify-center text-primary text-xl md:text-2xl shadow-md mb-6">
-                        <i className="fas fa-rocket" aria-hidden="true"></i>
+                        <i className="fas fa-rocket"></i>
                     </div>
-                    <h4 className="text-xl md:text-2xl font-bold text-primary mb-4">{isAr ? 'تواجدنا الإقليمي' : 'Regional Presence'}</h4>
+                    <h3 className="text-xl md:text-2xl font-bold text-primary mb-4">{isAr ? 'تواجدنا الإقليمي' : 'Regional Presence'}</h3>
                     <p className="text-gray-600 leading-relaxed text-sm md:text-base">
                         {isAr
-                        ? 'تواصل فرست اير نقل خبراتها إلى سوق الخليج ومصر الذي يشهد نموًا متسارعًا، مساهمةً في تنفيذ أنظمة MEP استراتيجية.'
-                        : 'First Air continues to transfer its expertise to the rapidly growing regional markets, contributing to strategic MEP systems.'}
+                        ? 'تواصل فرست اير نقل خبراتها إلى سوق الخليج ومصر الذي يشهد نموًا متسارعًا، مساهمةً في تنفيذ أنظمة MEP استراتيجية، مع الالتزام الكامل بمعايير الجودة والسلامة وتوطين الخبرات.'
+                        : 'First Air continues to transfer its expertise to the rapidly growing regional markets, contributing to strategic MEP systems, with full commitment to quality, safety, and localization.'}
                     </p>
                 </div>
             </ScrollReveal>
@@ -86,17 +98,18 @@ const AboutPage: React.FC<AboutPageProps> = ({ lang, settings }) => {
             <ScrollReveal animation="fade-up" delay={200} className="h-full">
                 <div className="bg-primary text-white p-6 md:p-10 rounded-3xl border border-primary hover:shadow-xl transition-shadow h-full">
                     <div className="w-14 h-14 md:w-16 md:h-16 bg-white/10 rounded-2xl flex items-center justify-center text-white text-xl md:text-2xl shadow-md mb-6">
-                        <i className="fas fa-handshake" aria-hidden="true"></i>
+                        <i className="fas fa-handshake"></i>
                     </div>
-                    <h4 className="text-xl md:text-2xl font-bold text-white mb-4">{isAr ? 'فلسفتنا' : 'Our Philosophy'}</h4>
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-4">{isAr ? 'فلسفتنا' : 'Our Philosophy'}</h3>
                     <p className="text-gray-300 leading-relaxed text-sm md:text-base">
                         {isAr
-                        ? 'تتموضع فرست اير كشريك هندسي وتنفيذي طويل المدى، وليس مجرد مقاول تنفيذ، حيث تركز على تقديم حلول مخصصة تلبي المتطلبات الفنية.'
-                        : 'First Air positions itself as a long-term engineering partner, not just a contractor, focusing on providing customized solutions.'}
+                        ? 'تتموضع فرست اير كشريك هندسي وتنفيذي طويل المدى، وليس مجرد مقاول تنفيذ، حيث تركز على تقديم حلول مخصصة تلبي المتطلبات الفنية والتشغيلية لكل مشروع، وتحقق قيمة مستدامة لعملائها.'
+                        : 'First Air positions itself as a long-term engineering partner, not just a contractor, focusing on providing customized solutions meeting technical requirements and creating sustainable value for clients.'}
                     </p>
                 </div>
             </ScrollReveal>
         </div>
+        {/* ... Rest of component ... */}
       </div>
     </div>
   );
