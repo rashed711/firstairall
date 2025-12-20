@@ -6,10 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="/">
     
-    <title>First Air | MEP Contracting</title>
+    <title>First Air | MEP Contracting - فيرست إير للمقاولات</title>
     <meta name="description" content="فيرست إير (First Air) الرائدة في حلول المقاولات الكهروميكانيكية (MEP). متخصصون في أنظمة التكييف HVAC، التمديدات الكهربائية، والسباكة وأنظمة الحريق بأعلى معايير الجودة." />
     <meta name="keywords" content="مقاولات MEP, أنظمة تكييف, HVAC, أعمال سباكة, تمديدات كهربائية, فيرست إير, First Air, مقاولات مكة, مقاولات السعودية" />
-    <meta name="author" content="First Air" />
+    
+    <!-- Preconnect to external origins to speed up LCP/FCP -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
     <link rel="canonical" href="https://www.firstair-eg.com/" />
 
     <meta property="og:site_name" content="First Air | MEP Contracting">
@@ -18,18 +23,12 @@
     <meta property="og:title" content="First Air | MEP Contracting" />
     <meta property="og:description" content="نقدم خدمات هندسية متميزة في مجالات التكييف والكهرباء والسباكة للمشاريع الكبرى." />
     <meta property="og:image" content="https://www2.0zz0.com/2025/12/17/10/686134709.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="First Air | MEP Contracting" />
-    <meta property="twitter:description" content="متخصصون في تنفيذ المشاريع الكهروميكانيكية بأعلى كفاءة." />
-    <meta property="twitter:image" content="https://www2.0zz0.com/2025/12/17/10/686134709.png" />
 
     <link rel="icon" type="image/png" href="https://www2.0zz0.com/2025/12/17/10/686134709.png">
 
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Optimization: font-display=swap to prevent invisible text during load -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -50,40 +49,28 @@
             animation: {
               'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
               'fade-in-down': 'fadeInDown 0.8s ease-out forwards',
-              'fade-in-right': 'fadeInRight 0.8s ease-out forwards',
-              'fade-in-left': 'fadeInLeft 0.8s ease-out forwards',
               'fade-in': 'fadeIn 1s ease-out forwards',
-              'bounce-slow': 'bounce 3s infinite',
               'float': 'float 6s ease-in-out infinite',
               'pulse-glow': 'pulseGlow 2s infinite',
               'zoom-in': 'zoomIn 0.5s ease-out forwards',
-              'pop': 'pop 0.3s ease-out',
               'marquee': 'marquee 25s linear infinite',
               'ken-burns': 'kenBurns 10s ease-out infinite alternate',
               'scroll-infinite': 'scrollInfinite 30s linear infinite',
               'scroll-infinite-reverse': 'scrollInfiniteReverse 30s linear infinite',
               'shimmer': 'shimmer 1.5s infinite',
-              'spin-slow': 'spin 15s linear infinite',
-              'spin-reverse-slow': 'spinReverse 15s linear infinite',
-              'shake': 'shake 0.4s ease-in-out',
             },
             keyframes: {
               fadeInUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
               fadeInDown: { '0%': { opacity: '0', transform: 'translateY(-30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
-              fadeInRight: { '0%': { opacity: '0', transform: 'translateX(-30px)' }, '100%': { opacity: '1', transform: 'translateX(0)' } },
-              fadeInLeft: { '0%': { opacity: '0', transform: 'translateX(30px)' }, '100%': { opacity: '1', transform: 'translateX(0)' } },
               fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
               float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-20px)' } },
               pulseGlow: { '0%, 100%': { opacity: '1', boxShadow: '0 0 0 0px rgba(14, 165, 233, 0.4)' }, '50%': { opacity: '1', boxShadow: '0 0 0 10px rgba(14, 165, 233, 0)' } },
               zoomIn: { '0%': { opacity: '0', transform: 'scale(0.9)' }, '100%': { opacity: '1', transform: 'scale(1)' } },
-              pop: { '0%': { transform: 'scale(1)' }, '50%': { transform: 'scale(1.05)' }, '100%': { transform: 'scale(1)' } },
               marquee: { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-100%)' } },
               kenBurns: { '0%': { transform: 'scale(1)' }, '100%': { transform: 'scale(1.15)' } },
               scrollInfinite: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
               scrollInfiniteReverse: { '0%': { transform: 'translateX(-50%)' }, '100%': { transform: 'translateX(0)' } },
-              shimmer: { '0%': { transform: 'translateX(-100%)' }, '100%': { transform: 'translateX(100%)' } },
-              spinReverse: { '0%': { transform: 'rotate(360deg)' }, '100%': { transform: 'rotate(0deg)' } },
-              shake: { '0%, 100%': { transform: 'translateX(0)' }, '25%': { transform: 'translateX(-10px)' }, '75%': { transform: 'translateX(10px)' } }
+              shimmer: { '0%': { transform: 'translateX(-100%)' }, '100%': { transform: 'translateX(100%)' } }
             }
           },
         },
@@ -103,7 +90,6 @@
   </head>
   <body class="bg-light text-slate-800 antialiased selection:bg-tertiary selection:text-white">
     <div id="root"></div>
-    <!-- التأكد من أن المسار يبدأ بـ / لضمان عدم حدوث Script Error -->
     <script type="module" src="/index.tsx"></script>
   </body>
 </html>

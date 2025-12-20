@@ -45,14 +45,14 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
           : 'bg-transparent h-20 md:h-24'
       }`}>
         <div className="max-w-7xl mx-auto px-4 h-full flex justify-between items-center">
-          {/* Logo & Site Name - Rectangular Container */}
           <div 
             className="flex items-center gap-2 md:gap-4 cursor-pointer group"
             onClick={() => handleNavClick('home')}
+            role="button"
+            aria-label={isAr ? "الذهاب للرئيسية" : "Go to Home"}
           >
-            {/* Logo Box: Change w- and h- here to resize the rectangle */}
             <div className="w-24 h-12 md:w-32 md:h-16 bg-white rounded-lg p-1 md:p-1.5 shadow-lg group-hover:scale-105 transition-transform shrink-0 flex items-center justify-center">
-              <img src={APP_CONFIG.logo} alt="Logo" className="w-full h-full object-contain" />
+              <img src={APP_CONFIG.logo} alt="First Air Logo" className="w-full h-full object-contain" />
             </div>
             
             <div className="flex flex-col justify-center">
@@ -62,7 +62,6 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
             </div>
           </div>
 
-          {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-4">
             {navLinks.map((link) => (
               <button 
@@ -83,29 +82,29 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
 
             <button
               onClick={() => setLang(isAr ? 'en' : 'ar')}
+              aria-label={isAr ? "Switch to English" : "التحويل للعربية"}
               className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-full text-xs font-bold transition-all border border-white/20"
             >
               {isAr ? 'EN' : 'AR'}
             </button>
 
-            {/* Admin Icon Only Button */}
             <button 
               onClick={() => handleNavClick('admin')}
-              title={isAr ? 'الإدارة' : 'Admin'}
+              aria-label={isAr ? 'لوحة الإدارة' : 'Admin Panel'}
               className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all active:scale-90 shadow-lg ${
                 activeTab === 'admin' || activeTab === 'admin-login'
                   ? 'bg-tertiary text-white' 
                   : 'bg-white text-primary hover:bg-tertiary hover:text-white'
               }`}
             >
-              <i className="fas fa-user-shield text-sm"></i>
+              <i className="fas fa-user-shield text-sm" aria-hidden="true"></i>
             </button>
           </div>
 
-          {/* Mobile Right Actions */}
           <div className="flex md:hidden items-center gap-3">
             <button
               onClick={() => setLang(isAr ? 'en' : 'ar')}
+              aria-label={isAr ? "Switch to English" : "التحويل للعربية"}
               className="text-white text-[10px] font-bold px-2 py-1 bg-white/10 rounded-lg border border-white/20"
             >
               {isAr ? 'EN' : 'AR'}
@@ -113,25 +112,24 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
             <button 
               className="text-white p-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label={isMobileMenuOpen ? "إغلاق القائمة" : "فتح القائمة"}
             >
-              <i className={`fas ${isMobileMenuOpen ? 'fa-times' : 'fa-bars'} text-2xl`}></i>
+              <i className={`fas ${isMobileMenuOpen ? 'fa-times' : 'fa-bars'} text-2xl`} aria-hidden="true"></i>
             </button>
           </div>
         </div>
       </nav>
 
-      {/* Mobile Drawer */}
       <div className={`fixed inset-0 z-[60] transition-all duration-500 ${isMobileMenuOpen ? 'visible' : 'invisible'}`}>
         <div className={`absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0'}`} onClick={() => setIsMobileMenuOpen(false)}></div>
         <div className={`absolute top-0 bottom-0 ${isAr ? 'left-0' : 'right-0'} w-4/5 max-w-xs bg-primary shadow-2xl transition-transform duration-500 ${
           isMobileMenuOpen ? 'translate-x-0' : (isAr ? '-translate-x-full' : 'translate-x-full')
         }`}>
           <div className="p-8 border-b border-white/5 flex justify-between items-center">
-            {/* Rectangular logo in drawer too for consistency */}
             <div className="w-24 h-12 bg-white rounded-md p-1 flex items-center justify-center">
               <img src={APP_CONFIG.logo} className="w-full h-full object-contain" alt="Logo" />
             </div>
-            <button onClick={() => setIsMobileMenuOpen(false)} className="text-white"><i className="fas fa-times"></i></button>
+            <button onClick={() => setIsMobileMenuOpen(false)} className="text-white" aria-label="Close menu"><i className="fas fa-times" aria-hidden="true"></i></button>
           </div>
           <div className="p-6 space-y-4">
             {navLinks.map((link) => (
@@ -142,7 +140,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
                   activeTab === link.id ? 'bg-tertiary text-white' : 'text-gray-300 hover:bg-white/5'
                 }`}
               >
-                <i className={`fas ${link.icon}`}></i>
+                <i className={`fas ${link.icon}`} aria-hidden="true"></i>
                 <span className="font-bold">{isAr ? link.labelAr : link.labelEn}</span>
               </button>
             ))}
@@ -152,7 +150,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, activeTab, setActiveTab 
                   activeTab === 'admin' ? 'bg-tertiary text-white' : 'bg-white/10 text-white'
                 }`}
               >
-                <i className="fas fa-user-lock"></i>
+                <i className="fas fa-user-lock" aria-hidden="true"></i>
                 <span className="font-bold">{isAr ? 'لوحة الإدارة' : 'Admin Dashboard'}</span>
               </button>
           </div>

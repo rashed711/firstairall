@@ -31,7 +31,6 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
 
   return (
     <div className="relative w-full overflow-hidden bg-primary no-overflow">
-      {/* Updated height: min-h-[77vh] for mobile, md:min-h-[82vh] for desktop */}
       <div className="relative min-h-[72vh] md:min-h-[82vh] flex flex-col justify-center overflow-hidden">
           <div className="absolute inset-0 z-0 bg-primary">
             {heroImages.map((img, index) => (
@@ -41,7 +40,15 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
                   index === currentImageIndex ? 'opacity-80 scale-100' : 'opacity-0 scale-110'
                 }`}
               >
-                <img src={img} alt="" className={`w-full h-full object-cover ${index === currentImageIndex ? 'animate-ken-burns' : ''}`} />
+                {/* Optimization: High fetch priority for the first image to improve LCP */}
+                {/* تم تصحيح fetchPriority هنا لتجنب خطأ TypeScript */}
+                <img 
+                  src={img} 
+                  alt={isAr ? "فيرست اير للمقاولات MEP" : "First Air MEP Contracting"} 
+                  fetchPriority={index === 0 ? "high" : "low"}
+                  loading={index === 0 ? "eager" : "lazy"}
+                  className={`w-full h-full object-cover ${index === currentImageIndex ? 'animate-ken-burns' : ''}`} 
+                />
                 <div className={`absolute inset-0 bg-gradient-to-b ${isAr ? 'md:bg-gradient-to-l' : 'md:bg-gradient-to-r'} from-primary/70 via-primary/30 to-transparent`}></div>
                 <div className="absolute inset-0 bg-black/30"></div>
               </div>
@@ -89,7 +96,6 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
           </div>
       </div>
       
-      {/* Fixed Marquee Container */}
       <div className="relative z-30 h-16 bg-white/5 backdrop-blur-md border-y border-white/10 flex items-center overflow-hidden w-full no-overflow" dir="ltr">
         <div className={`flex w-max ${isAr ? 'animate-scroll-infinite-reverse' : 'animate-scroll-infinite'}`}>
           {[...Array(2)].map((_, sIdx) => (
@@ -97,7 +103,7 @@ const Hero: React.FC<HeroProps> = ({ lang, settings, onNavigate }) => {
               {marqueeItems.map((item, idx) => (
                 <div key={idx} className="flex items-center mx-6 md:mx-10 gap-3 md:gap-4 text-white font-bold text-xs md:text-sm whitespace-nowrap">
                   <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-white/10 flex items-center justify-center">
-                    <i className={`fas ${item.icon} text-accent text-[10px] md:text-xs`}></i>
+                    <i className={`fas ${item.icon} text-accent text-[10px] md:text-xs`} aria-hidden="true"></i>
                   </div>
                   <span>{isAr ? item.textAr : item.textEn}</span>
                 </div>
